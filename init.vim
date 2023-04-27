@@ -22,7 +22,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'rebelot/kanagawa.nvim'
     Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }    
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 call plug#end()
 
 colorscheme catppuccin-frappe
@@ -99,6 +100,8 @@ let g:startify_custom_header = map(g:startify_custom_header, 'repeat(" ", (&colu
 
 lua << EOF
 
+vim.opt.termguicolors = true
+require("bufferline").setup{}
 
 -- Some servers have issues with backup files, see #649
 vim.opt.backup = false
