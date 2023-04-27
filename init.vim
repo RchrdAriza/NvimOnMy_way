@@ -20,14 +20,21 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'nvim-tree/nvim-web-devicons'
     Plug 'nvim-lualine/lualine.nvim'
+    Plug 'rebelot/kanagawa.nvim'
+    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }    
 call plug#end()
 
-colorscheme tokyonight-moon
+colorscheme catppuccin-frappe
 
 " mapeo de teclas
 
+let mapleader = ','
+
 " Mapeo de <leader>tt
+
 nnoremap <leader><leader><leader> :tabnew<Space>
+nnoremap <leader>v <cmd>CHADopen<cr>
 
 " Cambiar atajos de teclado para cambiar entre pestañas
 nnoremap <C-l> gt
