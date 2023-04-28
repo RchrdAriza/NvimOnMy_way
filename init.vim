@@ -86,11 +86,11 @@ let g:startify_files_number = 5
 let mapleader = "."
 
  let g:startify_lists = [ 
-       \ { 'type': 'files', 'header': ['   Archivos recientes'] }, 
+       \ { 'type': 'files', 'header': ['   recent files'] }, 
        \ { 'type': 'sessions', 'header': ['   Sesiones'] }, 
        \ { 'type': 'bookmarks', 'header': ['   Marcadores'] }, 
        \ { 'type': 'commands', 'header': ['   Comandos'] }, 
-       \ { 'type': 'dir', 'header': ['   Explorador de archivos'], 'path': '~/Projects' } 
+       \ { 'type': 'dir', 'header': ['   File Browser'], 'path': '~/Projects' } 
        \ ] 
  
 let g:coc_global_extensions = [ "coc-pyright", "coc-json", "coc-tsserver", "coc-sh", "coc-css" ]
