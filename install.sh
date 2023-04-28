@@ -5,7 +5,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
-
+clear
 
 echo -e "${GREEN}Updating packages...${NC}"
 sleep 3
@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "${GREEN}Installing vim plugins...${NC}"
 mkdir -p ~/.config/nvim
 mv init.vim ~/.config/nvim
-mv coc-settings.lua ~/.config/nvim
+mv coc_config.lua ~/.config/nvim
 sleep 2
 nvim +PlugInstall +qall
 
