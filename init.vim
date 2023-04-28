@@ -93,6 +93,6 @@ let mapleader = "."
        \ { 'type': 'dir', 'header': ['   Explorador de archivos'], 'path': '~/Projects' } 
        \ ] 
  
-let g:coc_global_extensions = [ "coc-pyright", "coc-html", "coc-json", "coc-tsserver", "coc-snippets", "coc-sh" ]
+let g:coc_global_extensions = [ "coc-pyright", "coc-json", "coc-tsserver", "coc-sh", "coc-css" ]
 
 let g:startify_custom_header = map(g:startify_custom_header, 'repeat(" ", (&columns - strdisplaywidth(v:val)) / 2) . v:val')
