@@ -10,7 +10,7 @@ NC='\033[0m'
 echo -e "${GREEN}Updating packages...${NC}"
 sleep 3
 
-PACKAGES=("python" "yarn" "neovim" "nodejs-lts" "npm" "python3-pip" "curl" "lua53")
+PACKAGES=("python" "neovim" "nodejs-lts" "yarn" "curl" "lua53")
 
 for package in "${PACKAGES[@]}"
 do
@@ -19,10 +19,12 @@ do
   if dpkg -s "$package" >/dev/null 2>&1; then
     echo -e "${GREEN}$package is installed!${NC}"
     sleep 2
+    clear
   else
     echo -e "${RED}$package is not installed!${NC}"
     sleep 3
     pkg install -y "$package"
+    clear
   fi
 done
 
@@ -39,13 +41,10 @@ mv coc-settings.json ~/.config/nvim
 sleep 2
 nvim +PlugInstall +qall
 
-//haz un spinner
-echo -e "${GREEN}Installing coc extensions...${NC}"
-sleep 2
-cd ~/.config/coc/extensions
-npm install coc-json coc-tsserver coc-html coc-css coc-pyright coc-snippets coc-vimlsp coc-sh
-cd ~
 
-echo -e "${GREEN}Installing Finished...${NC}"
+echo -e "${GREEN}Installation of plugins completed...${NC}"
 sleep 2
+clear
 echo -e "${GREEN}Enjoy!${NC}"
+clear
+echo -e "${GREEN}Open nvim to complete the process...${NC}"
