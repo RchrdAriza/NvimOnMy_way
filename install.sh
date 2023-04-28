@@ -22,7 +22,7 @@ do
   else
     echo -e "${RED}$package is not installed!${NC}"
     sleep 3
-    apt-get install "$package..."
+    pkg install "$package..."
   fi
 done
 
