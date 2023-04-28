@@ -15,14 +15,14 @@ PACKAGES=("python" "yarn" "neovim" "nodejs-lts" "npm" "python3-pip" "curl" "lua5
 for package in "${PACKAGES[@]}"
 do
   echo -e "${YELLOW}Checking if $package is installed...${NC}"
-  sleep 5
+  sleep 3
   if dpkg -s "$package" >/dev/null 2>&1; then
     echo -e "${GREEN}$package is installed!${NC}"
-    sleeo 2
+    sleep 2
   else
     echo -e "${RED}$package is not installed!${NC}"
     sleep 3
-    pkg install "$package"
+    pkg install -y "$package"
   fi
 done
 
