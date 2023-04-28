@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "${GREEN}Installing vim plugins...${NC}"
 mkdir -p ~/.config/nvim
 mv init.vim ~/.config/nvim
-mv coc-settings.json ~/.config/nvim
+mv coc-settings.lua ~/.config/nvim
 sleep 2
 nvim +PlugInstall +qall
 
