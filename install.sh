@@ -46,5 +46,5 @@ echo -e "${GREEN}Installation of plugins completed...${NC}"
 sleep 2
 clear
 echo -e "${GREEN}Enjoy!${NC}"
-clear
+sleep 3
 echo -e "${GREEN}Open nvim to complete the process...${NC}"
