@@ -5,4 +5,4 @@ require('user.colorized')
 require('user.lualine-config')
 require('user.telescope-config')
 require('user.nvim-cmp-config')
-
+require('user.alpha')

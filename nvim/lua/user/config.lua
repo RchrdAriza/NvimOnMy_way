@@ -16,6 +16,7 @@ vim.cmd [[
     inoremap [ []<Left>
     inoremap { {}<Left>
     inoremap ( ()<Left>
+    nnoremap <leader>v <cmd>CHADopen<cr>
 ]]
 
 local async = require "plenary.async"
@@ -27,3 +28,11 @@ nnoremap <C-a> <cmd>NnnExplorer %:p:h<CR>
 nnoremap <C-A-p> <cmd>NnnPicker<CR>
 ]]
 
+vim.cmd [[
+    call plug#begin('~/.local/share/nvim/plugged')
+
+	Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
+    call plug#end()
+    
+]]
