@@ -56,35 +56,29 @@
  sleep 2 
  npm i -g pyright
  sleep 2
- clear
  npm i -g bash-language-server
  sleep 2 
  clear
  npm i -g vscode-langservers-extracted
  sleep 2 
- clear
  npm install -g typescript typescript-language-server
  sleep 2 
- clear
- npm install -g intelephense
- sleep 2
- clear
  npm i -g vscode-langservers-extracted
  
 
  echo -e "${GREEN}Installing Packer...${NC}"
  sleep 2 
- mkdir -p ~/.config/
- mv nvim ~/.config/
+ mkdir -p ~/.config/nvim
+ mv nvim/* ~/.config/nvim
  git clone https://github.com/wbthomason/packer.nvim ~/.config/nvim/packer/packer.nvim
- nvim -c 'call CustomPlugInstall()' -c 'qa!'
+ nvim +PackerInstall +qall
 
 
 
   
  echo -e "${GREEN}Installing vim plugins...${NC}" 
  sleep 2 
- vim -c 'call CustomPackInstall()' -c 'qa!'
+ nvim +PlugInstall +qall
   
   
  echo -e "${GREEN}Installation of plugins completed...${NC}" 
@@ -92,4 +86,4 @@
  clear 
  echo -e "${GREEN}Enjoy!${NC}" 
  sleep 3 
- echo -e "${GREEN}Open nvim to complete the process...${NC}"
+
