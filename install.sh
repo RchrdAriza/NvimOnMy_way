@@ -77,13 +77,14 @@
  mkdir -p ~/.config/
  mv nvim ~/.config/
  git clone https://github.com/wbthomason/packer.nvim ~/.config/nvim/packer/packer.nvim
- nvim +PackerInstall +qall
+ nvim -c 'call CustomPlugInstall()' -c 'qa!'
+
 
 
   
  echo -e "${GREEN}Installing vim plugins...${NC}" 
  sleep 2 
- nvim +PlugInstall +qall 
+ vim -c 'call CustomPackInstall()' -c 'qa!'
   
   
  echo -e "${GREEN}Installation of plugins completed...${NC}" 
