@@ -7,9 +7,11 @@ vim.o.sw = 4
 vim.o.showmatch = true
 vim.o.laststatus = 2
 vim.cmd("syntax on")
+vim.cmd.fillchars = "vert:│"
 
+--vim.opt.background = "dark" -- set this to dark or light
+--vim.cmd("colorscheme oxocarbon")
 
-vim.cmd('colorscheme tokyonight')
 vim.cmd [[
     inoremap " ""<Left>
     inoremap ' ''<Left>
@@ -21,11 +23,8 @@ vim.cmd [[
 
 local async = require "plenary.async"
 
-vim.cmd [[
-
-nnoremap <C-a> <cmd>NnnExplorer %:p:h<CR>
-
-nnoremap <C-A-p> <cmd>NnnPicker<CR>
+vim.cmd [[    
+    colorscheme tokyonight
 ]]
 
 vim.cmd [[
@@ -36,3 +35,4 @@ vim.cmd [[
     call plug#end()
     
 ]]
+

@@ -38,5 +38,8 @@ require('packer').startup(function()
         require'alpha'.setup(require'alpha.themes.startify'.config)
     end
 }
+    use {'nyoom-engineering/oxocarbon.nvim'}
+    use 'rktjmp/lush.nvim'
+    use 'nvim-lua/popup.nvim'
 end
 )
