@@ -1,3 +1,4 @@
+[![Visitas](https://visitor-badge.glitch.me/badge?page_id=RchrdAlv.NvimOnMy_Way)](https://github.com/RchrdAlv/NvimOnMy_Way)
 
 # NvimOnMy_way
  __This neovim configuration can only be used in termux, but I plan to make it compatible with most Linux distributions in the future..__
