@@ -1,5 +1,5 @@
 
- <p align="center">
+ <p align="Center">
    <h1>NvimOnMy_Way</h1>
    <img src="https://img.shields.io/badge/-%3E=0.8.0-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Lua-success?logo=lua&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
