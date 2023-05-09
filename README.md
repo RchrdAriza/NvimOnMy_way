@@ -1,6 +1,7 @@
-[![Visitas](https://visitor-badge.glitch.me/badge?page_id=RchrdAlv.NvimOnMy_Way)](https://github.com/RchrdAlv/NvimOnMy_Way)
 
-# NvimOnMy_way
+ <p align="center">
+   <h1>NvimOnMy_Way</h1>
+ </p>
  __This neovim configuration can only be used in termux, but I plan to make it compatible with most Linux distributions in the future..__
 
 - [Captures](#captures)
