@@ -1,6 +1,6 @@
-# NvimOnMy_Way
  <p align="Center">
-   <img src="https://img.shields.io/badge/-%3E=0.8.0-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
+  <img src="https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683993382/NvimOnMy_Way/NvimOnMyWay_jtlcp1.jpg" >
+  <img src="https://img.shields.io/badge/-%3E=0.8.0-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Lua-success?logo=lua&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Linux-success?logo=linux&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Neovim-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
@@ -8,10 +8,9 @@
  </p>
 
 
-- [Captures](#captures)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Plugins](#plugins)
+- [Captures](#captures)
 
 
 # Requirements
@@ -30,7 +29,7 @@ Just run this in the terminal:
 ```bash 
 git clone --depth=1 https://github.com/RchrdAlv/NvimPiece --branch=main ~/.config/nvim && nvim -c ":PackerInstall"; nvim -c ":lua InstallLSPs()"
 ```
-# Problems
+## Problems
 Sometimes when running the Plugins installer (Packer) an error occurs (mainly due to internet connection issues). The solution is simply to exit neovim, re-enter and run ":PackerInstall" and you are done.
 This error only occurs when you run the installation command for the first time.
 
