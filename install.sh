@@ -54,7 +54,6 @@
  mv lua ~/.config/nvim
  mv colors ~/.config/nvim 
  sleep 2 
- nvim -c ":x"
  
 echo -e "${GREEN}Installing plugins...${NC}"
  nvim +PackerInstall +qall 
