@@ -10,6 +10,8 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Plugins](#Plugins)
+- [problems](#problems)
 - [Captures](#captures)
 
 
@@ -29,6 +31,19 @@ Just run this in the terminal:
 ```bash 
 git clone --depth=1 https://github.com/RchrdAlv/NvimOnMy_Way --branch=main ~/.config/nvim && nvim -c ":PackerInstall"; nvim -c ":lua InstallLSPs()"
 ```
+# Plugins
+- [Nvim-Tree](https://github.com/nvim-tree/nvim-tree.lua)
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [Nvim-Tresitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [Autopair](https://github.com/windwp/nvim-autopairs)
+- [Lualine-Nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [Bufferline](https://github.com/akinsho/bufferline.nvim)
+- [Friendly-Snippets](https://github.com/rafamadriz/friendly-snippets)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [Alpha](https://github.com/goolord/alpha-nvim)
+ 
+ And some others...
+
 ## Problems
 Sometimes when running the Plugins installer (Packer) an error occurs (mainly due to internet connection issues). The solution is simply to exit neovim, re-enter and run ":PackerInstall" and you are done.
 This error only occurs when you run the installation command for the first time.
