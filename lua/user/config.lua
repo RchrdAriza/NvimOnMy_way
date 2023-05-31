@@ -10,8 +10,10 @@ vim.cmd("syntax on")
 vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
 
-vim.g.material_style = "deep ocean"
-vim.cmd('colorscheme material')
+-- Descomentar para usar el material colorscheme
+--vim.g.material_style = "deep ocean"
+
+vim.cmd('colorscheme rose-pine')
 
 
 -- vim.cmd [[
@@ -29,6 +31,8 @@ local async = require "plenary.async"
 
 --vim.g.indent_blankline_exclude_children = 0
 vim.g.indent_blankline_exclude_children = false
+
+
 
 
 require("indent_blankline").setup {

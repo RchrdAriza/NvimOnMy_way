@@ -128,5 +128,10 @@ use {
    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   require("toggleterm").setup()
 end}
+  use {
+    "folke/trouble.nvim",
+    require = 'kyazdani42/nvim-web-devicons'
+  }
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
 end)
 
