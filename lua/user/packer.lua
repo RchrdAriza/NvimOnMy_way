@@ -119,5 +119,14 @@ use {
     requires = "neovim/nvim-lspconfig"
 }
    use 'CRAG666/code_runner.nvim'
+   use 'yamatsum/nvim-cursorline'
+   use {
+  'jghauser/mkdir.nvim'
+}
+   use 'MunifTanjim/nui.nvim'
+   use 'marko-cerovac/material.nvim'
+   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  require("toggleterm").setup()
+end}
 end)
 
