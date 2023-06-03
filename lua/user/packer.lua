@@ -133,5 +133,11 @@ end}
     require = 'kyazdani42/nvim-web-devicons'
   }
   use({ 'rose-pine/neovim', as = 'rose-pine' })
+
+  use 'pocco81/auto-save.nvim'
+  use "lukas-reineke/cmp-under-comparator"
+  use {
+  "potamides/pantran.nvim"
+  }
 end)
 

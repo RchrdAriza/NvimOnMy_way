@@ -1,5 +1,5 @@
 local alpha = require("alpha") 
- local dashboard = require("alpha.themes.dashboard") 
+local dashboard = require("alpha.themes.dashboard") 
   
 local time = os.date("%H:%M")
 local date = os.date("%a %d %b")
