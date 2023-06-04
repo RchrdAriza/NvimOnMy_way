@@ -136,9 +136,10 @@ end}
 
   use 'pocco81/auto-save.nvim'
   use "lukas-reineke/cmp-under-comparator"
-  use {
-  "potamides/pantran.nvim"
-  }
   use 'tomasiser/vim-code-dark'
+  -- Lua
+  use 'folke/neodev.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'famiu/bufdelete.nvim'
 end)
 

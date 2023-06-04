@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 wk.register({
-  ["<Space><Space>"] = { "<cmd>Telescope find_files<cr>", "Find files" },
+  ["<Space>f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
   ["<Space>e"] = { "<cmd>NvimTreeOpen<cr>", "File Explorer" },
   ["<Space>n"] = { "<cmd>enew<cr>", "New file" },
   ["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "Open recent files" },
@@ -9,6 +9,7 @@ wk.register({
   ["<Space>q"] = { "<cmd>q!<cr>", "Exit without saving" },
   ["<Space>x"] = { "<cmd>x<cr>", "Exit and save" },
   ["<Space>R"] = { "<cmd>RunCode<cr>", "Run Code" },
+  ["<Space>a"] = { "<cmd>AerialToggle!<cr>", "See details" },
    
   -- Otras opciones...
 

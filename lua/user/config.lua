@@ -16,12 +16,20 @@ vim.o.termguicolors = true
 vim.cmd('colorscheme codedark')
 
 
+-- Zona de mapeos --
+vim.api.nvim_set_keymap('n', 'gt', ':bnext<CR>', {noremap = true} )
+vim.api.nvim_set_keymap('n', '<C-s', ':w<cr>', {noremap = true} )
+--vim.api.nvim_set_keymap('n', "<C-x", '')
+vim.api.nvim_set_keymap('n', 'gT', ":bprevious<cr>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<Tab>', ":bnext<cr>", {noremap = true} )
+vim.api.nvim_set_keymap('n', '<bs>', ":bprevious<cr>", {noremap = true} )
 
 vim.cmd [[
-nnoremap <C-s> :w<cr>
 nnoremap <C-x> :RunCode<cr>
+nnoremap <C-l> :source %<cr>
+nnoremap <C-c> :bdelete<cr>
 ]]
---
+
 require'colorizer'.setup()
 
 vim.g.mapleader = "."
@@ -54,7 +62,7 @@ require('aerial').setup({
   end
 })
 -- You probably also want to set a keymap to toggle aerial
-vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+--vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 require('nvim-cursorline').setup {
   cursorline = {
@@ -98,7 +106,3 @@ vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg='NONE', fg='#D4D4D4' })
 vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 
-local pantran = require("pantran")
-local actions = require("pantran.ui.actions")
-local engines = require("pantran.engines")
-local async = require("pantran.async")
