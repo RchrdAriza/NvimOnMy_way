@@ -53,7 +53,7 @@ require('code_runner').setup {
       "-o $fileNameWithoutExt &&",
       "$dir/$fileNameWithoutExt"
     },
-    python = "python -u",
+    python = "python3 -u",
     sh = "bash",
     rust = {
       "cd $dir &&",

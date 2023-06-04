@@ -13,12 +13,13 @@ vim.o.termguicolors = true
 -- Descomentar para usar el material colorscheme
 --vim.g.material_style = "deep ocean"
 
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme codedark')
 
 
 
 vim.cmd [[
 nnoremap <C-s> :w<cr>
+nnoremap <C-x> :RunCode<cr>
 ]]
 --
 require'colorizer'.setup()

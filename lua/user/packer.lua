@@ -139,5 +139,6 @@ end}
   use {
   "potamides/pantran.nvim"
   }
+  use 'tomasiser/vim-code-dark'
 end)
 
