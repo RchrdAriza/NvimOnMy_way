@@ -35,7 +35,15 @@ require("bufferline").setup{
         end
         return result
     end,
-    }
+    },
+    offsets = {
+                {
+                    filetype = "NvimTree",
+                    text = "File Explorer",
+                    text_align = "center",
+                    separator = true
+                }
+            }
     }
 }
 

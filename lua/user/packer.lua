@@ -114,10 +114,6 @@ use {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
 }
-   use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-}
    use 'CRAG666/code_runner.nvim'
    use 'yamatsum/nvim-cursorline'
    use {
@@ -135,11 +131,7 @@ end}
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   use 'pocco81/auto-save.nvim'
-  use "lukas-reineke/cmp-under-comparator"
   use 'tomasiser/vim-code-dark'
-  -- Lua
-  use 'folke/neodev.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
   use 'famiu/bufdelete.nvim'
 end)
 

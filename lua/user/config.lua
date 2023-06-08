@@ -23,10 +23,14 @@ vim.api.nvim_set_keymap('n', '<C-s', ':w<cr>', {noremap = true} )
 vim.api.nvim_set_keymap('n', 'gT', ":bprevious<cr>", {noremap = true})
 vim.api.nvim_set_keymap('n', '<Tab>', ":bnext<cr>", {noremap = true} )
 vim.api.nvim_set_keymap('n', '<bs>', ":bprevious<cr>", {noremap = true} )
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true} )
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true} )
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true} )
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true} )
+
 
 vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
-nnoremap <C-l> :source %<cr>
 nnoremap <C-c> :bdelete<cr>
 ]]
 

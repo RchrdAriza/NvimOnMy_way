@@ -10,6 +10,7 @@ wk.register({
   ["<Space>x"] = { "<cmd>x<cr>", "Exit and save" },
   ["<Space>R"] = { "<cmd>RunCode<cr>", "Run Code" },
   ["<Space>a"] = { "<cmd>AerialToggle!<cr>", "See details" },
+  ["<Space>a"] = { "<cmd>ASToggle<cr>", "AutoSave On/Off" },
    
   -- Otras opciones...
 
