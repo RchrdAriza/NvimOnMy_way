@@ -17,6 +17,21 @@ wk.register({
 })
 
 wk.register({
+  ["<Space>M"] = {
+    name = "Markdown",
+    l = { "<cmd>lua start_grip()<cr>", "Start grip" },
+    s = { "<cmd>lua stop()<cr>", "Stop grip"}
+  },
+})
+wk.register({
+  ["<Space>w"] = {
+    name = "Web development",
+    l = { "<cmd>lua live_server()<cr>", "Start live server" },
+    s = { "<cmd>lua stop_live_server()<cr>", "Stop live server"}
+  },
+})
+
+wk.register({
   ["<Space>g"] = {
     name = "Git",
     a = { "<cmd>Gwrite<cr>", "Git Add [this file]" },

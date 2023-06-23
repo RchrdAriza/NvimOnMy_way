@@ -56,6 +56,32 @@ vim.notify = require("notify")
 require("notify")("Welcome")
 require('guess-indent').setup {}
 
+function live_server()
+  local notify = require("notify")
+  notify("Starting live server...")
+  vim.cmd("silent !live-server . >/dev/null 2>&1 &")
+end
+
+function stop_live_server()
+  local notify = require("notify")
+  notify("Stopping live server")
+  vim.cmd("silent !pkill -f live-server")
+end
+
+function start_grip()
+  local port = 5500
+  vim.cmd("silent !grip -b % :5500 >/dev/null &")
+
+  local address = "localhost"
+  local notification = "Grip starting at http://" .. address .. ":" .. port
+  vim.notify(notification)
+end
+
+function stop()
+  vim.cmd('silent !pkill -f grip')
+
+  vim.notify('Grip has stopped')
+end 
 --------------------------------
 require('aerial').setup({
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
