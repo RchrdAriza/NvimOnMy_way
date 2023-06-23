@@ -1,4 +1,4 @@
- < align="Center">
+ <p align="Center">
   <img src="https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683993382/NvimOnMy_Way/NvimOnMyWay_jtlcp1.jpg" >
   <img src="https://img.shields.io/badge/-%3E=0.8.0-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Lua-success?logo=lua&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
