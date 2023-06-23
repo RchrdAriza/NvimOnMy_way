@@ -1,4 +1,4 @@
- <p align="Center">
+ < align="Center">
   <img src="https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683993382/NvimOnMy_Way/NvimOnMyWay_jtlcp1.jpg" >
   <img src="https://img.shields.io/badge/-%3E=0.8.0-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Lua-success?logo=lua&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
@@ -11,6 +11,8 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Plugins](#Plugins)
+- [Config](#Config)
+  - [keymap](#keymap)
 - [problems](#problems)
 - [Captures](#captures)
 
@@ -22,7 +24,7 @@
 - Neovim 0.9.0
 - NodeJS
 - yarn
-- lua5.3
+- lua
 
 # Installation
 
@@ -43,6 +45,22 @@ git clone --depth=1 https://github.com/RchrdAlv/NvimOnMy_Way --branch=main ~/.co
 - [Alpha](https://github.com/goolord/alpha-nvim)
  
  And some others...
+
+# Config
+
+## keymap
+
+|Mode|  key | function | view |
+|-------|-------------|---------|-------|
+|Normal | \<space\>  | open Whickey menu | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687547066/NvimOnMy_Way/Whickey_menu.jpg' width='400'/> |
+|Normal | tab | Advance to the next tab | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548077/NvimOnMy_Way/Tab_key.jpg' width='400' /> 
+|Normal| \<bs\> | Be moved one tab to the left | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548078/NvimOnMy_Way/bs_key.jpg' width='400' /> | 
+| Normal | ctrl + x | Run code | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687550697/NvimOnMy_Way/XRecorder_Edited_23062023_150115_arbksg.gif' width='400' /> |
+| Normal | ctrl + t  | open float terminal | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548876/NvimOnMy_Way/terminal.jpg' width=300 /> |
+|Normal| ctrl + c | Closes only the tab you are currently in | |
+|Normal | ctrl + s | Save | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687549855/NvimOnMy_Way/Save.jpg' width='400' /> |
+
+
 
 ## Problems
 Sometimes when running the Plugins installer (Packer) an error occurs (mainly due to internet connection issues). The solution is simply to exit neovim, re-enter and run ":PackerInstall" and you are done.

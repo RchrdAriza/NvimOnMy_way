@@ -18,7 +18,6 @@ vim.cmd('colorscheme codedark')
 
 -- Zona de mapeos --
 vim.api.nvim_set_keymap('n', 'gt', ':bnext<CR>', {noremap = true} )
-vim.api.nvim_set_keymap('n', '<C-s', ':w<cr>', {noremap = true} )
 --vim.api.nvim_set_keymap('n', "<C-x", '')
 vim.api.nvim_set_keymap('n', 'gT', ":bprevious<cr>", {noremap = true})
 vim.api.nvim_set_keymap('n', '<Tab>', ":bnext<cr>", {noremap = true} )
@@ -27,7 +26,7 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true} )
-
+vim.api.nvim_set_keymap('n', '<C-s>', ':lua Save()<cr>', {noremap = true})
 
 vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
@@ -82,6 +81,11 @@ function stop()
 
   vim.notify('Grip has stopped')
 end 
+
+function Save()
+  vim.cmd('w')
+  vim.notify('Saved file')
+end
 --------------------------------
 require('aerial').setup({
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
