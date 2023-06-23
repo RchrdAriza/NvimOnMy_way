@@ -32,7 +32,23 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  use {
+  'hrsh7th/nvim-cmp',
+  config = function ()
+    require'cmp'.setup {
+    snippet = {
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
+    },
+
+    sources = {
+      { name = 'luasnip' },
+      -- more sources
+    },
+  }
+  end
+  }
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   use {
@@ -68,7 +84,6 @@ require('packer').startup(function()
     requires = { 'ldelossa/litee.nvim' }
   }
   use 'tpope/vim-fugitive'
-  use 'github/copilot.vim'
 
 
 -- if use nvim-web-devicons
@@ -133,5 +148,6 @@ end}
   use 'pocco81/auto-save.nvim'
   use 'tomasiser/vim-code-dark'
   use 'famiu/bufdelete.nvim'
+  use { 'mhartington/formatter.nvim' }
 end)
 
