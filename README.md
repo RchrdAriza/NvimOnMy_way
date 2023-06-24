@@ -11,13 +11,8 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Plugins](#Plugins)
-<<<<<<< HEAD
 - [keymap](#keymaps)
-- [problems](#problems)
-=======
-- [keymap](#keymap)
 - [Questions & Answers](#Questions_&_Answers)
->>>>>>> 1ef4449 (Mejoré el readme)
 - [Captures](#captures)
 
 
