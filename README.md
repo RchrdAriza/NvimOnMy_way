@@ -11,8 +11,13 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Plugins](#Plugins)
+<<<<<<< HEAD
 - [keymap](#keymaps)
 - [problems](#problems)
+=======
+- [keymap](#keymap)
+- [Questions & Answers](#Questions_&_Answers)
+>>>>>>> 1ef4449 (Mejoré el readme)
 - [Captures](#captures)
 
 
@@ -21,9 +26,9 @@
 - Python3
 - pip
 - Neovim 0.9.0
+- [nerdfonts(opcional)](https://www.nerdfonts.com/)
 - NodeJS
 - yarn
-- lua
 
 # Installation
 
@@ -48,7 +53,18 @@ git clone --depth=1 https://github.com/RchrdAlv/NvimOnMy_Way --branch=main ~/.co
 # Keymaps
 To go to see the keymaps click [here](keymaps_readme.md)
 
-## Problems
+## Questions & Answers
+-----
+Why do some strange characters appear instead of the icons?
+<p>
+
+To avoid this error is necessary to use [nerdfonts](https://www.nerdfonts.com).
+_In case of using termux install [termux-style](https://f-droid.org/es/packages/com.termux.styling) and change the font_
+</p>
+
+-----
+Why do some errors appear during the installation of plugins?
+
 Sometimes when running the Plugins installer (Packer) an error occurs (mainly due to internet connection issues). The solution is simply to exit neovim, re-enter and run ":PackerInstall" and you are done.
 This error only occurs when you run the installation command for the first time.
 

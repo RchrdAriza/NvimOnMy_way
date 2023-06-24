@@ -38,8 +38,11 @@ press ```s``` to stop the grip server:
 
 Press ```<Space>``` to open the which-key menu. Then press ```w``` to enter the Web development options.
 
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687627882/NvimOnMy_Way/Screenshot_20230624-122812_Termux_tt9o1w.jpg' />
 
 press ```l``` to start the live-server:
+
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687627883/NvimOnMy_Way/Screenshot_20230624-122826_Termux_zmysac.jpg' />
 
 ```* Automatically opens the default browser```
 
@@ -48,3 +51,7 @@ _* You must have installed [live-server](https://www.npmjs.com/package/live-serv
 
 
 press ```s``` to stop the live-server:
+
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687627882/NvimOnMy_Way/Screenshot_20230624-122853_Termux_w1z5fi.jpg' />
+
+For more information you can visit [vim cheatsheet](https://devhints.io/vim)
