@@ -11,7 +11,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Plugins](#Plugins)
-- [keymap](#keymap)
+- [keymap](#keymaps)
 - [problems](#problems)
 - [Captures](#captures)
 
