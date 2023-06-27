@@ -8,7 +8,11 @@ require("mason").setup({
         }
 })
 
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup{
+    ensure_installed = { "lua_ls", "rust_analyzer", 'pyright', 'html', 'cssls', 'bashls', 'tsserver'
+  },
+│   automatic_installation = true
+}
 
 function InstallLSPs()
      local servers = {"pyright", "bash-language-server", "html-lsp", "css-lsp", "typescript-language-server", "vim-language-server"}
