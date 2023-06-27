@@ -9,7 +9,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup{
-    -- ensure_installed = { "lua_ls", "rust_analyzer", 'pyright', 'html', 'cssls', 'bashls', 'tsserver' },
+    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver' },
     automatic_installation = true
 }
 
