@@ -1,3 +1,4 @@
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 vim.o.number = true 
 vim.o.relativenumber = false
 vim.o.swapfile = false 
@@ -9,11 +10,13 @@ vim.o.laststatus = 2
 vim.cmd("syntax on") 
 vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Descomentar para usar el material colorscheme
 --vim.g.material_style = "deep ocean"
 
-vim.cmd('colorscheme codedark')
+vim.cmd('colorscheme tokyonight-night')
 
 
 -- Zona de mapeos --
@@ -33,6 +36,8 @@ nnoremap <C-x> :RunCode<cr>
 nnoremap <C-c> :bdelete<cr>
 ]]
 
+require("image_preview").setup({})
+
 require'colorizer'.setup()
 
 vim.g.mapleader = "."
@@ -51,15 +56,25 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
-vim.notify = require("notify")
+-- vim.notify = require("notify")
 require("notify")("Welcome")
 require('guess-indent').setup {}
 
+-- function live_server()
+--   local notifi = require("notify")
+--   notifi("Starting live server...")
+--   vim.cmd("silent !live-server . >/dev/null 2>&1 &")
+-- end
 function live_server()
-  local notify = require("notify")
-  notify("Starting live server...")
+
+  -- In case you have the notify plugin installed uncomment the following lines
+  -- local notify = require("notify")
+  -- notify("Starting live server...")
   vim.cmd("silent !live-server . >/dev/null 2>&1 &")
+  local message = "Starting live server"
+  vim.api.nvim_echo({{message}}, true, {})
 end
+
 
 function stop_live_server()
   local notify = require("notify")
@@ -69,12 +84,13 @@ end
 
 function start_grip()
   local port = 5500
-  vim.cmd("silent !grip -b % :5500 >/dev/null &")
+  vim.cmd("silent !grip -b % :".. port .. ">/dev/null &")
 
   local address = "localhost"
   local notification = "Grip starting at http://" .. address .. ":" .. port
   vim.notify(notification)
 end
+
 
 function stop()
   vim.cmd('silent !pkill -f grip')
@@ -97,6 +113,11 @@ require('aerial').setup({
 })
 -- You probably also want to set a keymap to toggle aerial
 --vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+
+function hightlight()
+  vim.cmd('TSEnable highlight')
+end
+
 
 require('nvim-cursorline').setup {
   cursorline = {

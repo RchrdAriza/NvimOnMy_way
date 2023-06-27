@@ -1,4 +1,10 @@
+local navic = require("nvim-navic")
 
+-- require("lspconfig").pyright.setup {
+--     on_attach = function(client, bufnr)
+--         navic.attach(client, bufnr)
+--     end
+-- }
 -- Set up nvim-cmp.
 local cmp = require'cmp'
   local kind_icons = {
@@ -112,26 +118,44 @@ local cmp = require'cmp'
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
   }
   require('lspconfig')['bashls'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
   }
   require('lspconfig')['tsserver'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
   }
   
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   require'lspconfig'.html.setup {
-  capabilities = capabilities,
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
   }
   require('lspconfig')['cssls'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
   }
   require('lspconfig')['vimls'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
   }
 
 

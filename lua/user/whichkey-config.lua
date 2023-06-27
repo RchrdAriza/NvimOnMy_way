@@ -1,31 +1,32 @@
 local wk = require("which-key")
 
 wk.register({
-  ["<Space>f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
-  ["<Space>e"] = { "<cmd>NvimTreeOpen<cr>", "File Explorer" },
-  ["<Space>n"] = { "<cmd>enew<cr>", "New file" },
-  ["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "Open recent files" },
-  ["<Space>m"] = { "<cmd>Alpha<cr>", "Go to menu" },
-  ["<Space>q"] = { "<cmd>q!<cr>", "Exit without saving" },
-  ["<Space>x"] = { "<cmd>x<cr>", "Exit and save" },
-  ["<Space>R"] = { "<cmd>RunCode<cr>", "Run Code" },
-  ["<Space>a"] = { "<cmd>AerialToggle!<cr>", "See details" },
-  ["<Space>a"] = { "<cmd>ASToggle<cr>", "AutoSave On/Off" },
+  ["<Space>f"] = { "<cmd>Telescope find_files<cr>", " Find files" },
+  ["<Space>e"] = { "<cmd>NvimTreeOpen<cr>", " File Explorer" },
+  ["<Space>n"] = { "<cmd>enew<cr>", " New file" },
+  ["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
+  ["<Space>m"] = { "<cmd>Alpha<cr>", " Go to menu" },
+  ["<Space>q"] = { "<cmd>q!<cr>", " Exit without saving" },
+  ["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
+  ["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
+  ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
+  ["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
+  ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
    
   -- Otras opciones...
 
 })
 
-wk.register({
+require("which-key").register({
   ["<Space>M"] = {
-    name = "Markdown",
+    name = " Markdown",
     l = { "<cmd>lua start_grip()<cr>", "Start grip" },
     s = { "<cmd>lua stop()<cr>", "Stop grip"}
   },
 })
 wk.register({
   ["<Space>w"] = {
-    name = "Web development",
+    name = " Web development",
     l = { "<cmd>lua live_server()<cr>", "Start live server" },
     s = { "<cmd>lua stop_live_server()<cr>", "Stop live server"}
   },
@@ -33,7 +34,7 @@ wk.register({
 
 wk.register({
   ["<Space>g"] = {
-    name = "Git",
+    name = "󰊢 Git",
     a = { "<cmd>Gwrite<cr>", "Git Add [this file]" },
     s = { "<cmd>G<cr>", "Git Status" },
     c = { "<cmd>Git commit<cr>", "Git Commit" },
@@ -43,7 +44,7 @@ wk.register({
 
 wk.register({
   ["<Space>t"] = {
-    name = "Terminal",
+    name = " Terminal",
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal term"},
     f = { "<cmd>ToggleTerm direction=float<cr>", "Floating terminal"},
     t = { "<cmd>ToggleTerm direction=tab<cr>", "Tab terminal"},
