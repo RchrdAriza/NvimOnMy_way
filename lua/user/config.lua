@@ -16,8 +16,8 @@ vim.g.loaded_netrwPlugin = 1
 -- Descomentar para usar el material colorscheme
 --vim.g.material_style = "deep ocean"
 
-vim.cmd('colorscheme tokyonight-night')
 
+vim.cmd('colorscheme tokyonight-night')
 
 -- Zona de mapeos --
 vim.api.nvim_set_keymap('n', 'gt', ':bnext<CR>', {noremap = true} )
