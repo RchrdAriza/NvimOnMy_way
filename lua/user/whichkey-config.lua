@@ -1,3 +1,8 @@
+
+local presets = require("which-key.plugins.presets")
+presets.operators["v"] = nil
+presets.operators["g"] = nil
+
 local wk = require("which-key")
 
 wk.register({
@@ -12,7 +17,7 @@ wk.register({
   ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
   ["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
   ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
-  ["<Space>c"] = { "<cmd>:bdelete<cr>", "󱎘 Close tab" },
+  ["<Space>c"] = { "<cmd>:lua close_tab()<cr>", "󱎘 Close tab" },
    
   -- Otras opciones...
 

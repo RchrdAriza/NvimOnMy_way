@@ -34,6 +34,7 @@ vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
 ]]
 
+
 require("image_preview").setup({})
 
 require'colorizer'.setup()
@@ -159,3 +160,30 @@ vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg='NONE', fg='#D4D4D4' })
 vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 
+-- function close_tab()
+--    local r = vim.api.nvim_input('ingresa un numero:')  
+--   local r = io.read()
+--   if r == 'y' then
+--     vim.cmd(':bdelete')
+--   end
+-- end
+function close_tab()
+  local r = vim.fn.input('Are you sure you want to leave? y[es] n[o]: ')
+  if r == 'y' or r == 'yes' then
+    vim.cmd('bdelete')
+  end
+  -- local clear = vim.fn.input('')
+  local message = ' '
+  vim.api.nvim_command('redrawstatus')
+end
+
+-- -- Importar la API de Neovim
+-- local api = vim.api
+--
+-- -- Solicitar al usuario que ingrese un número
+-- api.nvim_command('echo "Ingresa un número:"')
+-- local numero = api.nvim_input('', '')
+--
+-- -- Imprimir el número en la consola
+-- api.nvim_command('echo "El número ingresado es: ' .. numero .. '"')
+--

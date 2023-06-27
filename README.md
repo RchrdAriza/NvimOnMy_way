@@ -30,10 +30,9 @@
 Just run this in the terminal:
 
 ```bash 
-git clone --depth=1 https://github.com/RchrdAlv/NvimOnMy_Way --branch=main ~/.config/nvim && nvim
+git clone https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 # Plugins
-- [Nvim-Tree](https://github.com/nvim-tree/nvim-tree.lua)
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [Nvim-Tresitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [Autopair](https://github.com/windwp/nvim-autopairs)
