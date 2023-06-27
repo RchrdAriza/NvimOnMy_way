@@ -11,7 +11,8 @@ wk.register({
   ["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
   ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
   ["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
-  ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
+  -- ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
+  ["<Space>c"] = { "<cmd>:bdelete<cr>", "󱎘 Close tab" },
    
   -- Otras opciones...
 

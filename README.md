@@ -30,7 +30,7 @@
 Just run this in the terminal:
 
 ```bash 
-git clone --depth=1 https://github.com/RchrdAlv/NvimOnMy_Way --branch=main ~/.config/nvim && nvim -c ":PackerInstall"; nvim -c ":lua InstallLSPs()"
+git clone --depth=1 https://github.com/RchrdAlv/NvimOnMy_Way --branch=main ~/.config/nvim && nvim
 ```
 # Plugins
 - [Nvim-Tree](https://github.com/nvim-tree/nvim-tree.lua)
@@ -56,12 +56,6 @@ Why do some strange characters appear instead of the icons?
 To avoid this error is necessary to use [nerdfonts](https://www.nerdfonts.com).
 _In case of using termux install [termux-style](https://f-droid.org/es/packages/com.termux.styling) and change the font_
 </p>
-
------
-Why do some errors appear during the installation of plugins?
-
-Sometimes when running the Plugins installer (Packer) an error occurs (mainly due to internet connection issues). The solution is simply to exit neovim, re-enter and run ":PackerInstall" and you are done.
-This error only occurs when you run the installation command for the first time.
 
 ## Captures
 

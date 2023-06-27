@@ -30,17 +30,15 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-s>', ':lua Save()<cr>', {noremap = true})
-
 vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
-nnoremap <C-c> :bdelete<cr>
 ]]
 
 require("image_preview").setup({})
 
 require'colorizer'.setup()
 
-vim.g.mapleader = "."
+vim.g.mapleader = " "
 
 local async = require "plenary.async"
 
@@ -68,11 +66,11 @@ require('guess-indent').setup {}
 function live_server()
 
   -- In case you have the notify plugin installed uncomment the following lines
-  -- local notify = require("notify")
-  -- notify("Starting live server...")
+  local notify = require("notify")
+  notify("Starting live server...")
   vim.cmd("silent !live-server . >/dev/null 2>&1 &")
-  local message = "Starting live server"
-  vim.api.nvim_echo({{message}}, true, {})
+  -- local message = "Starting live server"
+  -- vim.api.nvim_echo({{message}}, true, {})
 end
 
 

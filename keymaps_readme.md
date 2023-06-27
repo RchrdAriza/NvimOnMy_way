@@ -8,7 +8,6 @@
 |Normal|```<bs>```| Be moved one tab to the left | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548078/NvimOnMy_Way/bs_key.jpg' width='400' /> | 
 | Normal | ```ctrl + x``` | Run code | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687550697/NvimOnMy_Way/XRecorder_Edited_23062023_150115_arbksg.gif' width='400' /> |
 | Normal | ```ctrl + t```  | open float terminal | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548876/NvimOnMy_Way/terminal.jpg' width=300 /> |
-|Normal| ```ctrl + c``` | Closes only the tab you are currently in | |
 |Normal | ```ctrl + s``` | Save | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687549855/NvimOnMy_Way/Save.jpg' width='400' /> |
 
 ## NvimTree file explorer
