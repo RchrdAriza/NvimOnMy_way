@@ -2,16 +2,16 @@ local wk = require("which-key")
 
 wk.register({
   ["<Space>f"] = { "<cmd>Telescope find_files<cr>", " Find files" },
-  ["<Space>e"] = { "<cmd>NvimTreeOpen<cr>", " File Explorer" },
+  ["<Space>e"] = { "<cmd>Neotree<cr>", " File Explorer" },
   ["<Space>n"] = { "<cmd>enew<cr>", " New file" },
   ["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
   ["<Space>m"] = { "<cmd>Alpha<cr>", " Go to menu" },
-  ["<Space>q"] = { "<cmd>q!<cr>", " Exit without saving" },
+  ["<Space>q"] = { "<cmd>q!<cr>", " Exit" },
   ["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
   ["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
   ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
   ["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
-  -- ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
+  ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
   ["<Space>c"] = { "<cmd>:bdelete<cr>", "󱎘 Close tab" },
    
   -- Otras opciones...
@@ -37,7 +37,7 @@ wk.register({
   ["<Space>g"] = {
     name = "󰊢 Git",
     a = { "<cmd>Gwrite<cr>", "Git Add [this file]" },
-    s = { "<cmd>G<cr>", "Git Status" },
+    s = { "<cmd>Neotree float git_status<cr>", "Git Status" },
     c = { "<cmd>Git commit<cr>", "Git Commit" },
     d = { "<cmd>DiffviewOpen<cr>", "Git Diff" },
   },

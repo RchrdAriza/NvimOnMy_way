@@ -70,15 +70,6 @@ require("lazy").setup({
    end
   },
    {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'kyazdani42/nvim-web-devicons' -- optional
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end
-  },
-   {
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
@@ -179,5 +170,20 @@ end},
  {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
-}
+},
+
+ {
+   'stevearc/dressing.nvim',
+   opts = {},
+ },
+ 'mfussenegger/nvim-dap',
+ {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = { 
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 })
