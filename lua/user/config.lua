@@ -12,6 +12,7 @@ vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.notify = require("notify")
 
 -- Descomentar para usar el material colorscheme
 --vim.g.material_style = "deep ocean"
