@@ -14,7 +14,7 @@ wk.register({
   ["<Space>q"] = { "<cmd>q!<cr>", " Exit" },
   ["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
   ["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
-  ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
+  -- ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
   ["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
   ["<Space>h"] = { "<cmd>:lua hightlight()<cr>", " HighLight" },
   ["<Space>c"] = { "<cmd>:lua close_tab()<cr>", "󱎘 Close tab" },
@@ -23,7 +23,14 @@ wk.register({
 
 })
 
-require("which-key").register({
+wk.register({
+  ["<Space>d"] = {
+    name = " See details",
+    e = { "<cmd>TroubleToggle<cr>", "See errors" },
+    f = { "<cmd>AerialToggle!<cr>", "See functions"}
+  },
+})
+wk.register({
   ["<Space>M"] = {
     name = " Markdown",
     l = { "<cmd>lua start_grip()<cr>", "Start grip" },

@@ -16,7 +16,13 @@ require("lazy").setup({
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  opts = {},
+  opts = {
+      styles = {
+	  terminal_colors = true,
+	  comments = { italic = false },
+	  keywords = { italic = false },
+      },
+  },
 },
     "folke/which-key.nvim",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
@@ -180,10 +186,26 @@ end},
  {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    dependencies = { 
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
+  },
+  {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+	  require('gitsigns').setup()
+      end,
+  },
+  'tpope/vim-surround',
+  'windwp/nvim-ts-autotag',
+  {
+      "petertriho/cmp-git",
+       dependencies = "nvim-lua/plenary.nvim"
+  },
+  {
+      "cappyzawa/trim.nvim",
+      opts = {}
   }
 })

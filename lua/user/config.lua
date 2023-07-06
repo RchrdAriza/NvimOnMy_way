@@ -1,18 +1,19 @@
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-vim.o.number = true 
+vim.o.number = true
 vim.o.relativenumber = false
-vim.o.swapfile = false 
-vim.o.encoding = "utf-8" 
-vim.o.undofile = true 
-vim.o.sw = 4 
-vim.o.showmatch = true 
-vim.o.laststatus = 2 
-vim.cmd("syntax on") 
+vim.o.swapfile = false
+vim.o.encoding = "utf-8"
+vim.o.undofile = true
+vim.o.sw = 4
+vim.o.showmatch = true
+vim.o.laststatus = 2
+vim.cmd("syntax on")
 vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.notify = require("notify")
+-- vim.o.statusline+=%{get(b:,'gitsigns_status','')
 
 -- Descomentar para usar el material colorscheme
 --vim.g.material_style = "deep ocean"
@@ -82,22 +83,6 @@ function stop_live_server()
   vim.cmd("silent !pkill -f live-server")
 end
 
-function start_grip()
-  local port = 5500
-  vim.cmd("silent !grip -b % :".. port .. ">/dev/null &")
-
-  local address = "localhost"
-  local notification = "Grip starting at http://" .. address .. ":" .. port
-  vim.notify(notification)
-end
-
-
-function stop()
-  vim.cmd('silent !pkill -f grip')
-
-  vim.notify('Grip has stopped')
-end 
-
 function Save()
   vim.cmd('w')
   vim.notify('Saved file')
@@ -132,6 +117,13 @@ require('nvim-cursorline').setup {
   }
 }
 
+function tkinter()
+  vim.cmd("silent !DISPLAY=:1 PULSE_SERVER=localhost python %")
+end
+
+vim.cmd('command Tkinter lua tkinter()')
+
+
 vim.cmd [[
 " set
 autocmd TermEnter term://*toggleterm#*
@@ -162,7 +154,7 @@ vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 
 -- function close_tab()
---    local r = vim.api.nvim_input('ingresa un numero:')  
+--    local r = vim.api.nvim_input('ingresa un numero:')
 --   local r = io.read()
 --   if r == 'y' then
 --     vim.cmd(':bdelete')
@@ -178,13 +170,16 @@ function close_tab()
   vim.api.nvim_command('redrawstatus')
 end
 
--- -- Importar la API de Neovim
--- local api = vim.api
---
--- -- Solicitar al usuario que ingrese un número
--- api.nvim_command('echo "Ingresa un número:"')
--- local numero = api.nvim_input('', '')
---
--- -- Imprimir el número en la consola
--- api.nvim_command('echo "El número ingresado es: ' .. numero .. '"')
---
+require('trim').setup({
+  -- if you want to ignore markdown file.
+  -- you can specify filetypes.
+  ft_blocklist = {"markdown"},
+
+  -- if you want to remove multiple blank lines
+  patterns = {
+    [[%s/\(\n\n\)\n\+/\1/]],   -- replace multiple blank lines with a single line
+  },
+
+  -- if you want to disable trim on write by default
+  trim_on_write = false,
+})

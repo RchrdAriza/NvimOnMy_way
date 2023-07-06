@@ -10,7 +10,7 @@ require("mason").setup({
 
 require("mason-lspconfig").setup{
     ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver' },
-    automatic_installation = true
+    -- automatic_installation = true
 }
 
 function InstallLSPs()

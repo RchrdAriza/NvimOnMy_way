@@ -98,7 +98,8 @@ dashboard.section.header.val = {
      dashboard.button( "f", "   Find file", ":cd $HOME | Telescope find_files<CR>"), 
      dashboard.button( "e", "   File Explorer", ":cd $HOME | Neotree<CR>"), 
      dashboard.button( "r", "   Recent"   , ":Telescope oldfiles<CR>"), 
-     dashboard.button( "c", "   configuration", ":e ~/.config/nvim/lua/user/config.lua<CR>"), 
+     dashboard.button( "c", "   Configuration", ":e ~/.config/nvim/lua/user/config.lua<CR>"), 
+     dashboard.button( "R", "󱘞   Ripgrep", ":Telescope live_grep<CR>"), 
      dashboard.button( "q", "   Quit", ":qa<CR>"), 
  } 
 
