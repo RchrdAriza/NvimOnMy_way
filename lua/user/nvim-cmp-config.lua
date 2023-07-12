@@ -59,7 +59,6 @@ local cmp = require'cmp'
         },
     },
 
-
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
@@ -173,6 +172,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     end
   }
 
+  require('lspconfig')['html'].setup {
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+  }
   -- require('lspconfig')['clangd'].setup {
   --   capabilities = capabilities,
   --   on_attach = function(client, bufnr)

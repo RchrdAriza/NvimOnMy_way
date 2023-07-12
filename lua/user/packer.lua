@@ -89,7 +89,6 @@ require("lazy").setup({
   },
    'tpope/vim-fugitive',
 
-
 -- if use nvim-web-devicons
    {
   'yamatsum/nvim-nonicons',
@@ -204,8 +203,4 @@ end},
       "petertriho/cmp-git",
        dependencies = "nvim-lua/plenary.nvim"
   },
-  {
-      "cappyzawa/trim.nvim",
-      opts = {}
-  }
 })

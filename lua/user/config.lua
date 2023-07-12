@@ -18,7 +18,6 @@ vim.notify = require("notify")
 -- Descomentar para usar el material colorscheme
 --vim.g.material_style = "deep ocean"
 
-
 vim.cmd('colorscheme tokyonight-night')
 
 -- Zona de mapeos --
@@ -36,7 +35,6 @@ vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
 ]]
 
-
 require("image_preview").setup({})
 
 require'colorizer'.setup()
@@ -47,9 +45,6 @@ local async = require "plenary.async"
 
 --vim.g.indent_blankline_exclude_children = 0
 vim.g.indent_blankline_exclude_children = false
-
-
-
 
 require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
@@ -75,7 +70,6 @@ function live_server()
   -- local message = "Starting live server"
   -- vim.api.nvim_echo({{message}}, true, {})
 end
-
 
 function stop_live_server()
   local notify = require("notify")
@@ -103,7 +97,6 @@ function hightlight()
   vim.cmd('TSEnable highlight')
 end
 
-
 require('nvim-cursorline').setup {
   cursorline = {
     enable = true,
@@ -118,11 +111,10 @@ require('nvim-cursorline').setup {
 }
 
 function tkinter()
-  vim.cmd("silent !DISPLAY=:1 PULSE_SERVER=localhost python %")
+  vim.cmd("TermExec cmd='DISPLAY=:1 PULSE_SERVER=localhost python %'")
 end
 
 vim.cmd('command Tkinter lua tkinter()')
-
 
 vim.cmd [[
 " set
@@ -160,26 +152,13 @@ vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 --     vim.cmd(':bdelete')
 --   end
 -- end
-function close_tab()
-  local r = vim.fn.input('Are you sure you want to leave? y[es] n[o]: ')
-  if r == 'y' or r == 'yes' then
-    vim.cmd('bdelete')
-  end
-  -- local clear = vim.fn.input('')
-  local message = ' '
-  vim.api.nvim_command('redrawstatus')
-end
+-- function close_tab()
+--   local r = vim.fn.input('Are you sure you want to leave? y[es] n[o]: ')
+--   if r == 'y' or r == 'yes' then
+--     vim.cmd('bdelete')
+--   end
+--   -- local clear = vim.fn.input('')
+--   local message = ' '
+--   vim.api.nvim_command('redrawstatus')
+-- end
 
-require('trim').setup({
-  -- if you want to ignore markdown file.
-  -- you can specify filetypes.
-  ft_blocklist = {"markdown"},
-
-  -- if you want to remove multiple blank lines
-  patterns = {
-    [[%s/\(\n\n\)\n\+/\1/]],   -- replace multiple blank lines with a single line
-  },
-
-  -- if you want to disable trim on write by default
-  trim_on_write = false,
-})
