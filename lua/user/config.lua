@@ -77,6 +77,33 @@ function stop_live_server()
   vim.cmd("silent !pkill -f live-server")
 end
 
+function start_grip()
+  -- You can change the port as you wish
+  local port = 5500
+  vim.cmd("silent !grip -b % :".. port .. ">/dev/null &")
+
+  local address = "localhost"
+ 
+  local message = "Grip starting at http://" .. address .. ":" .. port
+  -- In case you have the notify plugin installed uncomment the following lines
+  local notify = require("notify")
+  vim.notify(message)
+  -- vim.api.nvim_echo({{message}}, true, {}) 
+end
+
+function stop()
+  vim.cmd('silent !pkill -f grip')
+  
+  -- In case you have the notify plugin installed uncomment the following lines
+  local notify = require("notify")
+  vim.notify('Grip has stopped')
+  -- local message = "Grip has stopped"
+  -- vim.api.nvim_echo({{message}}, true, {}) 
+end
+
+vim.cmd('command Startg lua start_grip()') -- to start grip
+vim.cmd('command Stopg lua stop()') -- to stop grip
+
 function Save()
   vim.cmd('w')
   vim.notify('Saved file')
