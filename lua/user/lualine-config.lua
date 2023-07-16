@@ -23,7 +23,7 @@ require('lualine').setup {
     lualine_c = {'filename'},
     lualine_x = {'fileformat', 'filetype'},
     lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_z = {'location', [[prueba]]}
   },
   inactive_sections = {
     lualine_a = {},
@@ -39,7 +39,4 @@ require('lualine').setup {
   extensions = {}
 }
 
-local function hello()
-  return [[hello world]]
-end
-sections = { lualine_a = { hello } }
+prueba = 'NvimOnMy_Way❤️'

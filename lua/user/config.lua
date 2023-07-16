@@ -148,9 +148,6 @@ vim.cmd [[
 autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
-" By applying the mappings this way you can pass a count to your
-" mapping to open a specific window.
-" For example: 2<C-t> will open terminal 2
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 ]]
@@ -172,20 +169,4 @@ vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg='NONE', fg='#D4D4D4' })
 vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 
--- function close_tab()
---    local r = vim.api.nvim_input('ingresa un numero:')
---   local r = io.read()
---   if r == 'y' then
---     vim.cmd(':bdelete')
---   end
--- end
--- function close_tab()
---   local r = vim.fn.input('Are you sure you want to leave? y[es] n[o]: ')
---   if r == 'y' or r == 'yes' then
---     vim.cmd('bdelete')
---   end
---   -- local clear = vim.fn.input('')
---   local message = ' '
---   vim.api.nvim_command('redrawstatus')
--- end
-
+-- vim.notify("This is an error message", "error")

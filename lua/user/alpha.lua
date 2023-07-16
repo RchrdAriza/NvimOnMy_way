@@ -114,6 +114,8 @@ end
 dashboard.section.footer.val = {
     centerText("Kaizoku Ou Ni Ore Wa Naru", 50),
     " ",
+    -- centerText("NvimOnMy_Way❤️", 50),
+    -- " ",
     centerText(date, 50),
     centerText(time, 50),
     centerText(version, 50)

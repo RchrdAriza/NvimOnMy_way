@@ -108,7 +108,6 @@ require("lazy").setup({
   },
    "rafamadriz/friendly-snippets",
    "lukas-reineke/indent-blankline.nvim",
-   'tamago324/lir.nvim',
 --    {
 --   "NvChad/nvterm",
 --   config = function ()
@@ -117,7 +116,7 @@ require("lazy").setup({
 -- }
     'kyazdani42/nvim-web-devicons',
     "nvim-lua/plenary.nvim",
-    "RchrdAlv/pulpFictionNvim-Theme",
+    "RchrdAriza/pulpFictionNvim-Theme",
     'rcarriga/nvim-notify',
    -- using packer.nvim
    {
