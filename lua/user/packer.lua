@@ -116,7 +116,7 @@ require("lazy").setup({
 -- }
     'kyazdani42/nvim-web-devicons',
     "nvim-lua/plenary.nvim",
-    "RchrdAriza/pulpFictionNvim-Theme",
+   -- "RchrdAriza/pulpFictionNvim-Theme",
     'rcarriga/nvim-notify',
    -- using packer.nvim
    {
