@@ -56,20 +56,30 @@ require("indent_blankline").setup {
 require("notify")("Welcome")
 require('guess-indent').setup {}
 
--- function live_server()
---   local notifi = require("notify")
---   notifi("Starting live server...")
---   vim.cmd("silent !live-server . >/dev/null 2>&1 &")
--- end
 function live_server()
+  local function command_exists(command)
+    local handle = io.popen("command -v " .. command)
+    local result = handle:read("*a")
+    handle:close()
+    return result ~= ""
+  end
 
-  -- In case you have the notify plugin installed uncomment the following lines
-  local notify = require("notify")
-  notify("Starting live server...")
-  vim.cmd("silent !live-server . >/dev/null 2>&1 &")
-  -- local message = "Starting live server"
-  -- vim.api.nvim_echo({{message}}, true, {})
+  if command_exists("live-server") then
+    -- In case you have the notify plugin installed uncomment the following lines 
+     local notify = require("notify") 
+     notify("Starting live server...") 
+     vim.cmd("silent !live-server . >/dev/null 2>&1 &") 
+     -- local message = "Starting live server" 
+     -- vim.api.nvim_echo({{message}}, true, {}) 
+  else
+
+     local notify = require("notify") 
+     notify("Live-server is not installed", "error") 
+
+  end
 end
+
+
 
 function stop_live_server()
   local notify = require("notify")
@@ -170,3 +180,4 @@ vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 
 -- vim.notify("This is an error message", "error")
+--

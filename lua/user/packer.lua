@@ -202,4 +202,8 @@ end},
       "petertriho/cmp-git",
        dependencies = "nvim-lua/plenary.nvim"
   },
+
+  {'kevinhwang91/nvim-ufo', 
+  dependencies = 'kevinhwang91/promise-async'},
+
 })
