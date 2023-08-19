@@ -39,4 +39,6 @@ require('lualine').setup {
   extensions = {}
 }
 
+
 prueba = 'NvimOnMy_Way❤️'
+

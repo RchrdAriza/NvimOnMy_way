@@ -12,6 +12,7 @@ vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.foldmethod="foldlevel"
 vim.notify = require("notify")
 -- vim.o.statusline+=%{get(b:,'gitsigns_status','')
 
@@ -70,11 +71,15 @@ function live_server()
      notify("Starting live server...") 
      vim.cmd("silent !live-server . >/dev/null 2>&1 &") 
      -- local message = "Starting live server" 
-     -- vim.api.nvim_echo({{message}}, true, {}) 
+     -- vim.api.nvim_echo({{message}}, true, {})
+     -- vim.cmd(":")
+   
+
   else
 
      local notify = require("notify") 
-     notify("Live-server is not installed", "error") 
+     notify("Live-server is not installed", "error")
+
 
   end
 end
@@ -83,22 +88,36 @@ end
 
 function stop_live_server()
   local notify = require("notify")
-  notify("Stopping live server")
+  notify("Stopping live server", "info")
   vim.cmd("silent !pkill -f live-server")
 end
 
 function start_grip()
-  -- You can change the port as you wish
-  local port = 5500
-  vim.cmd("silent !grip -b % :".. port .. ">/dev/null &")
+  local function command_exists(command)
+    local handle = io.popen("command -v " .. command)
+    local result = handle:read("*a")
+    handle:close()
+    return result ~= ""
+  end
 
-  local address = "localhost"
- 
-  local message = "Grip starting at http://" .. address .. ":" .. port
-  -- In case you have the notify plugin installed uncomment the following lines
-  local notify = require("notify")
-  vim.notify(message)
-  -- vim.api.nvim_echo({{message}}, true, {}) 
+  if command_exists("grip") then
+    -- You can change the port as you wish
+    local port = 5500
+    vim.cmd("silent !grip -b % :".. port .. ">/dev/null &")
+
+    local address = "localhost"
+   
+    local message = "Grip starting at http://" .. address .. ":" .. port
+    -- In case you have the notify plugin installed uncomment the following lines
+    local notify = require("notify")
+    vim.notify(message)
+    -- vim.api.nvim_echo({{message}}, true, {}) 
+  else
+
+     local notify = require("notify") 
+     notify("Grip is not installed", "error") 
+
+  end
 end
 
 function stop()
@@ -180,4 +199,8 @@ vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 
 -- vim.notify("This is an error message", "error")
---
+-- Cuando Neovim se inicia
+-- vim.cmd([[autocmd VimEnter * lua print("Neovim se ha iniciado")]])
+
+-- Cuando Neovim se cierra
+vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])

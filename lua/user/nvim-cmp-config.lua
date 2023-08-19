@@ -178,6 +178,15 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
         navic.attach(client, bufnr)
     end
   }
+    require('lspconfig')['emmet_ls'].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = lsp_flags,
+      -- on_attach = function(client, bufnr)
+      --     navic.attach(client, bufnr)
+      -- end
+    }
+
   -- require('lspconfig')['clangd'].setup {
   --   capabilities = capabilities,
   --   on_attach = function(client, bufnr)
