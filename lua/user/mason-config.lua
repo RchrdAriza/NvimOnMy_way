@@ -9,7 +9,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup{
-    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver' },
+    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver', 'emmet_ls' },
     -- automatic_installation = true
 }
 
