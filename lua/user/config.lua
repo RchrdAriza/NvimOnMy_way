@@ -32,9 +32,19 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true} )
 vim.api.nvim_set_keymap('n', '<C-s>', ':lua Save()<cr>', {noremap = true})
+
 vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
+nnoremap <silent> ff :Format<CR>
+nnoremap <silent> <leader>F :FormatWrite<CR>
+
+" augroup FormatAutogroup
+"   autocmd!
+"   autocmd BufWritePost * FormatWrite
+" augroup END
+
 ]]
+
 
 require("image_preview").setup({})
 
@@ -66,18 +76,18 @@ function live_server()
   end
 
   if command_exists("live-server") then
-    -- In case you have the notify plugin installed uncomment the following lines 
-     local notify = require("notify") 
-     notify("Starting live server...") 
-     vim.cmd("silent !live-server . >/dev/null 2>&1 &") 
-     -- local message = "Starting live server" 
+    -- In case you have the notify plugin installed uncomment the following lines
+     local notify = require("notify")
+     notify("Starting live server...")
+     vim.cmd("silent !live-server . >/dev/null 2>&1 &")
+     -- local message = "Starting live server"
      -- vim.api.nvim_echo({{message}}, true, {})
      -- vim.cmd(":")
-   
+
 
   else
 
-     local notify = require("notify") 
+     local notify = require("notify")
      notify("Live-server is not installed", "error")
 
 
@@ -106,28 +116,28 @@ function start_grip()
     vim.cmd("silent !grip -b % :".. port .. ">/dev/null &")
 
     local address = "localhost"
-   
+
     local message = "Grip starting at http://" .. address .. ":" .. port
     -- In case you have the notify plugin installed uncomment the following lines
     local notify = require("notify")
     vim.notify(message)
-    -- vim.api.nvim_echo({{message}}, true, {}) 
+    -- vim.api.nvim_echo({{message}}, true, {})
   else
 
-     local notify = require("notify") 
-     notify("Grip is not installed", "error") 
+     local notify = require("notify")
+     notify("Grip is not installed", "error")
 
   end
 end
 
 function stop()
   vim.cmd('silent !pkill -f grip')
-  
+
   -- In case you have the notify plugin installed uncomment the following lines
   local notify = require("notify")
   vim.notify('Grip has stopped')
   -- local message = "Grip has stopped"
-  -- vim.api.nvim_echo({{message}}, true, {}) 
+  -- vim.api.nvim_echo({{message}}, true, {})
 end
 
 vim.cmd('command Startg lua start_grip()') -- to start grip
