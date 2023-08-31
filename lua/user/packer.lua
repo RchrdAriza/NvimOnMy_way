@@ -150,7 +150,6 @@ end},
    'pocco81/auto-save.nvim',
    'tomasiser/vim-code-dark',
    'famiu/bufdelete.nvim',
-   { 'mhartington/formatter.nvim' },
    {'akinsho/git-conflict.nvim', version = "*", config = function()
   require('git-conflict').setup()
 end},
@@ -205,5 +204,19 @@ end},
 
   {'kevinhwang91/nvim-ufo', 
   dependencies = 'kevinhwang91/promise-async'},
+  {
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v2.x',
+  dependencies = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},             -- Required
+    {'williamboman/mason.nvim'},           -- Optional
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},     -- Required
+    {'hrsh7th/cmp-nvim-lsp'}, -- Required
+    {'L3MON4D3/LuaSnip'},     -- Required
+  }
+},
 })

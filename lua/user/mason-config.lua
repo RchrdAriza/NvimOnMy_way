@@ -9,13 +9,6 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup{
-    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver', 'emmet_ls' },
+    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver', 'emmet_ls', 'tailwindcss' },
     -- automatic_installation = true
 }
-
-function InstallLSPs()
-     local servers = {"pyright", "bash-language-server", "html-lsp", "css-lsp", "typescript-language-server", "vim-language-server"}
-     for _, server in pairs(servers) do
-          vim.cmd("MasonInstall " .. server)
-      end
- end

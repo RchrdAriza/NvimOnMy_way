@@ -1,10 +1,11 @@
+local lsp_zero = require('lsp-zero')
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+
+
+
 local navic = require("nvim-navic")
 
--- require("lspconfig").pyright.setup {
---     on_attach = function(client, bufnr)
---         navic.attach(client, bufnr)
---     end
--- }
 -- Set up nvim-cmp.
 local cmp = require'cmp'
   local kind_icons = {
@@ -75,14 +76,16 @@ local cmp = require'cmp'
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'luasnip' }, -- For vsnip users.
+      { name = 'luasnip' }, -- For LuaSnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
+      { name = 'path' },
     }),
     ------------------------
+    
     formatting = {
     format = function(entry, vim_item)
       -- Kind icons
@@ -135,18 +138,21 @@ local cmp = require'cmp'
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['bashls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['tsserver'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
 
@@ -157,18 +163,21 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['cssls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['vimls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
 
@@ -176,6 +185,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
     require('lspconfig')['emmet_ls'].setup {
@@ -184,8 +194,17 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
       flags = lsp_flags,
       -- on_attach = function(client, bufnr)
       --     navic.attach(client, bufnr)
+      --   lsp_zero.default_keymaps({buffer = bufnr})
       -- end
     }
+  
+  require('lspconfig')['tailwindcss'].setup {
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
+    end
+  }
 
   -- require('lspconfig')['clangd'].setup {
   --   capabilities = capabilities,
