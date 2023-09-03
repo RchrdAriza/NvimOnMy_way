@@ -38,7 +38,6 @@ require("lazy").setup({
     version = "*",
     dependencies = 'kyazdani42/nvim-web-devicons'
   },
-    'norcalli/nvim-colorizer.lua',
     'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -224,4 +223,5 @@ end},
     end
 },
     'HiPhish/nvim-ts-rainbow2',
+    'norcalli/nvim-colorizer.lua',
 })
