@@ -1,5 +1,5 @@
  <p align="Center">
-  <img src="https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683993382/NvimOnMy_Way/NvimOnMyWay_jtlcp1.jpg" >
+  <img src="https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693760235/Nvim/Head.jpg" >
   <img src="https://img.shields.io/badge/-%3E=0.8.0-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Lua-success?logo=lua&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Linux-success?logo=linux&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
@@ -21,7 +21,7 @@
 - Python3
 - pip
 - Neovim 0.9.0
-- [nerdfonts(opcional)](https://www.nerdfonts.com/)
+- [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
 - yarn
 
@@ -29,7 +29,7 @@
 
 Just run this in the terminal:
 
-```bash 
+```bash
 git clone https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 # Plugins
@@ -41,7 +41,7 @@ git clone https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
 - [Friendly-Snippets](https://github.com/rafamadriz/friendly-snippets)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [Alpha](https://github.com/goolord/alpha-nvim)
- 
+
  And some others...
 
 # Keymaps
@@ -58,10 +58,9 @@ _In case of using termux install [termux-style](https://f-droid.org/es/packages/
 
 ## Captures
 
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683989991/NvimOnMy_Way/Alpha.jpg.jpg' alt="inicio" width=320  >
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693761097/Nvim/Main_menu.jpg' alt="inicio" width=320  >
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683990002/NvimOnMy_Way/Python.jpg.jpg' alt="python" width=320>
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683990014/NvimOnMy_Way/FileExplorer.jpg.jpg' alt="FileExplorer" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683990001/NvimOnMy_Way/OldFiles.jpg.jpg' alt="OldFiles" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683990003/NvimOnMy_Way/Whickey.jpg.jpg' alt="Whichkey" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683989991/NvimOnMy_Way/Bash.jpg.jpg' alt="Bash" width=320>
-
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693761506/Nvim/Oldfiles.jpg' alt="OldFiles" width=320>
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693762056/Nvim/Whickey.jpg' alt="Whichkey" width=320>
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693762538/Nvim/Python.jpg' alt="python_lsp" width=320>

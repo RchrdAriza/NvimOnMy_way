@@ -3,7 +3,7 @@
 
 |Mode|  key | function | view |
 |-------|-------------|---------|-------|
-|Normal |```<Space>```   | open Whickey menu | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687547066/NvimOnMy_Way/Whickey_menu.jpg' width='400'/> |
+|Normal |```<Space>```   | open Whickey menu | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693760906/Nvim/whichkey_l2ttfy.jpg' width='400'/> |
 |Normal | ```tab``` | Advance to the next tab | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548077/NvimOnMy_Way/Tab_key.jpg' width='400' /> 
 |Normal|```<bs>```| Be moved one tab to the left | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687548078/NvimOnMy_Way/bs_key.jpg' width='400' /> | 
 | Normal | ```ctrl + x``` | Run code | <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1687550697/NvimOnMy_Way/XRecorder_Edited_23062023_150115_arbksg.gif' width='400' /> |
