@@ -44,7 +44,7 @@ ls.setup({
 	-- treesitter-hl has 100, use something higher (default is 200).
 	ext_base_prio = 300,
 	-- minimal increase in priority.
-	ext_prio_increase = 1,
+	ext_prio_increase = 0,
 	enable_autosnippets = true,
 	-- mapping for cutting selected text so it's usable as SELECT_DEDENT,
 	-- SELECT_RAW or TM_SELECTED_TEXT (mapped via xmap).
