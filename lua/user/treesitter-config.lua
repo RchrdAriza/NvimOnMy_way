@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
   end
 })
 ---ENDWORKAROUND
-
+local rainbow = require 'ts-rainbow'
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -54,11 +54,22 @@ require'nvim-treesitter.configs'.setup {
   },
   rainbow = {
     enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    disable = { "jsx", "cpp" }, --[[ list of languages you want to disable the plugin for ]]
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    query = 'rainbow-parens',
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
+    strategy = rainbow.strategy.global,
+    hlgroups = {
+               'TSRainbowBlue',
+               'TSRainbowRed',
+               'TSRainbowYellow',
+               'TSRainbowOrange',
+               'TSRainbowGreen',
+               'TSRainbowViolet',
+               'TSRainbowCyan'
+            },
   },
 }
 require'nvim-treesitter.configs'.setup {

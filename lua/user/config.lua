@@ -35,7 +35,7 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':lua Save()<cr>', {noremap = true})
 
 vim.cmd [[
 nnoremap <C-x> :RunCode<cr>
-nnoremap <silent> ff :Format<CR>
+nnoremap <silent> ff :lua test_function(0)<CR>
 nnoremap <silent> <leader>F :FormatWrite<CR>
 
 " augroup FormatAutogroup
@@ -44,6 +44,23 @@ nnoremap <silent> <leader>F :FormatWrite<CR>
 " augroup END
 
 ]]
+
+function test_function(buf)
+  -- Obtener la ruta completa del archivo
+  local file_path = vim.api.nvim_buf_get_name(buf)
+  -- Extraer solo el nombre del archivo
+  local file_name = vim.fn.fnamemodify(file_path, ":t")
+  -- Obtener el tipo de archivo usando vim.api.nvim_buf_get_option
+  local file_type = vim.api.nvim_buf_get_option(buf, 'filetype')
+  -- Imprimir el nombre y el tipo de archivo en la línea de estado
+  -- print("El nombre del archivo es " .. file_name .. " y el tipo de archivo es " .. file_type)
+   local notify = require("notify")
+   notify('Formatted ' .. file_name .. ' file \nType: ' .. file_type, notify.setup{
+     render = "compact",
+   })
+   vim.cmd("silent :Format")
+
+end
 
 
 require("image_preview").setup({})
@@ -63,8 +80,13 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
--- vim.notify = require("notify")
-require("notify")("Welcome")
+vim.notify = require("notify")
+vim.notify.setup({
+  stages = "fade",
+  render = "compact",
+  -- title = "bienvenida"
+})
+vim.notify("Welcome")
 require('guess-indent').setup {}
 
 function live_server()

@@ -28,7 +28,6 @@ require("lazy").setup({
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
   -- Plugin de Packer para administrar plugins
-  {'wbthomason/packer.nvim'},
    {
     'nvim-telescope/telescope.nvim',
     version = '0.1.1',
@@ -108,12 +107,6 @@ require("lazy").setup({
   },
    "rafamadriz/friendly-snippets",
    "lukas-reineke/indent-blankline.nvim",
---    {
---   "NvChad/nvterm",
---   config = function ()
---     require("nvterm").setup()
---   end,
--- }
     'kyazdani42/nvim-web-devicons',
     "nvim-lua/plenary.nvim",
    -- "RchrdAriza/pulpFictionNvim-Theme",
@@ -220,4 +213,15 @@ end},
   }
 },
     { 'mhartington/formatter.nvim' },
+    {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+},
+    'HiPhish/nvim-ts-rainbow2',
 })
