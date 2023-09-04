@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
   end
 })
 ---ENDWORKAROUND
-local rainbow = require 'ts-rainbow'
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -53,23 +52,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = true,
   },
   rainbow = {
-    enable = true,
-    disable = { "jsx", "cpp" }, --[[ list of languages you want to disable the plugin for ]]
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    query = 'rainbow-parens',
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-    strategy = rainbow.strategy.global,
-    hlgroups = {
-               'TSRainbowBlue',
-               'TSRainbowRed',
-               'TSRainbowYellow',
-               'TSRainbowOrange',
-               'TSRainbowGreen',
-               'TSRainbowViolet',
-               'TSRainbowCyan'
-            },
+    enable = false,
   },
 }
 require'nvim-treesitter.configs'.setup {
@@ -83,3 +66,27 @@ vim.cmd [[
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 ]]
+
+
+-- This module contains a number of default definitions
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
+}

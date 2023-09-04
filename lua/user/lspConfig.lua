@@ -1,7 +1,3 @@
-local lsp_zero = require('lsp-zero')
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-
 
 
 local navic = require("nvim-navic")
@@ -133,7 +129,6 @@ local cmp = require'cmp'
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['bashls'].setup {
@@ -147,7 +142,6 @@ local cmp = require'cmp'
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
 
@@ -158,21 +152,18 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['cssls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['vimls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
 
@@ -180,7 +171,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
     require('lspconfig')['emmet_ls'].setup {
@@ -201,12 +191,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     end
   }
 
-  -- require('lspconfig')['clangd'].setup {
-  --   capabilities = capabilities,
-  --   on_attach = function(client, bufnr)
-  --       navic.attach(client, bufnr)
-  --   end
-  -- }
+  require('lspconfig')['clangd'].setup {
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+  }
 
   local has_words_before = function()
   unpack = unpack or table.unpack
@@ -260,3 +250,38 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+
+-- gray
+vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg='NONE', strikethrough=true, fg='#808080' })
+-- blue
+vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { bg='NONE', fg='#569CD6' })
+vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link='CmpIntemAbbrMatch' })
+-- light blue
+vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { bg='NONE', fg='#9CDCFE' })
+vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { link='CmpItemKindVariable' })
+vim.api.nvim_set_hl(0, 'CmpItemKindText', { link='CmpItemKindVariable' })
+-- pink
+vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { bg='NONE', fg='#C586C0' })
+vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link='CmpItemKindFunction' })
+-- front
+vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg='NONE', fg='#D4D4D4' })
+vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
+vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
+
+
+
+require("mason").setup({
+    ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
+            }
+        }
+})
+
+require("mason-lspconfig").setup{
+    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver', 'emmet_ls', 'tailwindcss' },
+    -- automatic_installation = true
+}

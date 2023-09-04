@@ -1,3 +1,4 @@
+
 local format = require("cmp_git.format")
 local sort = require("cmp_git.sort")
 

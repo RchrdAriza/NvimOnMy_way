@@ -16,11 +16,14 @@ require("formatter").setup {
     },
 
     html = {
-      require("formatter.filetypes.html").prettier,
+      require("formatter.filetypes.html").prettierd,
     },
 
     css = {
-      require("formatter.filetypes.css").prettier,
+      require("formatter.filetypes.css").prettierd,
+    },
+    javascript = {
+      require("formatter.filetypes.javascript").prettierd,
     },
 
     -- Use the special "*" filetype for defining formatter configurations on

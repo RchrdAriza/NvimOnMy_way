@@ -196,21 +196,6 @@ end},
 
   {'kevinhwang91/nvim-ufo', 
   dependencies = 'kevinhwang91/promise-async'},
-  {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v2.x',
-  dependencies = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},             -- Required
-    {'williamboman/mason.nvim'},           -- Optional
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
-  }
-},
     { 'mhartington/formatter.nvim' },
     {
     "kylechui/nvim-surround",
@@ -222,6 +207,22 @@ end},
         })
     end
 },
-    'HiPhish/nvim-ts-rainbow2',
+    'HiPhish/rainbow-delimiters.nvim',
     'norcalli/nvim-colorizer.lua',
+    {
+    "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+	-- add any options here
+      },		
+      dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+	"MunifTanjim/nui.nvim",
+        -- OPTIONAL:
+	--   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+	"rcarriga/nvim-notify",
+        }
+    },
+
 })
