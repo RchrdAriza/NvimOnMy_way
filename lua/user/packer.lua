@@ -148,7 +148,6 @@ end},
 		 }
 	end,
 }),
-   'tomasiser/vim-code-dark',
    'famiu/bufdelete.nvim',
    {'akinsho/git-conflict.nvim', version = "*", config = function()
   require('git-conflict').setup()
@@ -195,15 +194,12 @@ end},
 	  require('gitsigns').setup()
       end,
   },
-  'tpope/vim-surround',
   'windwp/nvim-ts-autotag',
   {
       "petertriho/cmp-git",
        dependencies = "nvim-lua/plenary.nvim"
   },
 
-  {'kevinhwang91/nvim-ufo', 
-  dependencies = 'kevinhwang91/promise-async'},
     { 'mhartington/formatter.nvim' },
     {
     "kylechui/nvim-surround",

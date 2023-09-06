@@ -106,6 +106,14 @@ end
 vim.cmd('command Tkinter lua tkinter()')
 
 
-function hightlight()
-  vim.cmd('TSEnable highlight')
+function countAndCloseBuffers()
+    local num_buffers = 0
+    for _, buf in ipairs(vim.fn.getbufinfo({buflisted = 1})) do
+        num_buffers = num_buffers + 1
+    end
+    if num_buffers > 1 then
+      vim.cmd(":bdelete")
+    else
+      vim.cmd(":x")
+    end
 end

@@ -68,13 +68,14 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
-vim.notify = require("notify")
-vim.notify.setup({
+wnotify = require("notify")
+wnotify.setup({
   stages = "fade",
   render = "compact",
-  -- title = "bienvenida"
 })
-vim.notify("Welcome")
+
+wnotify("Welcome")
+
 require('guess-indent').setup {}
 
 
