@@ -92,37 +92,7 @@ require('aerial').setup({
 -- You probably also want to set a keymap to toggle aerial
 --vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
-function hightlight()
-  vim.cmd('TSEnable highlight')
-end
 
-require('nvim-cursorline').setup {
-  cursorline = {
-    enable = true,
-    timeout = 1000,
-    number = false,
-  },
-  cursorword = {
-    enable = true,
-    min_length = 3,
-    hl = { underline = true },
-  }
-}
-
-function tkinter()
-  vim.cmd("TermExec cmd='DISPLAY=:1 PULSE_SERVER=localhost python %'")
-end
-
-vim.cmd('command Tkinter lua tkinter()')
-
-vim.cmd [[
-" set
-autocmd TermEnter term://*toggleterm#*
-      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-
-nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
-]]
 
 -- vim.notify("This is an error message", "error")
 -- Cuando Neovim se inicia

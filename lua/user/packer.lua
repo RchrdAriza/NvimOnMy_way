@@ -139,7 +139,15 @@ end},
   },
   { 'rose-pine/neovim', name = 'rose-pine' },
 
-   'pocco81/auto-save.nvim',
+   -- 'pocco81/auto-save.nvim',
+    ({
+	"Pocco81/auto-save.nvim",
+	config = function()
+		 require("auto-save").setup {
+		     enable = false,
+		 }
+	end,
+}),
    'tomasiser/vim-code-dark',
    'famiu/bufdelete.nvim',
    {'akinsho/git-conflict.nvim', version = "*", config = function()
@@ -209,20 +217,5 @@ end},
 },
     'HiPhish/rainbow-delimiters.nvim',
     'norcalli/nvim-colorizer.lua',
-    {
-    "folke/noice.nvim",
-      event = "VeryLazy",
-      opts = {
-	-- add any options here
-      },		
-      dependencies = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-	"MunifTanjim/nui.nvim",
-        -- OPTIONAL:
-	--   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
-	"rcarriga/nvim-notify",
-        }
-    },
 
 })

@@ -96,3 +96,16 @@ function test_function(buf)
    vim.cmd("silent :Format")
 
 end
+
+
+
+function tkinter()
+  vim.cmd("TermExec cmd='DISPLAY=:1 PULSE_SERVER=localhost python %'")
+end
+
+vim.cmd('command Tkinter lua tkinter()')
+
+
+function hightlight()
+  vim.cmd('TSEnable highlight')
+end
