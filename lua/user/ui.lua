@@ -16,12 +16,29 @@ presets.operators["g"] = nil
 
 local wk = require("which-key")
 
+wk.setup({
+      window = {
+        border = "double", -- none, single, double, shadow
+        position = "bottom", -- bottom, top
+        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
+        padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
+        winblend = 15, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+        zindex = 1000, -- positive value to position WhichKey above other floating windows.
+      },
+
+      icons = {
+        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+        separator = "-", -- symbol used between a key and it's label
+        group = "", -- symbol prepended to a group
+      },
+    })
+
 wk.register({
   ["<Space>f"] = { "<cmd>Telescope find_files<cr>", " Find files" },
   ["<Space>e"] = { "<cmd>Neotree<cr>", " File Explorer" },
   ["<Space>n"] = { "<cmd>enew<cr>", " New file" },
   ["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
-  ["<Space>m"] = { "<cmd>Alpha<cr>", " Go to menu" },
+  ["<Space>h"] = { "<cmd>Alpha<cr>", " Go to menu" },
   ["<Space>q"] = { "<cmd>q!<cr>", " Exit" },
   ["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
   ["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
@@ -39,7 +56,7 @@ wk.register({
   },
 })
 wk.register({
-  ["<Space>M"] = {
+  ["<Space>m"] = {
     name = " Markdown",
     l = { "<cmd>lua start_grip()<cr>", "Start grip" },
     s = { "<cmd>lua stop()<cr>", "Stop grip"}
