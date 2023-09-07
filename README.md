@@ -12,8 +12,8 @@
 <a href="#installation">Installation</a> •
 <a href="#keymaps">Keymap</a> •
 <a href="#plugins">Plugins</a> •
-<a href="#captures">Captures</a>
-<a href="#q&a">Q&A</a> •
+<a href="#captures">Captures</a> •
+<a href="#q&a">Q&A</a> 
 </h4>
 
 <!-- ## 📍 Requirements  -->
