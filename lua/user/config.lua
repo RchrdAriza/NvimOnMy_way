@@ -1,19 +1,25 @@
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 vim.o.number = true
-vim.o.relativenumber = false
+vim.o.relativenumber = true
 vim.o.swapfile = false
 vim.o.encoding = "utf-8"
 vim.o.undofile = true
-vim.o.sw = 4
+vim.o.sw = 3
 vim.o.showmatch = true
 vim.o.laststatus = 2
 vim.cmd("syntax on")
+vim.opt.list = true
 vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.foldmethod="foldlevel"
 vim.notify = require("notify")
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- vim.o.statusline+=%{get(b:,'gitsigns_status','')
 
 -- Descomentar para usar el material colorscheme
@@ -49,11 +55,6 @@ nnoremap <silent> <leader>F :FormatWrite<CR>
 
 require("image_preview").setup({})
 
-require'colorizer'.setup({
-
-  '*'; -- Highlight all files, but customize some others.
-  css = { css = true; }; -- Enable parsing rgb(...) functions in css.
-})
 
 vim.g.mapleader = " "
 
@@ -105,4 +106,27 @@ vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
 
 
 
+require("yanky").setup({
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    ring = {
+    history_length = 100,
+    storage = "shada",
+    sync_with_numbered_registers = true,
+    cancel_event = "update",
+    ignore_registers = { "_" },
+  },
+  system_clipboard = {
+    sync_with_ring = true,
+  },
+})
+
+vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 

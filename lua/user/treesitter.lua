@@ -1,3 +1,17 @@
+--  ╭──────────────────────────────────────────────────────────╮
+--  │                         Content                          │
+--  ╰──────────────────────────────────────────────────────────╯
+--  ╭──────────────────────────────────────────────────────────╮
+--  │                         Plugins                          │
+--  │                       tree-sitter                        │
+--  │                    rainbow-delimiter                     │
+--  ╰──────────────────────────────────────────────────────────╯
+
+
+
+
+
+
 
 -- vim.opt.foldmethod     = 'expr'
 -- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
@@ -78,7 +92,6 @@ vim.g.rainbow_delimiters = {
     },
     query = {
         [''] = 'rainbow-delimiters',
-        lua = 'rainbow-blocks',
     },
     highlight = {
         'RainbowDelimiterBlue',
@@ -89,4 +102,5 @@ vim.g.rainbow_delimiters = {
         'RainbowDelimiterViolet',
         'RainbowDelimiterCyan',
     },
+        blacklist = {'c', 'cpp', "html"},
 }

@@ -25,6 +25,9 @@ require("formatter").setup {
     javascript = {
       require("formatter.filetypes.javascript").prettierd,
     },
+    markdown = {
+      require("formatter.filetypes.markdown").prettierd,
+    },
 
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype

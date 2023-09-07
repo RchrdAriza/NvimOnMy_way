@@ -2,6 +2,7 @@
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['bashls'].setup {
@@ -15,6 +16,7 @@
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
 
@@ -25,18 +27,21 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
   require('lspconfig')['cssls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
   require('lspconfig')['vimls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
 
@@ -44,6 +49,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
     require('lspconfig')['emmet_ls'].setup {
@@ -51,8 +57,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
       capabilities = capabilities,
       flags = lsp_flags,
       -- on_attach = function(client, bufnr)
-      --     navic.attach(client, bufnr)
-      --   lsp_zero.default_keymaps({buffer = bufnr})
+      --   vim.lsp.log_set_level(vim.log.levels.OFF)
       -- end
     }
   
@@ -60,7 +65,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
 

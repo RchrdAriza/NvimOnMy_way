@@ -133,6 +133,7 @@ require("lazy").setup({
     {"akinsho/toggleterm.nvim", version = '*', config = function()
   require("toggleterm").setup()
 end},
+   "gbprod/yanky.nvim",
    {
     "folke/trouble.nvim",
     require = 'kyazdani42/nvim-web-devicons'
@@ -213,5 +214,10 @@ end},
 },
     'HiPhish/rainbow-delimiters.nvim',
     'norcalli/nvim-colorizer.lua',
-
+    "LudoPinelli/comment-box.nvim",
+    {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+   },
+   "xiyaowong/telescope-emoji.nvim",
 })

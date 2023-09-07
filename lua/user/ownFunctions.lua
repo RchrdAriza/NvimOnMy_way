@@ -1,4 +1,3 @@
-
 function live_server()
   local function command_exists(command)
     local handle = io.popen("command -v " .. command)
