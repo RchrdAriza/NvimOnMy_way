@@ -60,7 +60,7 @@ require("bufferline").setup{
     options = {
 	separator_style = "slant",
 	mode = "buffers",
-	buffer_close_icon = '󰅖',
+	buffer_close_icon = 'x',
         modified_icon = '●',
         close_icon = '',
         left_trunc_marker = '',
@@ -84,7 +84,7 @@ require("bufferline").setup{
         end
 
         if hint ~= 0 then
-            table.insert(result, {text = "  " .. hint, fg = "#A3BA5E"})
+            table.insert(result, {text = "  " .. hint, fg = "#53FF74"})
         end
 
         if info ~= 0 then
@@ -95,7 +95,7 @@ require("bufferline").setup{
     },
     offsets = {
                 {
-                    filetype = "NvimTree",
+                    filetype = "neotree",
                     text = "File Explorer",
                     text_align = "center",
                     separator = true

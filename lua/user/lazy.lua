@@ -140,15 +140,7 @@ end},
   },
   { 'rose-pine/neovim', name = 'rose-pine' },
 
-   -- 'pocco81/auto-save.nvim',
-    ({
-	"Pocco81/auto-save.nvim",
-	config = function()
-		 require("auto-save").setup {
-		     enable = false,
-		 }
-	end,
-}),
+   'pocco81/auto-save.nvim',
    'famiu/bufdelete.nvim',
    {'akinsho/git-conflict.nvim', version = "*", config = function()
   require('git-conflict').setup()

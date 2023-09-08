@@ -4,12 +4,11 @@ vim.o.relativenumber = true
 vim.o.swapfile = false
 vim.o.encoding = "utf-8"
 vim.o.undofile = true
-vim.o.sw = 3
+vim.o.sw = 2
 vim.o.showmatch = true
 vim.o.laststatus = 2
 vim.cmd("syntax on")
 vim.opt.list = true
-vim.cmd.fillchars = "vert:│"
 vim.o.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
