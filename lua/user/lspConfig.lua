@@ -2,14 +2,13 @@
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
     end
   }
   require('lspconfig')['bashls'].setup {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bufnr})
+        vim.lsp.log_set_level(vim.log.levels.OFF)
     end
   }
   require('lspconfig')['tsserver'].setup {
@@ -56,18 +55,18 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
       on_attach = on_attach,
       capabilities = capabilities,
       flags = lsp_flags,
-      -- on_attach = function(client, bufnr)
-      --   vim.lsp.log_set_level(vim.log.levels.OFF)
-      -- end
+      on_attach = function()
+        vim.lsp.log_set_level(vim.log.levels.OFF)
+      end
     }
   
-  require('lspconfig')['tailwindcss'].setup {
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-        vim.lsp.log_set_level(vim.log.levels.OFF)
-    end
-  }
+  -- require('lspconfig')['tailwindcss'].setup {
+  --   capabilities = capabilities,
+  --   on_attach = function(client, bufnr)
+  --       navic.attach(client, bufnr)
+  --       vim.lsp.log_set_level(vim.log.levels.OFF)
+  --   end
+  -- }
 
   require('lspconfig')['clangd'].setup {
     capabilities = capabilities,
@@ -75,7 +74,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
         navic.attach(client, bufnr)
     end
   }
-
+-- eslint
+  require('lspconfig')['eslint'].setup {
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+        vim.lsp.log_set_level(vim.log.levels.OFF)
+    end
+  }
   local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -161,6 +167,6 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup{
-    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver', 'emmet_ls', 'tailwindcss' },
+    ensure_installed = {'pyright', 'html', 'cssls', 'bashls', 'tsserver', 'emmet_ls' },
     -- automatic_installation = true
 }

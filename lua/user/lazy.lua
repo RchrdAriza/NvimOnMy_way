@@ -11,7 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
+    ui = {
+        border = 'rounded',
+        icons = {
+            lazy = '💤',
+        },
+    },
+    checker = {
+        enabled = true,
+        concurrency = 100,
+    },
     {
   "folke/tokyonight.nvim",
   lazy = false,
