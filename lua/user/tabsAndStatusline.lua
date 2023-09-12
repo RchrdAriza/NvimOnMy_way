@@ -30,9 +30,16 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
-		lualine_x = { "fileformat", "filetype" },
+		lualine_x = { "filetype" },
 		lualine_y = { "progress" },
-		lualine_z = { "location", [[prueba]] },
+		lualine_z = { "location", function()
+		  if vim.g.prueba == true then
+		    return "Live-server: ON"
+		  else
+		    return "NvimOnMy_Way❤️"
+		  end
+		end
+		},
 	},
 	inactive_sections = {
 		lualine_a = {},

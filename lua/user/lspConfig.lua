@@ -171,6 +171,6 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "emmet_ls" },
+	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "emmet_ls", "eslint" },
 	-- automatic_installation = true
 })

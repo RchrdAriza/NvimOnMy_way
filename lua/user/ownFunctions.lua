@@ -1,3 +1,6 @@
+vim.g.prueba = false
+
+
 function live_server()
 	local function command_exists(command)
 		local handle = io.popen("command -v " .. command)
@@ -11,9 +14,7 @@ function live_server()
 		local notify = require("notify")
 		notify("Starting live server...")
 		vim.cmd("silent !live-server . >/dev/null 2>&1 &")
-	-- local message = "Starting live server"
-	-- vim.api.nvim_echo({{message}}, true, {})
-	-- vim.cmd(":")
+		vim.g.prueba = true
 	else
 		local notify = require("notify")
 		notify("Live-server is not installed", "error")
@@ -24,6 +25,7 @@ function stop_live_server()
 	local notify = require("notify")
 	notify("Stopping live server", "info")
 	vim.cmd("silent !pkill -f live-server")
+	vim.g.prueba = false
 end
 
 function start_grip()
@@ -103,6 +105,55 @@ function countAndCloseBuffers()
 	if num_buffers > 1 then
 		vim.cmd(":bdelete")
 	else
-		vim.cmd(":x")
+		-- vim.cmd(":x")
+		exitUI()
 	end
+end
+
+local Input = require("nui.input")
+local event = require("nui.utils.autocmd").event
+
+function exitUI()
+  local input = Input({
+    position = "50%",
+    size = {
+      width = 20,
+    },
+    border = {
+      style = "single",
+      text = {
+	top = "[exit? (y/n)]",
+	top_align = "center",
+      },
+    },
+    win_options = {
+      winhighlight = "Normal:Normal,FloatBorder:Normal",
+    },
+  }, {
+    prompt = "> ",
+    -- default_value = "Hello",
+    on_close = function()
+      print("Input Closed!")
+    end,
+    on_submit = function(value)
+      value = string.lower(value)
+      if value == 'y' then
+	vim.cmd(":x")
+      elseif value == "n" then
+	print("Canceled")
+      else
+	print("invalid input")
+      end
+    end,
+  })
+
+  -- mount/open the component
+  input:mount()
+
+  input:map("n", "<esc>", input.input_props.on_close, { noremap = true })
+
+  -- unmount component when cursor leaves buffer
+  input:on(event.BufLeave, function()
+    input:unmount()
+  end)
 end
