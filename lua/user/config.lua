@@ -92,7 +92,7 @@ require("aerial").setup({
 -- vim.cmd([[autocmd VimEnter * lua print("Neovim se ha iniciado")]])
 
 -- Cuando Neovim se cierra
--- vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
+vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
 
 require("yanky").setup({
 	-- your configuration comes here
