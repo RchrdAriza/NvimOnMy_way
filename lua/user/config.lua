@@ -18,6 +18,7 @@ vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- vim.o.statusline+=%{get(b:,'gitsigns_status','')
 
@@ -117,3 +118,22 @@ vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+
+require('ufo').setup({
+    provider_selector = function(bufnr, filetype, buftype)
+        return {'treesitter', 'indent'}
+    end
+})
+--
+--
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+vim.cmd([[
+hi default link UfoPreviewSbar PmenuSbar
+hi default link UfoPreviewThumb PmenuThumb
+hi default link UfoPreviewWinBar UfoFoldedBg
+hi default link UfoPreviewCursorLine Visual
+hi default link UfoFoldedEllipsis Comment
+hi default link UfoCursorFoldedLine CursorLine]])
+

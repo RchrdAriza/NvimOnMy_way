@@ -13,31 +13,33 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Set up nvim-cmp.
 local cmp = require("cmp")
 local kind_icons = {
-	Text = "",
-	Method = "󰆧",
-	Function = "󰊕",
-	Constructor = "",
-	Field = "󰇽",
-	Variable = "󰂡",
-	Class = "󰠱",
-	Interface = "",
-	Module = "",
-	Property = "󰜢",
-	Unit = "",
-	Value = "󰎠",
-	Enum = "",
-	Keyword = "󰌋",
-	Snippet = "",
-	Color = "󰏘",
-	File = "󰈙",
-	Reference = "",
-	Folder = "󰉋",
-	EnumMember = "",
-	Constant = "󰏿",
-	Struct = "",
-	Event = "",
-	Operator = "󰆕",
-	TypeParameter = "󰅲",
+
+	Text = ' ',
+	Method = ' ',
+	Function = ' ',
+	Constructor = ' ',
+	Field = ' ',
+	Variable = ' ',
+	Class = ' ',
+	Interface = ' ',
+	Module = ' ',
+	Property = ' ',
+	Snippet = ' ',
+	Unit = ' ',
+	Value = ' ',
+	Enum = ' ',
+	Keyword = ' ',
+	Snippet = ' ',
+	Color = ' ',
+	File = ' ',
+	Reference = ' ',
+	Folder = ' ',
+	EnumMember = ' ',
+	Constant = ' ',
+	Struct = ' ',
+	Event = ' ',
+	Operator = ' ',
+	TypeParameter = ' ',
 }
 
 cmp.setup({
@@ -129,6 +131,3 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
-
--- Set up lspconfig.
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.

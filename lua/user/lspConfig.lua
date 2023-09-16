@@ -1,3 +1,6 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require("lspconfig")["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
@@ -19,8 +22,6 @@ require("lspconfig")["tsserver"].setup({
 	end,
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require("lspconfig").html.setup({
 	capabilities = capabilities,
@@ -173,4 +174,8 @@ require("mason").setup({
 require("mason-lspconfig").setup({
 	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "emmet_ls", "eslint" },
 	-- automatic_installation = true
+})
+
+require("mason-null-ls").setup({
+    ensure_installed = { "prettierd", "autopep8" }
 })
