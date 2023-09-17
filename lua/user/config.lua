@@ -90,7 +90,7 @@ require("aerial").setup({
 
 -- vim.notify("This is an error message", "error")
 -- Cuando Neovim se inicia
--- vim.cmd([[autocmd VimEnter * lua print("Neovim se ha iniciado")]])
+-- vim.cmd([[autocmd VimEnter * nno]])
 
 -- Cuando Neovim se cierra
 vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
@@ -137,3 +137,19 @@ hi default link UfoPreviewCursorLine Visual
 hi default link UfoFoldedEllipsis Comment
 hi default link UfoCursorFoldedLine CursorLine]])
 
+require('hlslens').setup()
+
+local kopts = {noremap = true, silent = true}
+
+vim.api.nvim_set_keymap('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+
+vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)

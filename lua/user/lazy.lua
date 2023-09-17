@@ -274,7 +274,6 @@ end},
       "williamboman/mason.nvim",
       "jose-elias-alvarez/null-ls.nvim",
     },
-}
-
+},
+  'kevinhwang91/nvim-hlslens'
 })
-

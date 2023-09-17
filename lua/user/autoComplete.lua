@@ -9,9 +9,11 @@
 
 local navic = require("nvim-navic")
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Set up nvim-cmp.
 local cmp = require("cmp")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local kind_icons = {
 
 	Text = ' ',
@@ -79,7 +81,12 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
+		{ name = 'nvim_lsp_signature_help' },
+		{ name = "nvim_lsp",
+		entry_filter = function(entry)
+		  return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+		end
+	      },
 		{ name = "luasnip" }, -- For LuaSnip users.
 	}, {
 		{ name = "buffer" },
@@ -102,6 +109,10 @@ cmp.setup({
 			return vim_item
 		end,
 	},
+	cmp.event:on(
+	  'confirm_done',
+	  cmp_autopairs.on_confirm_done()
+	),
 	------------------------
 })
 
