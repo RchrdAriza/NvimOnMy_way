@@ -67,6 +67,7 @@ require("indent_blankline").setup({
 })
 
 wnotify = require("notify")
+
 wnotify.setup({
 	stages = "fade",
 	render = "compact",
@@ -126,6 +127,12 @@ require('ufo').setup({
 })
 --
 --
+require 'colorizer'.setup {
+  '*'; -- Highlight all files, but customize some others.
+  css = { rgb_fn = true; }; -- Enable parsing rgb(...) functions in css.
+  css = { names = true; }; -- Enable parsing rgb(...) functions in css.
+  html = { names = true; } -- Disable parsing "names" like Blue or Gray
+}
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
