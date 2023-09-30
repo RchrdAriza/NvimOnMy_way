@@ -81,11 +81,7 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp_signature_help' },
-		{ name = "nvim_lsp",
-		entry_filter = function(entry)
-		  return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
-		end
-	      },
+		{ name = "nvim_lsp" },
 		{ name = "luasnip" }, -- For LuaSnip users.
 	}, {
 		{ name = "buffer" },

@@ -61,7 +61,8 @@ require("lspconfig")["html"].setup({
 -- 		vim.lsp.log_set_level(vim.log.levels.OFF)
 -- 	end,
 -- })
-require("lspconfig")["emmet_ls"].setup({
+require("lspconfig")["emmet_language_server"].setup({
+	filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
@@ -69,6 +70,27 @@ require("lspconfig")["emmet_ls"].setup({
 		vim.lsp.log_set_level(vim.log.levels.OFF)
 	end,
 })
+
+--[[ require("lspconfig")[emmet_language_server].setup({
+  -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+  -- **Note:** only the options listed in the table are supported.
+  init_options = {
+    --- @type string[]
+    excludeLanguages = {},
+    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+    preferences = {},
+    --- @type boolean Defaults to `true`
+    showAbbreviationSuggestions = true,
+    --- @type "always" | "never" Defaults to `"always"`
+    showExpandedAbbreviation = "always",
+    --- @type boolean Defaults to `false`
+    showSuggestionsAsSnippets = false,
+    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+    syntaxProfiles = {},
+    --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+    variables = {},
+  },
+}) ]]
 
 -- require('lspconfig')['tailwindcss'].setup {
 --   capabilities = capabilities,
@@ -175,7 +197,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "emmet_ls", "eslint" },
+	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server" },
 	-- automatic_installation = true
 })
 

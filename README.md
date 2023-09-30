@@ -21,7 +21,7 @@
 
 - Python3
 - pip
-- Neovim 0.9.0
+- Neovim 0.9+
 - [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
 

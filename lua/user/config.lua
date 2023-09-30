@@ -60,11 +60,13 @@ local async = require("plenary.async")
 --vim.g.indent_blankline_exclude_children = 0
 vim.g.indent_blankline_exclude_children = false
 
-require("indent_blankline").setup({
+--[[ require("indent_blankline").setup({
 	-- for example, context is off by default, use this to turn it on
 	show_current_context = true,
 	show_current_context_start = true,
-})
+}) ]]
+
+require("ibl").setup()
 
 wnotify = require("notify")
 
