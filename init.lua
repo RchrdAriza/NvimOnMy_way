@@ -17,4 +17,5 @@ require('user.formatter-config')
 require('user.ownFunctions')
 require('user.autoComplete')
 require('user.telescope')
--- require('user.prueba')
+  -- init.lua
+  require'lspconfig'.jdtls.setup{ cmd = { 'jdtls' } }

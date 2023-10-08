@@ -275,5 +275,8 @@ end},
       "jose-elias-alvarez/null-ls.nvim",
     },
 },
-  'kevinhwang91/nvim-hlslens'
+  'kevinhwang91/nvim-hlslens',
+  'mfussenegger/nvim-jdtls',
+  'eruizc-dev/jdtls-launcher',
+  'mfussenegger/nvim-fzy',
 })
