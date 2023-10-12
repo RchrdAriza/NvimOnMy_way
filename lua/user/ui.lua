@@ -41,7 +41,6 @@ wk.setup({
 })
 
 wk.register({
-	["<Space>f"] = { "<cmd>Telescope find_files<cr>", " Find files" },
 	["<Space>e"] = { "<cmd>Neotree<cr>", " File Explorer" },
 	["<Space>n"] = { "<cmd>enew<cr>", " New file" },
 	["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
@@ -59,6 +58,15 @@ wk.register({
 		name = " See details",
 		e = { "<cmd>TroubleToggle<cr>", "See errors" },
 		f = { "<cmd>AerialToggle!<cr>", "See functions" },
+	},
+})
+wk.register({
+	["<Space>f"] = {
+		name = " Telescope",
+		f = { "<cmd>Telescope find_files<cr>", "Find_files" },
+		g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
+		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+		h = { "<cmd>Telescope help_tags<cr>", "Help_tags" },
 	},
 })
 wk.register({
