@@ -214,10 +214,14 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server" },
+	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server", "jdtls" },
 	-- automatic_installation = true
 })
 
 require("mason-null-ls").setup({
     ensure_installed = { "prettierd", "autopep8" }
 })
+
+require("fidget").setup {
+  -- options
+}

@@ -279,4 +279,16 @@ end},
   'mfussenegger/nvim-jdtls',
   'eruizc-dev/jdtls-launcher',
   'mfussenegger/nvim-fzy',
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {
+      -- options
+    },
+  },
+  {
+  'stevearc/conform.nvim',
+  opts = {},
+  },
 })

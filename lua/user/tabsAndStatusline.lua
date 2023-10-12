@@ -6,6 +6,20 @@
 --  │                         Lualine                          │
 --  │                        bufferline                        │
 --  ╰──────────────────────────────────────────────────────────╯
+--
+
+local colors = {
+  yellow = '#ECBE7B',
+  cyan = '#008080',
+  darkblue = '#081633',
+  green = '#98be65',
+  orange = '#FF8800',
+  violet = '#a9a1e1',
+  magenta = '#c678dd',
+  blue = '#51afef',
+  red = '#ec5f67'
+}
+
 
 require("lualine").setup({
 	options = {
@@ -27,7 +41,7 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = { "mode", 'lsp_progress' },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
 		lualine_x = { "filetype" },
@@ -54,6 +68,9 @@ require("lualine").setup({
 	inactive_winbar = {},
 	extensions = {},
 })
+
+
+
 
 prueba = "NvimOnMy_Way❤️"
 
