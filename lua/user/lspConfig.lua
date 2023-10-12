@@ -3,6 +3,16 @@
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+capabilities.workspace = {
+  configuration = true,
+  didChangeWatchedFiles = {
+    dynamicRegistration = true
+  },
+  didChangeConfiguration = {
+    dynamicRegistration = true
+  }
+}
+
 require("lspconfig")["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
@@ -24,6 +34,13 @@ require("lspconfig")["tsserver"].setup({
 	end,
 })
 
+require("lspconfig")["jdtls"].setup({
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		navic.attach(client, bufnr)
+		vim.lsp.log_set_level(vim.log.levels.OFF)
+	end,
+})
 
 require("lspconfig").html.setup({
 	capabilities = capabilities,
@@ -197,10 +214,14 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server" },
+	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server", "jdtls" },
 	-- automatic_installation = true
 })
 
 require("mason-null-ls").setup({
     ensure_installed = { "prettierd", "autopep8" }
 })
+
+require("fidget").setup {
+  -- options
+}
