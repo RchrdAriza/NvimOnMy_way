@@ -58,7 +58,7 @@ vim.g.mapleader = " "
 local async = require("plenary.async")
 
 --vim.g.indent_blankline_exclude_children = 0
-vim.g.indent_blankline_exclude_children = false
+-- vim.g.indent_blankline_exclude_children = false
 
 --[[ require("indent_blankline").setup({
 	-- for example, context is off by default, use this to turn it on

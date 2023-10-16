@@ -30,8 +30,8 @@ require("lazy").setup({
   opts = {
       styles = {
 	  terminal_colors = true,
-	  comments = { italic = true },
-	  keywords = { italic = true },
+	  comments = { italic = false },
+	  keywords = { italic = false },
       },
   },
 },
@@ -287,8 +287,5 @@ end},
       -- options
     },
   },
-  {
-  'stevearc/conform.nvim',
-  opts = {},
-  },
+  "lukas-reineke/cmp-under-comparator",
 })
