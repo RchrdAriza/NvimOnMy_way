@@ -1,7 +1,7 @@
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 capabilities.workspace = {
   configuration = true,
@@ -11,6 +11,11 @@ capabilities.workspace = {
   didChangeConfiguration = {
     dynamicRegistration = true
   }
+}
+
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
 }
 
 require("lspconfig")["pyright"].setup({

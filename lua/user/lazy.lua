@@ -47,7 +47,7 @@ require("lazy").setup({
    {
     'akinsho/bufferline.nvim',
     version = "*",
-    dependencies = 'kyazdani42/nvim-web-devicons'
+    dependencies = 'RchrdAriza/nvim-web-devicons'
   },
     'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
@@ -79,7 +79,7 @@ require("lazy").setup({
   },
    {
     'goolord/alpha-nvim',
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = { 'RchrdAriza/nvim-web-devicons' },
     config = function ()
         require'alpha'.setup(require'alpha.themes.startify'.config)
    end
@@ -97,12 +97,10 @@ require("lazy").setup({
     dependencies = { 'ldelossa/litee.nvim' }
   },
    'tpope/vim-fugitive',
+   'RchrdAriza/nvim-web-devicons',
 
 -- if use nvim-web-devicons
-   {
-  'yamatsum/nvim-nonicons',
-  dependencies = {'kyazdani42/nvim-web-devicons'}
-  },
+  -- "RchrdAriza/nvim-web-devicons",
   -- Packer
    { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
    {
@@ -117,7 +115,7 @@ require("lazy").setup({
   },
    "rafamadriz/friendly-snippets",
    "lukas-reineke/indent-blankline.nvim",
-    'kyazdani42/nvim-web-devicons',
+    'RchrdAriza/nvim-web-devicons',
     "nvim-lua/plenary.nvim",
    -- "RchrdAriza/pulpFictionNvim-Theme",
     'rcarriga/nvim-notify',
@@ -147,7 +145,7 @@ end},
    "gbprod/yanky.nvim",
    {
     "folke/trouble.nvim",
-    dependencies = 'kyazdani42/nvim-web-devicons'
+    dependencies = 'RchrdAriza/nvim-web-devicons'
   },
   { 'rose-pine/neovim', name = 'rose-pine' },
 
@@ -167,7 +165,7 @@ end},
   version = "*",
   dependencies = {
     "SmiteshP/nvim-navic",
-    "kyazdani42/nvim-web-devicons", -- optional dependency
+    "RchrdAriza/nvim-web-devicons", -- optional dependency
   },
   config = function()
     require("barbecue").setup()
@@ -175,7 +173,7 @@ end},
 },
  {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
+  dependencies = { 'RchrdAriza/nvim-web-devicons', lazy = true }
 },
 
  {
@@ -188,7 +186,7 @@ end},
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "RchrdAriza/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
   },
@@ -288,4 +286,5 @@ end},
     },
   },
   "lukas-reineke/cmp-under-comparator",
+  "RchrdAriza/nvim-web-devicons",
 })
