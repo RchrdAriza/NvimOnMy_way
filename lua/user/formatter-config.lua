@@ -28,9 +28,9 @@ require("formatter").setup {
     markdown = {
       require("formatter.filetypes.markdown").prettierd,
     },
-    -- lua = {
-    --   require("formatter.filetypes.lua").stylua,
-    -- },
+    javascriptreact = {
+      require("formatter.filetypes.javascriptreact").prettierd,
+    },
 
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype

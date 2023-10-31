@@ -14,6 +14,7 @@ local cmp = require("cmp")
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+
 local kind_icons = {
 
 	Text = ' ',
