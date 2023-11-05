@@ -83,6 +83,13 @@ require("lspconfig")["html"].setup({
 -- 		vim.lsp.log_set_level(vim.log.levels.OFF)
 -- 	end,
 -- })
+require("lspconfig")["volar"].setup({
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		navic.attach(client, bufnr)
+		vim.lsp.log_set_level(vim.log.levels.OFF)
+	end,
+})
 require("lspconfig")["emmet_language_server"].setup({
 	filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
 	on_attach = on_attach,
@@ -93,34 +100,6 @@ require("lspconfig")["emmet_language_server"].setup({
 	end,
 })
 
---[[ require("lspconfig")[emmet_language_server].setup({
-  -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-  -- **Note:** only the options listed in the table are supported.
-  init_options = {
-    --- @type string[]
-    excludeLanguages = {},
-    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
-    preferences = {},
-    --- @type boolean Defaults to `true`
-    showAbbreviationSuggestions = true,
-    --- @type "always" | "never" Defaults to `"always"`
-    showExpandedAbbreviation = "always",
-    --- @type boolean Defaults to `false`
-    showSuggestionsAsSnippets = false,
-    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
-    syntaxProfiles = {},
-    --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
-    variables = {},
-  },
-}) ]]
-
--- require('lspconfig')['tailwindcss'].setup {
---   capabilities = capabilities,
---   on_attach = function(client, bufnr)
---       navic.attach(client, bufnr)
---       vim.lsp.log_set_level(vim.log.levels.OFF)
---   end
--- }
 
 require("lspconfig")["clangd"].setup({
 	capabilities = capabilities,
@@ -198,6 +177,8 @@ vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
 vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
 vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
 vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
+-- green 
+vim.api.nvim_set_hl(0, "CmpItemKindClass", { bg="NONE", fg="#ECBE7B" })
 -- pink
 vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
 vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { bg = "NONE", fg = "#FF6767" })
@@ -219,7 +200,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server", "jdtls" },
+	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server", "jdtls", "volar" },
 	-- automatic_installation = true
 })
 
