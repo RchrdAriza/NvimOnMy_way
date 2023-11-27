@@ -287,4 +287,14 @@ end},
   },
   "lukas-reineke/cmp-under-comparator",
   "RchrdAriza/nvim-web-devicons",
+  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
+},
 })

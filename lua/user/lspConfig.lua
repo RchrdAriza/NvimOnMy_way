@@ -1,3 +1,16 @@
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+require('flutter-tools').setup({
+  lsp = {
+    capabilities = lsp_zero.get_capabilities()
+  }
+})
+
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
