@@ -277,6 +277,7 @@ end},
   'mfussenegger/nvim-jdtls',
   'eruizc-dev/jdtls-launcher',
   'mfussenegger/nvim-fzy',
+<<<<<<< HEAD
   {
     "j-hui/fidget.nvim",
     tag = "legacy",
@@ -296,5 +297,17 @@ end},
         'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
     config = true,
+=======
+  -- Remove the `use` here if you're using folke/lazy.nvim.
+ {
+  'Exafunction/codeium.vim',
+  config = function ()
+    -- Change '<C-g>' here to any keycode you like.
+    vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+    vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+    vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+    vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+  end
+>>>>>>> 6c275fb8851fce43265b3cd44484a7a152a54dc6
 },
 })
