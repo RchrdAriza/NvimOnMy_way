@@ -1,6 +1,5 @@
 vim.g.prueba = false
 
-
 function live_server()
 	local function command_exists(command)
 		local handle = io.popen("command -v " .. command)
@@ -72,7 +71,7 @@ function Save()
 	vim.notify("Saved file")
 end
 
-function test_function(buf)
+--[[ function test_function(buf)
 	-- Obtener la ruta completa del archivo
 	local file_path = vim.api.nvim_buf_get_name(buf)
 	-- Extraer solo el nombre del archivo
@@ -89,7 +88,7 @@ function test_function(buf)
 		})
 	)
 	vim.cmd("silent :Format")
-end
+end ]]
 
 function tkinter()
 	vim.cmd("TermExec cmd='DISPLAY=:1 PULSE_SERVER=localhost python %'")
@@ -114,100 +113,98 @@ local Input = require("nui.input")
 local event = require("nui.utils.autocmd").event
 
 function exitUI()
-  local input = Input({
-    position = "50%",
-    size = {
-      width = 20,
-    },
-    border = {
-      style = "single",
-      text = {
-	top = "[exit? (y/n)]",
-	top_align = "center",
-      },
-    },
-    win_options = {
-      winhighlight = "Normal:Normal,FloatBorder:Normal",
-    },
-  }, {
-    prompt = "> ",
-    -- default_value = "Hello",
-    on_close = function()
-      print("Input Closed!")
-    end,
-    on_submit = function(value)
-      value = string.lower(value)
-      if value == 'y' then
-	vim.cmd(":x")
-      elseif value == "n" then
-	print("Canceled")
-      else
-	print("invalid input")
-      end
-    end,
-  })
+	local input = Input({
+		position = "50%",
+		size = {
+			width = 20,
+		},
+		border = {
+			style = "single",
+			text = {
+				top = "[exit? (y/n)]",
+				top_align = "center",
+			},
+		},
+		win_options = {
+			winhighlight = "Normal:Normal,FloatBorder:Normal",
+		},
+	}, {
+		prompt = "> ",
+		-- default_value = "Hello",
+		on_close = function()
+			print("Input Closed!")
+		end,
+		on_submit = function(value)
+			value = string.lower(value)
+			if value == "y" then
+				vim.cmd(":x")
+			elseif value == "n" then
+				print("Canceled")
+			else
+				print("invalid input")
+			end
+		end,
+	})
 
-  -- mount/open the component
-  input:mount()
+	-- mount/open the component
+	input:mount()
 
-  input:map("n", "<esc>", input.input_props.on_close, { noremap = true })
+	input:map("n", "<esc>", input.input_props.on_close, { noremap = true })
 
-  -- unmount component when cursor leaves buffer
-  input:on(event.BufLeave, function()
-    input:unmount()
-  end)
+	-- unmount component when cursor leaves buffer
+	input:on(event.BufLeave, function()
+		input:unmount()
+	end)
 end
 
 local Menu = require("nui.menu")
 local event = require("nui.utils.autocmd").event
 
 function listBuffers()
+	local menu = Menu({
+		position = "50%",
+		size = {
+			width = 25,
+			height = 5,
+		},
+		border = {
+			style = "single",
+			text = {
+				top = "[Choose-an-Element]",
+				top_align = "center",
+			},
+		},
+		win_options = {
+			winhighlight = "Normal:Normal,FloatBorder:Normal",
+		},
+	}, {
+		lines = {
+			Menu.item("Hydrogen (H)"),
+			Menu.item("Carbon (C)"),
+			Menu.item("Nitrogen (N)"),
+			Menu.separator("Noble-Gases", {
+				char = "-",
+				text_align = "right",
+			}),
+			Menu.item("Helium (He)"),
+			Menu.item("Neon (Ne)"),
+			Menu.item("Argon (Ar)"),
+		},
+		max_width = 20,
+		keymap = {
+			focus_next = { "j", "<Down>", "<Tab>" },
+			focus_prev = { "k", "<Up>", "<S-Tab>" },
+			close = { "<Esc>", "<C-c>" },
+			submit = { "<CR>", "<Space>" },
+		},
+		on_close = function()
+			print("Menu Closed!")
+		end,
+		on_submit = function(item)
+			print("Menu Submitted: ", item.text)
+		end,
+	})
 
-  local menu = Menu({
-    position = "50%",
-    size = {
-      width = 25,
-      height = 5,
-    },
-    border = {
-      style = "single",
-      text = {
-	top = "[Choose-an-Element]",
-	top_align = "center",
-      },
-    },
-    win_options = {
-      winhighlight = "Normal:Normal,FloatBorder:Normal",
-    },
-  }, {
-    lines = {
-      Menu.item("Hydrogen (H)"),
-      Menu.item("Carbon (C)"),
-      Menu.item("Nitrogen (N)"),
-      Menu.separator("Noble-Gases", {
-	char = "-",
-	text_align = "right",
-      }),
-      Menu.item("Helium (He)"),
-      Menu.item("Neon (Ne)"),
-      Menu.item("Argon (Ar)"),
-    },
-    max_width = 20,
-    keymap = {
-      focus_next = { "j", "<Down>", "<Tab>" },
-      focus_prev = { "k", "<Up>", "<S-Tab>" },
-      close = { "<Esc>", "<C-c>" },
-      submit = { "<CR>", "<Space>" },
-    },
-    on_close = function()
-      print("Menu Closed!")
-    end,
-    on_submit = function(item)
-      print("Menu Submitted: ", item.text)
-    end,
-  })
-
-  -- mount the component
-  menu:mount()
-
+	-- mount the component
+	menu:mount()
 end

@@ -124,14 +124,14 @@ vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 
 --
 --
-require 'colorizer'.setup {
-  '*'; -- Highlight all files, but customize some others.
-  css = { rgb_fn = true; }; -- Enable parsing rgb(...) functions in css.
-  css = { names = true; }; -- Enable parsing rgb(...) functions in css.
-  html = { names = true; } -- Disable parsing "names" like Blue or Gray
-}
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+require("colorizer").setup({
+	"*", -- Highlight all files, but customize some others.
+	css = { rgb_fn = true }, -- Enable parsing rgb(...) functions in css.
+	css = { names = true }, -- Enable parsing rgb(...) functions in css.
+	html = { names = true }, -- Disable parsing "names" like Blue or Gray
+})
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
 vim.cmd([[
 hi default link UfoPreviewSbar PmenuSbar
@@ -141,22 +141,27 @@ hi default link UfoPreviewCursorLine Visual
 hi default link UfoFoldedEllipsis Comment
 hi default link UfoCursorFoldedLine CursorLine]])
 
-require('hlslens').setup()
+require("hlslens").setup()
 
-local kopts = {noremap = true, silent = true}
+local kopts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap(
+	"n",
+	"n",
+	[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+	kopts
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"N",
+	[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+	kopts
+)
+vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
+vim.api.nvim_set_keymap("n", "<Leader>l", "<Cmd>noh<CR>", kopts)
 
-require 'nvim-web-devicons'.setup {}
-
+require("nvim-web-devicons").setup({})

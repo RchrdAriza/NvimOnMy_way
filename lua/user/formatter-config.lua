@@ -1,44 +1,38 @@
--- Utilities for creating configurations
-local util = require "formatter.util"
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- Conform will run multiple formatters sequentially
+		python = { "autopep8" },
+		-- Use a sub-list to run only the first available formatter
+		javascript = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		markdown = { "prettierd" },
+		django = { "djlint" },
+		htmldjango = { "djlint" },
+	},
+})
 
--- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-require("formatter").setup {
-  -- Enable or disable logging
-  logging = true,
-  -- Set the log level
-  log_level = vim.log.levels.WARN,
-  -- All formatter configurations are opt-in
-  filetype = {
-    -- Formatter configurations for filetype "lua" go here
-    -- and will be executed in order
-    python = {
-      require("formatter.filetypes.python").autopep8,
-    },
+local slow_format_filetypes = {}
+require("conform").setup({
+	format_on_save = function(bufnr)
+		if slow_format_filetypes[vim.bo[bufnr].filetype] then
+			return
+		end
+		local function on_format(err)
+			if err and err:match("timeout$") then
+				slow_format_filetypes[vim.bo[bufnr].filetype] = true
+			end
+		end
 
-    html = {
-      require("formatter.filetypes.html").prettierd,
-    },
+		return { timeout_ms = 200, lsp_fallback = true }, on_format
+	end,
 
-    css = {
-      require("formatter.filetypes.css").prettierd,
-    },
-    javascript = {
-      require("formatter.filetypes.javascript").prettierd,
-    },
-    markdown = {
-      require("formatter.filetypes.markdown").prettierd,
-    },
-    javascriptreact = {
-      require("formatter.filetypes.javascriptreact").prettierd,
-    },
-
-    -- Use the special "*" filetype for defining formatter configurations on
-    -- any filetype
-    ["*"] = {
-      -- "formatter.filetypes.any" defines default configurations for any
-      -- filetype
-      require("formatter.filetypes.any").remove_trailing_whitespace,
-    }
-  }
-}
-
+	format_after_save = function(bufnr)
+		if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+			return
+		end
+		return { lsp_fallback = true }
+	end,
+})
