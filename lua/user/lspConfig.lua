@@ -4,6 +4,13 @@ lsp_zero.on_attach(function(client, bufnr)
 	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
+lsp_zero.set_sign_icons({
+	error = "✘",
+	warn = "▲",
+	hint = "⚑",
+	info = "»",
+})
+
 require("flutter-tools").setup({
 	lsp = {
 		capabilities = lsp_zero.get_capabilities(),
