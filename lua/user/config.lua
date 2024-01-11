@@ -38,18 +38,7 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-s>", ":lua Save()<cr>", { noremap = true })
-
-vim.cmd([[
-nnoremap <C-x> :RunCode<cr>
-nnoremap <silent> ff :lua test_function(0)<CR>
-nnoremap <silent> <leader>F :FormatWrite<CR>
-
-" augroup FormatAutogroup
-"   autocmd!
-"   autocmd BufWritePost * FormatWrite
-" augroup END
-
-]])
+vim.api.nvim_set_keymap("n", "<C-x>", ":RunCode()<cr>", { noremap = true })
 
 require("image_preview").setup({})
 

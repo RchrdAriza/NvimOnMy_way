@@ -9,17 +9,16 @@
 --
 
 local colors = {
-  yellow = '#ECBE7B',
-  cyan = '#008080',
-  darkblue = '#081633',
-  green = '#98be65',
-  orange = '#FF8800',
-  violet = '#a9a1e1',
-  magenta = '#c678dd',
-  blue = '#51afef',
-  red = '#ec5f67'
+	yellow = "#ECBE7B",
+	cyan = "#008080",
+	darkblue = "#081633",
+	green = "#98be65",
+	orange = "#FF8800",
+	violet = "#a9a1e1",
+	magenta = "#c678dd",
+	blue = "#51afef",
+	red = "#ec5f67",
 }
-
 
 require("lualine").setup({
 	options = {
@@ -41,18 +40,20 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode", 'lsp_progress' },
+		lualine_a = { "mode", "lsp_progress" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
 		lualine_x = { "filetype" },
 		lualine_y = { "progress" },
-		lualine_z = { "location", function()
-		  if vim.g.prueba == true then
-		    return "Live-server: ON"
-		  else
-		    return "NvimOnMy_Way❤️"
-		  end
-		end
+		lualine_z = {
+			"location",
+			function()
+				if vim.g.prueba == true then
+					return "Live-server: ON"
+				else
+					return "NvimOnMy_Way❤️"
+				end
+			end,
 		},
 	},
 	inactive_sections = {
@@ -68,9 +69,6 @@ require("lualine").setup({
 	inactive_winbar = {},
 	extensions = {},
 })
-
-
-
 
 prueba = "NvimOnMy_Way❤️"
 
@@ -95,19 +93,19 @@ require("bufferline").setup({
 				local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
 				if error ~= 0 then
-					table.insert(result, { text = "  " .. error, fg = "#EC5241" })
+					table.insert(result, { text = "  " .. error, fg = "#EC5241" })
 				end
 
 				if warning ~= 0 then
-					table.insert(result, { text = "  " .. warning, fg = "#EFB839" })
+					table.insert(result, { text = "  " .. warning, fg = "#EFB839" })
 				end
 
 				if hint ~= 0 then
-					table.insert(result, { text = "  " .. hint, fg = "#53FF74" })
+					table.insert(result, { text = "  " .. hint, fg = "#53FF74" })
 				end
 
 				if info ~= 0 then
-					table.insert(result, { text = "  " .. info, fg = "#7EA9A7" })
+					table.insert(result, { text = "  " .. info, fg = "#7EA9A7" })
 				end
 				return result
 			end,

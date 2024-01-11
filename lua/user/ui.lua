@@ -8,9 +8,6 @@
 --  │          Alpha                 [ ui | greeter ]          │
 --  ╰──────────────────────────────────────────────────────────╯
 
-
-
-
 local presets = require("which-key.plugins.presets")
 presets.operators["v"] = nil
 presets.operators["g"] = nil
@@ -45,7 +42,7 @@ wk.register({
 	["<Space>n"] = { "<cmd>enew<cr>", " New file" },
 	["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
 	["<Space>h"] = { "<cmd>Alpha<cr>", " Go to menu" },
-	["<Space>q"] = { "<cmd>q!<cr>", " Exit" },
+	["<Space>q"] = { "<cmd>q!<cr>", "󰩈 Exit" },
 	["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
 	["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
 	-- ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
@@ -240,4 +237,3 @@ alpha.setup(dashboard.opts)
 vim.cmd([[
      autocmd FileType alpha setlocal nofoldenable
  ]])
-
