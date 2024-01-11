@@ -4,18 +4,18 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 capabilities.workspace = {
-  configuration = true,
-  didChangeWatchedFiles = {
-    dynamicRegistration = true
-  },
-  didChangeConfiguration = {
-    dynamicRegistration = true
-  }
+	configuration = true,
+	didChangeWatchedFiles = {
+		dynamicRegistration = true,
+	},
+	didChangeConfiguration = {
+		dynamicRegistration = true,
+	},
 }
 
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
 }
 
 require("lspconfig")["pyright"].setup({
@@ -91,7 +91,20 @@ require("lspconfig")["volar"].setup({
 	end,
 })
 require("lspconfig")["emmet_language_server"].setup({
-	filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"svelte",
+		"pug",
+		"typescriptreact",
+		"vue",
+	},
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
@@ -99,7 +112,6 @@ require("lspconfig")["emmet_language_server"].setup({
 		vim.lsp.log_set_level(vim.log.levels.OFF)
 	end,
 })
-
 
 require("lspconfig")["clangd"].setup({
 	capabilities = capabilities,
@@ -162,7 +174,7 @@ cmp.setup({
 	-- ... Your other configuration ...
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -177,8 +189,8 @@ vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
 vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
 vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
 vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
--- green 
-vim.api.nvim_set_hl(0, "CmpItemKindClass", { bg="NONE", fg="#ECBE7B" })
+-- green
+vim.api.nvim_set_hl(0, "CmpItemKindClass", { bg = "NONE", fg = "#ECBE7B" })
 -- pink
 vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
 vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { bg = "NONE", fg = "#FF6767" })
@@ -200,14 +212,24 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "html", "cssls", "bashls", "tsserver", "eslint", "emmet_language_server", "jdtls", "volar" },
+	ensure_installed = {
+		"pyright",
+		"html",
+		"cssls",
+		"bashls",
+		"tsserver",
+		"eslint",
+		"emmet_language_server",
+		"jdtls",
+		"volar",
+	},
 	-- automatic_installation = true
 })
 
 require("mason-null-ls").setup({
-    ensure_installed = { "prettierd", "autopep8" }
+	ensure_installed = { "prettierd", "autopep8" },
 })
 
-require("fidget").setup {
-  -- options
-}
+require("fidget").setup({
+	-- options
+})
