@@ -7,41 +7,45 @@
 --  │                         nvim-cmp                         │
 --  ╰──────────────────────────────────────────────────────────╯
 
-local navic = require("nvim-navic")
+local has_words_before = function()
+	unpack = unpack or table.unpack
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 -- Set up nvim-cmp.
 local cmp = require("cmp")
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local luasnip = require("luasnip")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 
 local kind_icons = {
 
-	Text = ' ',
-	Method = ' ',
-	Function = ' ',
-	Constructor = ' ',
-	Field = ' ',
-	Variable = ' ',
-	Class = ' ',
-	Interface = ' ',
-	Module = ' ',
-	Property = ' ',
-	Snippet = ' ',
-	Unit = ' ',
-	Value = ' ',
-	Enum = ' ',
-	Keyword = ' ',
-	Color = ' ',
-	File = ' ',
-	Reference = ' ',
-	Folder = ' ',
-	EnumMember = ' ',
-	Constant = ' ',
-	Struct = ' ',
-	Event = ' ',
-	Operator = ' ',
-	TypeParameter = ' ',
+	Text = " ",
+	Method = " ",
+	Function = " ",
+	Constructor = " ",
+	Field = " ",
+	Variable = " ",
+	Class = " ",
+	Interface = " ",
+	Module = " ",
+	Property = " ",
+	Snippet = " ",
+	Unit = " ",
+	Value = " ",
+	Enum = " ",
+	Keyword = " ",
+	Color = " ",
+	File = " ",
+	Reference = " ",
+	Folder = " ",
+	EnumMember = " ",
+	Constant = " ",
+	Struct = " ",
+	Event = " ",
+	Operator = " ",
+	TypeParameter = " ",
 }
 
 cmp.setup({
@@ -59,7 +63,7 @@ cmp.setup({
 			cmp.config.compare.exact,
 			cmp.config.compare.sort_text,
 			cmp.config.compare.score,
-			require "cmp-under-comparator".under,
+			require("cmp-under-comparator").under,
 			cmp.config.compare.recently_used,
 			cmp.config.compare.kind,
 			cmp.config.compare.length,
@@ -82,7 +86,7 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp_signature_help' },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" }, -- For LuaSnip users.
 	}, {
@@ -106,10 +110,7 @@ cmp.setup({
 			return vim_item
 		end,
 	},
-	cmp.event:on(
-	  'confirm_done',
-	  cmp_autopairs.on_confirm_done()
-	),
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done()),
 	------------------------
 })
 
@@ -138,4 +139,47 @@ cmp.setup.cmdline(":", {
 	}, {
 		{ name = "cmdline" },
 	}),
+})
+
+cmp.setup({
+
+	-- ... Your other configuration ...
+
+	mapping = {
+
+		-- ... Your other mappings ...
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				if #cmp.get_entries() == 1 then
+					cmp.confirm({ select = true })
+				else
+					cmp.select_next_item()
+				end
+			--[[ Replace with your snippet engine (see above sections on this page) ]]
+			elseif luasnip.can_expand_or_advance() then
+				luasnip.expand_or_advance()
+			elseif has_words_before() then
+				cmp.complete()
+				if #cmp.get_entries() == 1 then
+					cmp.confirm({ select = true })
+				end
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		-- ... Your other mappings ...
+	},
+
+	-- ... Your other configuration ...
 })

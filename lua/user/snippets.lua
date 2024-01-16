@@ -20,6 +20,8 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
+require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip").filetype_extend("dart", { "flutter" })
 
 -- If you're reading this file for the first time, best skip to around line 190
 -- where the actual snippet-definitions start.
@@ -116,10 +118,7 @@ local function jdocsnip(args, _, old_state)
 			else
 				inode = i(insert)
 			end
-			vim.list_extend(
-				nodes,
-				{ t({ " * @param " .. arg .. " " }), inode, t({ "", "" }) }
-			)
+			vim.list_extend(nodes, { t({ " * @param " .. arg .. " " }), inode, t({ "", "" }) })
 			param_nodes["arg" .. arg] = inode
 
 			insert = insert + 1
@@ -134,10 +133,7 @@ local function jdocsnip(args, _, old_state)
 			inode = i(insert)
 		end
 
-		vim.list_extend(
-			nodes,
-			{ t({ " * ", " * @return " }), inode, t({ "", "" }) }
-		)
+		vim.list_extend(nodes, { t({ " * ", " * @return " }), inode, t({ "", "" }) })
 		param_nodes.ret = inode
 		insert = insert + 1
 	end
@@ -150,10 +146,7 @@ local function jdocsnip(args, _, old_state)
 		else
 			ins = i(insert)
 		end
-		vim.list_extend(
-			nodes,
-			{ t({ " * ", " * @throws " .. exc .. " " }), ins, t({ "", "" }) }
-		)
+		vim.list_extend(nodes, { t({ " * ", " * @throws " .. exc .. " " }), ins, t({ "", "" }) })
 		param_nodes.ex = ins
 		insert = insert + 1
 	end
@@ -285,10 +278,7 @@ ls.add_snippets("all", {
 	-- `fmta` is a convenient wrapper that uses `<>` instead of `{}`.
 	s("fmt5", fmta("foo() { return <>; }", i(1, "x"))),
 	-- By default all args must be used. Use strict=false to disable the check
-	s(
-		"fmt6",
-		fmt("use {} only", { t("this"), t("not this") }, { strict = false })
-	),
+	s("fmt6", fmt("use {} only", { t("this"), t("not this") }, { strict = false })),
 	-- Use a dynamicNode to interpolate the output of a
 	-- function (see date_input above) into the initial
 	-- value of an insertNode.
@@ -300,16 +290,10 @@ ls.add_snippets("all", {
 	-- Parsing snippets: First parameter: Snippet-Trigger, Second: Snippet body.
 	-- Placeholders are parsed into choices with 1. the placeholder text(as a snippet) and 2. an empty string.
 	-- This means they are not SELECTed like in other editors/Snippet engines.
-	ls.parser.parse_snippet(
-		"lspsyn",
-		"Wow! This ${1:Stuff} really ${2:works. ${3:Well, a bit.}}"
-	),
+	ls.parser.parse_snippet("lspsyn", "Wow! This ${1:Stuff} really ${2:works. ${3:Well, a bit.}}"),
 
 	-- When wordTrig is set to false, snippets may also expand inside other words.
-	ls.parser.parse_snippet(
-		{ trig = "te", wordTrig = false },
-		"${1:cond} ? ${2:true} : ${3:false}"
-	),
+	ls.parser.parse_snippet({ trig = "te", wordTrig = false }, "${1:cond} ? ${2:true} : ${3:false}"),
 
 	-- When regTrig is set, trig is treated like a pattern, this snippet will expand after any number.
 	ls.parser.parse_snippet({ trig = "%d", regTrig = true }, "A Number!!"),
@@ -338,11 +322,9 @@ ls.add_snippets("all", {
 		t("will only expand at the end and the start of the line"),
 	}, {
 		-- last function is just an example how to make own function objects and apply operators on them
-		condition = conds_expand.line_end
-			+ conds_expand.line_begin
-				* conds.make_condition(function()
-					return true
-				end),
+		condition = conds_expand.line_end + conds_expand.line_begin * conds.make_condition(function()
+			return true
+		end),
 	}),
 	-- The last entry of args passed to the user-function is the surrounding snippet.
 	s(
@@ -428,11 +410,7 @@ ls.add_snippets("all", {
 	s("mat3", {
 		i(1, { "sample_text" }),
 		t(": "),
-		m(
-			1,
-			l._1:gsub("[123]", ""):match("%d"),
-			"contains a number that isn't 1, 2 or 3!"
-		),
+		m(1, l._1:gsub("[123]", ""):match("%d"), "contains a number that isn't 1, 2 or 3!"),
 	}),
 	-- `match` also accepts a function in place of the condition, which in
 	-- turn accepts the usual functionNode-args.
@@ -534,18 +512,18 @@ ls.add_snippets("all", {
 })
 
 -- in a lua file: search lua-, then c-, then all-snippets.
-ls.filetype_extend("lua", { "c" })
+-- ls.filetype_extend("lua", { "c" })
 -- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
 ls.filetype_set("cpp", { "c" })
 
 -- Beside defining your own snippets you can also load snippets from "vscode-like" packages
 -- that expose snippets in json files, for example <https://github.com/rafamadriz/friendly-snippets>.
 
-require("luasnip.loaders.from_vscode").load({ include = { "python" } }) -- Load only python snippets
+-- require("luasnip.loaders.from_vscode").load({ include = { "python" } }) -- Load only python snippets
 
 -- The directories will have to be structured like eg. <https://github.com/rafamadriz/friendly-snippets> (include
 -- a similar `package.json`)
-require("luasnip.loaders.from_vscode").load({ paths = { "./my-snippets" } }) -- Load snippets from my-snippets folder
+-- require("luasnip.loaders.from_vscode").load({ paths = { "./my-snippets" } }) -- Load snippets from my-snippets folder
 
 -- You can also use lazy loading so snippets are loaded on-demand, not all at once (may interfere with lazy-loading luasnip itself).
 require("luasnip.loaders.from_vscode").lazy_load() -- You can pass { paths = "./my-snippets/"} as well

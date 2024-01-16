@@ -20,7 +20,7 @@ require("flutter-tools").setup({
 local navic = require("nvim-navic")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -68,13 +68,6 @@ require("lspconfig")["jdtls"].setup({
 	end,
 })
 
-require("lspconfig").html.setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		navic.attach(client, bufnr)
-		vim.lsp.log_set_level(vim.log.levels.OFF)
-	end,
-})
 require("lspconfig")["cssls"].setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)

@@ -67,10 +67,17 @@ require("lazy").setup({
 					{ name = "luasnip" },
 					-- more sources
 				},
+				event = { "InsertEnter", "CmdlineEnter" },
 			})
 		end,
 	},
-	"L3MON4D3/LuaSnip",
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+		dependencies = { "rafamadriz/friendly-snippets" },
+	},
 	"saadparwaiz1/cmp_luasnip",
 	{
 		"williamboman/mason.nvim",
@@ -315,24 +322,6 @@ require("lazy").setup({
 		},
 		config = true,
 		-- Remove the `use` here if you're using folke/lazy.nvim.
-		{
-			"Exafunction/codeium.vim",
-			config = function()
-				-- Change '<C-g>' here to any keycode you like.
-				vim.keymap.set("i", "<C-g>", function()
-					return vim.fn["codeium#Accept"]()
-				end, { expr = true })
-				vim.keymap.set("i", "<c-;>", function()
-					return vim.fn["codeium#CycleCompletions"](1)
-				end, { expr = true })
-				vim.keymap.set("i", "<c-,>", function()
-					return vim.fn["codeium#CycleCompletions"](-1)
-				end, { expr = true })
-				vim.keymap.set("i", "<c-x>", function()
-					return vim.fn["codeium#Clear"]()
-				end, { expr = true })
-			end,
-		},
 	},
 	{ "folke/neodev.nvim", opts = {} },
 })
