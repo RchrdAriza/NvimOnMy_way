@@ -60,13 +60,13 @@ require("lspconfig")["tsserver"].setup({
 	end,
 })
 
-require("lspconfig")["jdtls"].setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		navic.attach(client, bufnr)
-		vim.lsp.log_set_level(vim.log.levels.OFF)
-	end,
-})
+-- require("lspconfig")["jdtls"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = function(client, bufnr)
+-- 		navic.attach(client, bufnr)
+-- 		vim.lsp.log_set_level(vim.log.levels.OFF)
+-- 	end,
+-- })
 
 require("lspconfig")["cssls"].setup({
 	capabilities = capabilities,
@@ -124,7 +124,6 @@ require("lspconfig")["emmet_language_server"].setup({
 		"typescriptreact",
 		"vue",
 	},
-	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 	on_attach = function()
@@ -239,7 +238,7 @@ require("mason-lspconfig").setup({
 		"tsserver",
 		"eslint",
 		"emmet_language_server",
-		"jdtls",
+		-- "jdtls",
 		"volar",
 	},
 	-- automatic_installation = true
@@ -251,4 +250,27 @@ require("mason-null-ls").setup({
 
 require("fidget").setup({
 	-- options
+})
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Enable completion triggered by <c-x><c-o>
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf }
+
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+		-- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gD", vim.lsp.buf.definition, opts)
+		-- vim.keymap.set("n", "<space>wl", function()
+		-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		-- end, opts)
+		-- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+	end,
 })

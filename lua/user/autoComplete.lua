@@ -7,17 +7,12 @@
 --  │                         nvim-cmp                         │
 --  ╰──────────────────────────────────────────────────────────╯
 
-local has_words_before = function()
-	unpack = unpack or table.unpack
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 -- Set up nvim-cmp.
 local cmp = require("cmp")
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 local kind_icons = {
 
@@ -141,6 +136,12 @@ cmp.setup.cmdline(":", {
 	}),
 })
 
+local has_words_before = function()
+	unpack = unpack or table.unpack
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup({
 
 	-- ... Your other configuration ...
@@ -148,6 +149,7 @@ cmp.setup({
 	mapping = {
 
 		-- ... Your other mappings ...
+
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				if #cmp.get_entries() == 1 then
@@ -156,8 +158,8 @@ cmp.setup({
 					cmp.select_next_item()
 				end
 			--[[ Replace with your snippet engine (see above sections on this page) ]]
-			elseif luasnip.can_expand_or_advance() then
-				luasnip.expand_or_advance()
+			-- elseif luasnip.can_expand_or_advance() then
+			-- 	luasnip.expand_or_advance()
 			elseif has_words_before() then
 				cmp.complete()
 				if #cmp.get_entries() == 1 then
@@ -166,19 +168,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		-- ... Your other mappings ...
+		end, { "i", "s" }), -- ... Your other mappings ...
 	},
 
 	-- ... Your other configuration ...

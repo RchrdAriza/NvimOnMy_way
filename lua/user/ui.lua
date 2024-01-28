@@ -10,7 +10,7 @@
 
 local presets = require("which-key.plugins.presets")
 presets.operators["v"] = nil
-presets.operators["g"] = nil
+-- presets.operators["g"] = nil
 
 local wk = require("which-key")
 
@@ -27,7 +27,7 @@ wk.setup({
 	icons = {
 		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
 		separator = "-", -- symbol used between a key and it's label
-		group = "", -- symbol prepended to a group
+		group = "+ ", -- symbol prepended to a group
 	},
 	layout = {
 		height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -43,8 +43,9 @@ wk.register({
 	["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
 	["<Space>h"] = { "<cmd>Alpha<cr>", " Go to menu" },
 	["<Space>q"] = { "<cmd>q!<cr>", "󰩈 Exit" },
+	["<Space><Space>"] = { "<cmd>noh<cr>", "󰫙 Noh" },
 	["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
-	["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
+	["<Space>R"] = { "<cmd>RunCode()<cr>", " Run Code" },
 	-- ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
 	["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
 	["<Space>c"] = { "<cmd>:lua countAndCloseBuffers()<cr>", "󱎘 Close tab" },
@@ -64,6 +65,18 @@ wk.register({
 		g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
 		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help_tags" },
+	},
+})
+wk.register({
+	["<Space>l"] = {
+		name = " Lsp-Actions",
+		D = { "<cmd>:lua vim.lsp.buf.declaration()<cr>", "lsp.buf.declaration" },
+		d = { "<cmd>:lua vim.lsp.buf.definition()<cr>", "vim.lsp.buf.definition" },
+		h = { "<cmd>:lua vim.lsp.buf.hover()<cr>", "lsp.buf.hover" },
+		i = { "<cmd>:lua vim.lsp.buf.implementation()<cr>", "lsp.buf.implementation" },
+		r = { "<cmd>:lua vim.lsp.buf.rename()<cr>", "lsp.buf.rename" },
+		a = { "<cmd>:lua vim.lsp.buf.code_action()<cr>", "lsp.buf.code_action" },
+		t = { "<cmd>:lua vim.lsp.buf.type_definition()<cr>", "lsp.buf.type_definition" },
 	},
 })
 wk.register({

@@ -55,21 +55,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-cmdline",
 	{
 		"hrsh7th/nvim-cmp",
-		config = function()
-			require("cmp").setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-
-				sources = {
-					{ name = "luasnip" },
-					-- more sources
-				},
-				event = { "InsertEnter", "CmdlineEnter" },
-			})
-		end,
+		event = { "InsertEnter", "CmdlineEnter" },
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -171,7 +157,7 @@ require("lazy").setup({
 		"akinsho/git-conflict.nvim",
 		version = "*",
 		config = function()
-			require("git-conflict").setup()
+			require("git-conflict").setup({})
 		end,
 	},
 	"adelarsq/image_preview.nvim",
@@ -228,9 +214,7 @@ require("lazy").setup({
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("nvim-surround").setup()
 		end,
 	},
 	"HiPhish/rainbow-delimiters.nvim",
