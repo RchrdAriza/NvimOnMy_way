@@ -34,6 +34,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 vim.cmd("colorscheme tokyonight-night")
 
+vim.keymap.set("n", "<space>j", vim.diagnostic.open_float)
+
 -- Zona de mapeos --
 vim.api.nvim_set_keymap("n", "gt", ":bnext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gT", ":bprevious<cr>", { noremap = true })
