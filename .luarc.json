@@ -1,0 +1,10 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "notify",
+        "misc_augroup"
+    ],
+    "diagnostics.disable": [
+        "duplicate-index"
+    ]
+}

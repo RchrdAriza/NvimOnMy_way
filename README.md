@@ -31,7 +31,7 @@
 Just run this in the terminal:
 
 ```bash
-git clone https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
+git clone -b alternativa https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 
 <!-- ## ⌨️ Keymaps -->
@@ -39,12 +39,11 @@ git clone https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
 
 To go to see the keymaps click [here](keymaps_readme.md)
 
-
 <!-- ## 🔌 Plugins -->
 <h2 id="plugins">🔌 Plugins</h2>
 It has about 60 plugins and these are some of them
 
-####  Package Manager
+#### Package Manager
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim) - A modern plugin manager.
 
@@ -80,8 +79,7 @@ It has about 60 plugins and these are some of them
 #### Tabline and Statusline
 
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) - A snazzy buffer line.
-- [lualine](https://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure neovim statusline plugin written in pure lua. 
-
+- [lualine](https://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 
 #### Git integration
 
@@ -123,9 +121,6 @@ It has about 60 plugins and these are some of them
 #### Degub Adapter Protocol
 
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol client implementation for Neovim.
-
-
-
 
 <!-- ## 📷 Captures -->
 <h2 id="captures">📷 Captures</h2>
