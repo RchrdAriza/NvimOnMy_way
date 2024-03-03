@@ -25,7 +25,7 @@ vim.g.mapleader = " "
 --------------------------------
 
 -- Cuando Neovim se cierra
-vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
+-- vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	desc = "Open file at the last position it was edited earlier",
