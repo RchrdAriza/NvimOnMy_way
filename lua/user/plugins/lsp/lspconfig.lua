@@ -80,14 +80,35 @@ return {
 			})
 
 			-- configure emmet language server
-			lspconfig["emmet_ls"].setup({
-				capabilities = capabilities,
+			lspconfig["emmet_language_server"].setup({
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"svelte",
+					"pug",
+					"typescriptreact",
+					"vue",
+				},
 				on_attach = on_attach,
-				filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+				capabilities = capabilities,
+				on_attach = function()
+					vim.lsp.log_set_level(vim.log.levels.OFF)
+				end,
 			})
 
 			-- configure python server
 			lspconfig["pyright"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig["tailwindcss"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

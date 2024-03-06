@@ -39,21 +39,14 @@ return {
 			["<Space>n"] = { "<cmd>enew<cr>", " New file" },
 			["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
 			["<Space>h"] = { "<cmd>Alpha<cr>", " Go to menu" },
+			["<Space>c"] = { "<cmd>:bwipeout<cr>", " Close tab ()" },
 			["<Space>q"] = { "<cmd>q!<cr>", "󰩈 Exit" },
 			["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
 			["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
-			-- ["<Space>d"] = { "<cmd>AerialToggle!<cr>", " See details" },
+			["<Space>d"] = { "<cmd>TroubleToggle<cr>", " See all errors" },
 			["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
-			-- ["<Space>c"] = { "<cmd>:lua countAndCloseBuffers()<cr>", "󱎘 Close tab" },
 		})
 
-		wk.register({
-			["<Space>d"] = {
-				name = " See details",
-				e = { "<cmd>TroubleToggle<cr>", "See errors" },
-				f = { "<cmd>AerialToggle!<cr>", "See functions" },
-			},
-		})
 		wk.register({
 			["<Space>f"] = {
 				name = " Telescope",
@@ -73,6 +66,7 @@ return {
 				i = { "<cmd>:lua vim.lsp.buf.implementation()<cr>", "lsp.buf.implementation" },
 				r = { "<cmd>:lua vim.lsp.buf.rename()<cr>", "lsp.buf.rename" },
 				a = { "<cmd>:lua vim.lsp.buf.code_action()<cr>", "lsp.buf.code_action" },
+				e = { "<cmd>:lua vim.diagnostic.open_float(nil, {focus=true, scope='cursor'})<cr>", "vim.diagnostic" },
 				t = { "<cmd>:lua vim.lsp.buf.type_definition()<cr>", "lsp.buf.type_definition" },
 			},
 		})
