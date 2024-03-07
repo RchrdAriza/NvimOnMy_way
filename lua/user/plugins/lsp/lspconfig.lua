@@ -67,6 +67,16 @@ return {
 				on_attach = on_attach,
 			})
 
+			lspconfig["eslint"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig["volar"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			-- configure typescript server with plugin
 			lspconfig["tsserver"].setup({
 				capabilities = capabilities,
@@ -80,27 +90,27 @@ return {
 			})
 
 			-- configure emmet language server
-			lspconfig["emmet_language_server"].setup({
-				filetypes = {
-					"css",
-					"eruby",
-					"html",
-					"javascript",
-					"javascriptreact",
-					"less",
-					"sass",
-					"scss",
-					"svelte",
-					"pug",
-					"typescriptreact",
-					"vue",
-				},
-				on_attach = on_attach,
-				capabilities = capabilities,
-				on_attach = function()
-					vim.lsp.log_set_level(vim.log.levels.OFF)
-				end,
-			})
+			-- lspconfig["emmet_language_server"].setup({
+			-- 	filetypes = {
+			-- 		"css",
+			-- 		"eruby",
+			-- 		"html",
+			-- 		"javascript",
+			-- 		"javascriptreact",
+			-- 		"less",
+			-- 		"sass",
+			-- 		"scss",
+			-- 		"svelte",
+			-- 		"pug",
+			-- 		"typescriptreact",
+			-- 		"vue",
+			-- 	},
+			-- 	on_attach = on_attach,
+			-- 	capabilities = capabilities,
+			-- 	on_attach = function()
+			-- 		vim.lsp.log_set_level(vim.log.levels.OFF)
+			-- 	end,
+			-- })
 
 			-- configure python server
 			lspconfig["pyright"].setup({

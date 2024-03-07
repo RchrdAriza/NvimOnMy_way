@@ -66,7 +66,7 @@ return {
 				i = { "<cmd>:lua vim.lsp.buf.implementation()<cr>", "lsp.buf.implementation" },
 				r = { "<cmd>:lua vim.lsp.buf.rename()<cr>", "lsp.buf.rename" },
 				a = { "<cmd>:lua vim.lsp.buf.code_action()<cr>", "lsp.buf.code_action" },
-				e = { "<cmd>:lua vim.diagnostic.open_float(nil, {focus=true, scope='cursor'})<cr>", "vim.diagnostic" },
+				e = { "<cmd>:lua vim.diagnostic.open_float()<cr>", "vim.diagnostic" },
 				t = { "<cmd>:lua vim.lsp.buf.type_definition()<cr>", "lsp.buf.type_definition" },
 			},
 		})
