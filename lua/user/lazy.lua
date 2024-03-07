@@ -287,4 +287,10 @@ end},
   },
   "lukas-reineke/cmp-under-comparator",
   "RchrdAriza/nvim-web-devicons",
+  {
+  "j-hui/fidget.nvim",
+  opts = {
+    -- options
+  },
+},
 })

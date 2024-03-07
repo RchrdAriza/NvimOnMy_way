@@ -42,6 +42,7 @@ wk.setup({
 
 wk.register({
 	["<Space>e"] = { "<cmd>Neotree<cr>", " File Explorer" },
+	["<Space><Space>"] = { "<cmd>noh<cr>", "󰫙 Noh" },
 	["<Space>n"] = { "<cmd>enew<cr>", " New file" },
 	["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
 	["<Space>h"] = { "<cmd>Alpha<cr>", " Go to menu" },
@@ -93,6 +94,21 @@ wk.register({
 		d = { "<cmd>DiffviewOpen<cr>", "Git Diff" },
 	},
 })
+
+                wk.register({
+                        ["<Space>l"] = {
+                                name = " Lsp-Actions",
+                                D = { "<cmd>:lua vim.lsp.buf.declaration()<cr>", "lsp.buf.declaration" },
+                                d = { "<cmd>:lua vim.lsp.buf.definition()<cr>", "vim.lsp.buf.definition" },
+                                h = { "<cmd>:lua vim.lsp.buf.hover()<cr>", "lsp.buf.hover" },
+                                i = { "<cmd>:lua vim.lsp.buf.implementation()<cr>", "lsp.buf.implementation" },
+                                r = { "<cmd>:lua vim.lsp.buf.rename()<cr>", "lsp.buf.rename" },
+                                a = { "<cmd>:lua vim.lsp.buf.code_action()<cr>", "lsp.buf.code_action" },
+                                e = { "<cmd>:lua vim.diagnostic.open_float()<cr>", "vim.diagnostic" },
+                                t = { "<cmd>:lua vim.lsp.buf.type_definition()<cr>", "lsp.buf.type_definition" },
+                        },
+                })
+
 
 wk.register({
 	["<Space>t"] = {
@@ -240,4 +256,3 @@ alpha.setup(dashboard.opts)
 vim.cmd([[
      autocmd FileType alpha setlocal nofoldenable
  ]])
-
