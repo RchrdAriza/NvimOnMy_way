@@ -53,6 +53,10 @@ return {
 
 			cmp.setup({
 				-- experimental = { ghost_text = true },
+				--
+				view = {
+					entries = { name = "custom", selection_order = "near_cursor" },
+				},
 				formatting = {
 					format = function(entry, vim_item)
 						-- Kind icons
