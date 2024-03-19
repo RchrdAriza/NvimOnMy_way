@@ -1,3 +1,4 @@
+-- local copilot = require("copilot")
 vim.api.nvim_set_keymap("n", "gt", ":bnext<CR>", { noremap = true })
 --vim.api.nvim_set_keymap('n', "<C-x", '')
 vim.api.nvim_set_keymap("n", "gT", ":bprevious<cr>", { noremap = true })
@@ -22,12 +23,34 @@ inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 -- local opts = { buffer = ev.buf }
 
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true }, { desc = "vim.lsp.buf.signature_help" })
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, desc = "lsp signature_help" })
+
+vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { noremap = true, desc = "lsp code_action" })
 -- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true }, { desc = "vim.lsp.buf.definition" })
-vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true }, { desc = "vim.lsp.buf.definition" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, desc = "lsp definition" })
+
+vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true, desc = "lsp definition" })
 -- vim.keymap.set("n", "<space>wl", function()
 -- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 -- end, opts)
 -- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true }, { desc = "vim.lsp.buf.references" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true }, { desc = "lsp references" })
+
+vim.keymap.set("n", "<C-s>", ":w<cr>", { noremap = true }, { desc = "save" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "dart",
+	callback = function()
+		vim.keymap.set("n", "<F5>", function()
+			vim.cmd("w")
+			vim.cmd("FlutterReload")
+		end, { buffer = true, desc = "reload flutterApp" })
+	end,
+})
+
+-- Crea un keymap para usar copilot
+vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true

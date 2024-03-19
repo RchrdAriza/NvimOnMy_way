@@ -22,6 +22,12 @@ return {
 					t("/>"),
 				}),
 			})
+
+			ls.add_snippets("dart", {
+				s("toc", {
+					t("final colors = Theme.of(context).colorScheme;"),
+				}),
+			})
 		end,
 	},
 	{ "saadparwaiz1/cmp_luasnip" },

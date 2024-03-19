@@ -49,6 +49,7 @@ return {
 				Event = " ",
 				Operator = " ",
 				TypeParameter = " ",
+				Copilot = "",
 			}
 
 			cmp.setup({
@@ -68,11 +69,13 @@ return {
 							luasnip = "[LuaSnip]",
 							nvim_lua = "[Lua]",
 							latex_symbols = "[LaTeX]",
+							-- copilot = "[Copilot]",
 						})[entry.source.name]
 						return vim_item
 					end,
 				},
 				snippet = {
+
 					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
 						-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -93,9 +96,10 @@ return {
 							else
 								cmp.select_next_item()
 							end
-						--[[ Replace with your snippet engine (see above sections on this page)
-      elseif snippy.can_expand_or_advance() then
-        snippy.expand_or_advance() ]]
+						-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+						-- that way you will only jump inside the snippet region
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
 						elseif has_words_before() then
 							cmp.complete()
 							if #cmp.get_entries() == 1 then
@@ -130,13 +134,14 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
+					-- { name = "copilot", max_item_count = 4 },
+					{ name = "nvim_lsp", max_item_count = 4 },
+					{ name = "luasnip", max_item_count = 4 }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
 				}, {
-					{ name = "buffer" },
-					{ name = "path" },
+					{ name = "buffer", max_item_count = 4 },
+					{ name = "path", max_item_count = 4 },
 				}),
 			})
 
@@ -166,6 +171,14 @@ return {
 					{ name = "cmdline" },
 				}),
 			})
+
+			-- cmp.event:on("menu_opened", function()
+			-- 	vim.b.copilot_suggestion_hidden = true
+			-- end)
+			--
+			-- cmp.event:on("menu_closed", function()
+			-- 	vim.b.copilot_suggestion_hidden = false
+			-- end)
 
 			-- Set up lspconfig.
 			vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })

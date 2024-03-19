@@ -27,7 +27,6 @@ local colors = {
 					{ "mode", separator = { left = "" }, right_padding = 2 },
 				},
 				lualine_b = { "filename", "branch" },
-				lualine_c = { "fileformat" },
 				lualine_x = {},
 				lualine_y = { "filetype", "progress" },
 				lualine_z = {
@@ -45,5 +44,6 @@ local colors = {
 			tabline = {},
 			extensions = {},
 		})
+		sections = {}
 	end,
 }
