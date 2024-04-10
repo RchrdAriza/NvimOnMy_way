@@ -68,6 +68,8 @@ return {
 				a = { "<cmd>:lua vim.lsp.buf.code_action()<cr>", "lsp.buf.code_action" },
 				e = { "<cmd>:lua vim.diagnostic.open_float()<cr>", "vim.diagnostic" },
 				t = { "<cmd>:lua vim.lsp.buf.type_definition()<cr>", "lsp.buf.type_definition" },
+				R = { "<cmd>:lua vim.lsp.buf.references()<cr>", "lsp.buf.references" },
+				s = { "<cmd>:lua vim.lsp.buf.signature_help()<cr>", "lsp.buf.signature_help" },
 			},
 		})
 

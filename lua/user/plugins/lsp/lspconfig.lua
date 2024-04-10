@@ -38,6 +38,31 @@ return {
 				},
 			})
 
+			-- vim diagnostics config
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = false,
+			})
+
+			-- vim.api.nvim_create_autocmd("CursorHold", {
+			-- 	buffer = bufnr,
+			-- 	callback = function()
+			-- 		local opts = {
+			-- 			focusable = false,
+			-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+			-- 			border = "rounded",
+			-- 			source = "always",
+			-- 			prefix = " ",
+			-- 			scope = "cursor",
+			-- 		}
+			-- 		vim.diagnostic.open_float(nil, opts)
+			-- 	end,
+			-- })
+			--
+
 			local keymap = vim.keymap -- for conciseness
 
 			local opts = { noremap = true, silent = true }
@@ -49,13 +74,13 @@ return {
 			end
 
 			-- used to enable autocompletion (assign to every lsp server config)
-			-- local capabilities = cmp_nvim_lsp.default_capabilities()
+			local capabilities = cmp_nvim_lsp.default_capabilities()
 			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 			-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 			-- Change the Diagnostic symbols in the sign column (gutter)
 			-- (not in youtube nvim video)
-			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -73,6 +98,10 @@ return {
 			})
 
 			lspconfig["volar"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig["bashls"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
