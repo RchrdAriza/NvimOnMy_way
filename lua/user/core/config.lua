@@ -16,10 +16,23 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.o.statusline+=%{get(b:,'gitsigns_status','')
 vim.opt.clipboard = "unnamedplus"
 
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- change signcolumn width
+vim.o.signcolumn = "auto"
+
 o.expandtab = true
 o.smartindent = true
 o.tabstop = 2
 o.shiftwidth = 2
+
+-- change numberwith
+vim.cmd([[
+set numberwidth=3
+]])
 
 vim.cmd([[
 nnoremap <C-x> :RunCode<cr>
