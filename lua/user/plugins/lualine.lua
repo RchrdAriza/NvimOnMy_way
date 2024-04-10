@@ -1,7 +1,8 @@
 return {
-	"nvim-lualine/lualine.nvim",
-	dependencies = { "RchrdAriza/nvim-web-devicons" },
-	config = function()
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "RchrdAriza/nvim-web-devicons" },
+		config = function()
         -- Bubbles config for lualine
 -- Author: lokesh-krishna
 -- MIT license, see LICENSE for more details.
@@ -17,33 +18,52 @@ local colors = {
   grey   = '#303030',
 }
 
-		require("lualine").setup({
-			options = {
-				component_separators = "|",
-				section_separators = { left = "", right = "" },
-			},
-			sections = {
-				lualine_a = {
-					{ "mode", separator = { left = "" }, right_padding = 2 },
+			require("lualine").setup({
+				options = {
+					component_separators = "|",
+					section_separators = { left = "", right = "" },
 				},
-				lualine_b = { "filename", "branch" },
-				lualine_x = {},
-				lualine_y = { "filetype", "progress" },
-				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+				sections = {
+					lualine_a = {
+						{ "mode", separator = { left = "" }, right_padding = 1 },
+					},
+					lualine_b = { "branch" },
+					lualine_c = {
+
+						{
+							"filename",
+							file_status = true,
+							newfile_status = false,
+							path = 0,
+
+							shorting_target = 40,
+							symbols = {
+								modified = "",
+								readonly = "",
+								unnamed = "[No Name]",
+								newfile = "",
+							},
+						},
+					},
+					lualine_x = { "diff" },
+					lualine_y = { { "filetype", icon_only = true }, "progress" },
+					lualine_z = {
+						{ "location", separator = { right = "" }, left_padding = 1 },
+					},
 				},
-			},
-			inactive_sections = {
-				lualine_a = { "filename" },
-				lualine_b = {},
-				lualine_c = {},
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = { "location" },
-			},
-			tabline = {},
-			extensions = {},
-		})
-		sections = {}
-	end,
+				inactive_sections = {
+					lualine_a = { "filename" },
+					lualine_b = {},
+					lualine_c = {},
+					lualine_x = {},
+					lualine_y = {},
+					lualine_z = { "location" },
+				},
+				tabline = {},
+				extensions = {},
+			})
+			-- sections = {}
+			--
+		end,
+	},
 }
