@@ -9,7 +9,17 @@ return {
 			require("lsp_signature").setup(opts)
 		end,
 	},
-	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+	{
+		"hedyhli/outline.nvim",
+		lazy = true,
+		cmd = { "Outline", "OutlineOpen" },
+		keys = { -- Example mapping to toggle outline
+			{ "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+		},
+		opts = {
+			-- Your setup opts here
+		},
+	},
 
 	{
 		"neovim/nvim-lspconfig",
@@ -26,17 +36,6 @@ return {
 
 			-- import cmp-nvim-lsp plugin
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local lsp_zero = require("lsp-zero")
-
-			lsp_zero.on_attach(function(_, bufnr)
-				lsp_zero.default_keymaps({ buffer = bufnr })
-			end)
-
-			require("flutter-tools").setup({
-				lsp = {
-					capabilities = lsp_zero.get_capabilities(),
-				},
-			})
 
 			-- vim diagnostics config
 			vim.diagnostic.config({
@@ -47,21 +46,20 @@ return {
 				severity_sort = false,
 			})
 
-			-- vim.api.nvim_create_autocmd("CursorHold", {
-			-- 	buffer = bufnr,
-			-- 	callback = function()
-			-- 		local opts = {
-			-- 			focusable = false,
-			-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-			-- 			border = "rounded",
-			-- 			source = "always",
-			-- 			prefix = " ",
-			-- 			scope = "cursor",
-			-- 		}
-			-- 		vim.diagnostic.open_float(nil, opts)
-			-- 	end,
-			-- })
-			--
+			vim.api.nvim_create_autocmd("CursorHold", {
+				buffer = bufnr,
+				callback = function()
+					local opts = {
+						focusable = false,
+						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+						border = "rounded",
+						source = "always",
+						prefix = " ",
+						scope = "cursor",
+					}
+					vim.diagnostic.open_float(nil, opts)
+				end,
+			})
 
 			local keymap = vim.keymap -- for conciseness
 

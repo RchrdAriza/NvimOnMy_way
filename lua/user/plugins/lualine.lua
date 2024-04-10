@@ -26,7 +26,7 @@ local colors = {
 				lualine_a = {
 					{ "mode", separator = { left = "" }, right_padding = 2 },
 				},
-				lualine_b = { "filename", "branch" },
+				lualine_b = { "branch" },
 				lualine_x = {},
 				lualine_y = { "filetype", "progress" },
 				lualine_z = {

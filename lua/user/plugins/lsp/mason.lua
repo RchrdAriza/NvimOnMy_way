@@ -27,6 +27,9 @@ return {
 				-- list of servers for mason to install
 				ensure_installed = {
 					"tsserver",
+					"html",
+					"cssls",
+					"bashls",
 					-- "tailwindcss",
 					--       "svelte",
 					--        "lua_ls",
@@ -46,7 +49,7 @@ return {
 					"autopep8", -- python formatter
 					--       "black", -- python formatter
 					--        "pylint", -- python linter
-					-- "eslint_d", -- js linter
+					"eslint_d", -- js linter
 				},
 			})
 		end,
