@@ -31,7 +31,7 @@
 Just run this in the terminal:
 
 ```bash
-git clone https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
+git clone https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 
 <!-- ## ⌨️ Keymaps -->
@@ -125,12 +125,13 @@ It has about 60 plugins and these are some of them
 <!-- ## 📷 Captures -->
 <h2 id="captures">📷 Captures</h2>
 
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693761097/Nvim/Main_menu.jpg' alt="inicio" width=320  >
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683990002/NvimOnMy_Way/Python.jpg.jpg' alt="python" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1683990014/NvimOnMy_Way/FileExplorer.jpg.jpg' alt="FileExplorer" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693761506/Nvim/Oldfiles.jpg' alt="OldFiles" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693762056/Nvim/Whickey.jpg' alt="Whichkey" width=320>
-<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1693762538/Nvim/Python.jpg' alt="python_lsp" width=320>
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-56-55_s3i5rg.png' alt="inicio" >
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-39-50_tj2qqd.png' alt="Transparent" >
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-55-37_woaf8n.png' alt="CMP">
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064208/Screenshot_2024-04-13_21-34-30_kiwvcu.png' alt="Terminal">
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064206/Screenshot_2024-04-13_21-32-40_oasrbf.png' alt="Error">
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064168/Screenshot_2024-04-13_21-59-49_zvfwmq.png' alt="lsp-action">
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064202/Screenshot_2024-04-13_21-31-04_ww7v6z.png' alt="oldfiles">
 
 ## Q&A
 
