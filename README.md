@@ -31,7 +31,7 @@
 Just run this in the terminal:
 
 ```bash
-git clone -b alternativa https://github.com/RchrdAlv/NvimOnMy_Way ~/.config/nvim && nvim
+git clone -b alternativa https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 
 <!-- ## ⌨️ Keymaps -->
