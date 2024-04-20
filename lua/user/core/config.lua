@@ -31,7 +31,7 @@ o.shiftwidth = 2
 
 -- change numberwith
 vim.cmd([[
-set numberwidth=3
+set numberwidth=1
 ]])
 
 vim.cmd([[

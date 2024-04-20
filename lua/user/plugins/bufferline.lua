@@ -41,9 +41,10 @@ return {
 			},
 			offsets = {
 				{
-					filetype = "neotree",
-					text = "File Explorer",
-					text_align = "center",
+					filetype = "neo-tree",
+					text = "Neo-tree",
+					text_align = "left",
+					highlight = "Directory",
 					separator = true,
 				},
 			},
