@@ -25,7 +25,14 @@ local colors = {
 				},
 				sections = {
 					lualine_a = {
-						{ "mode", separator = { left = "" }, right_padding = 1 },
+						{
+							"mode",
+							-- separator = { left = "" },
+							-- fmt = function(str)
+							-- 	return str:sub(1, 1)
+							-- end,
+							right_padding = 1,
+						},
 					},
 					lualine_b = { "branch" },
 					lualine_c = {
@@ -46,9 +53,12 @@ local colors = {
 						},
 					},
 					lualine_x = { "diff" },
-					lualine_y = { { "filetype", icon_only = true }, "progress" },
+					lualine_y = { { "filetype", icon_only = true, icon = { align = "right" } }, "progress" },
 					lualine_z = {
-						{ "location", separator = { right = "" }, left_padding = 1 },
+						{
+							"location", --[[ separator = { right = "" }, ]]
+							left_padding = 1,
+						},
 					},
 				},
 				inactive_sections = {
