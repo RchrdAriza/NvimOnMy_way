@@ -4,10 +4,13 @@ return {
 	branch = "0.1.x",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
-		local actions = require("telescope.actions")
+		-- local actions = require("telescope.actions")
 		local trouble = require("trouble.providers.telescope")
 
 		local telescope = require("telescope")
+
+		-- local builtin = require("telescope.builtin")
+		vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", { noremap = true })
 
 		telescope.setup({
 			defaults = {

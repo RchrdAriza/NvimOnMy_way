@@ -10,7 +10,8 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<C-s>", ":lua Save()<cr>", { noremap = true })
 -- Telescope buffers
-vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>:JABSOpen<cr>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>:JABSOpen<cr>", { noremap = true })
+
 --
 vim.cmd([[
 " set
