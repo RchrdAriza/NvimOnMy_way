@@ -150,10 +150,10 @@ return {
 				on_attach = on_attach,
 			})
 
-			-- lspconfig["tailwindcss"].setup({
-			-- 	capabilities = capabilities,
-			-- 	on_attach = on_attach,
-			-- p)
+			lspconfig["clangd"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 
 			-- configure lua server (with special settings)
 			lspconfig["lua_ls"].setup({
