@@ -109,11 +109,11 @@ return {
 				on_attach = on_attach,
 			})
 
-			-- configure typescript server with plugin
+			--[[ -- configure typescript server with plugin
 			lspconfig["tsserver"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-			})
+			}) ]]
 
 			-- configure css server
 			lspconfig["cssls"].setup({
