@@ -1,96 +1,58 @@
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
-	init = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 300
-		local presets = require("which-key.plugins.presets")
-		presets.operators["v"] = nil
-		presets.operators["g"] = nil
-
+	opts = {
+		preset = "modern",
+	},
+	config = function()
 		local wk = require("which-key")
+		wk.add({
+			{ "<leader>t", group = "telescope", icon = "" },
+			{ "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find file", mode = "n" },
+			{ "<leader>tg", "<cmd>Telescope live_grep<cr>", desc = "live_grep" },
+			{ "<cmd>Telescope live_grep<cr>", desc = "live_grep" },
+			{ "<leader>tb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+			{ "<leader>tb", "<cmd>Telescope help_tags<cr>", desc = "Help_tags" },
 
-		wk.setup({
-			window = {
-				border = "double", -- none, single, double, shadow
-				position = "bottom", -- bottom, top
-				margin = { 1, 5, 1, 5 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
-				padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
-				winblend = 15, -- value between 0-100 0 for fully opaque and 100 for fully transparent
-				zindex = 1000, -- positive value to position WhichKey above other floating windows.
-			},
+			-------------------
+			{ "<leader>l", group = "Lsp Actions", icon = "" },
+			{ "<leader>lD", "<cmd>:lua vim.lsp.buf.declaration()<cr>", desc = "lsp.buf.declaration" },
+			{ "<leader>ld", "<cmd>:lua vim.lsp.buf.definition()<cr>", desc = "vim.lsp.buf.definition" },
+			{ "<leader>lh", "<cmd>:lua vim.lsp.buf.hover()<cr>", desc = "lsp.buf.hover" },
+			{ "<leader>li", "<cmd>:lua vim.lsp.buf.implementation()<cr>", desc = "lsp.buf.implementation" },
+			{ "<leader>lr", "<cmd>:lua vim.lsp.buf.rename()<cr>", desc = "lsp.buf.rename" },
+			{ "<leader>la", "<cmd>:lua vim.lsp.buf.code_action()<cr>", desc = "lsp.buf.code_action" },
+			{ "<leader>le", "<cmd>:lua vim.diagnostic.open_float()<cr>", desc = "vim.diagnostic" },
+			{ "<leader>lt", "<cmd>:lua vim.lsp.buf.type_definition()<cr>", desc = "lsp.buf.type_definition" },
+			{ "<leader>lR", "<cmd>:lua vim.lsp.buf.references()<cr>", desc = "lsp.buf.references" },
+			{ "<leader>ls", "<cmd>:lua vim.lsp.signature_help()<cr>", desc = "lsp.buf.references" },
 
-			icons = {
-				breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-				separator = "-", -- symbol used between a key and it's label
-				group = "", -- symbol prepended to a group
-			},
-			layout = {
-				height = { min = 4, max = 25 }, -- min and max height of the columns
-				width = { min = 20, max = 50 }, -- min and max width of the columns
-				spacing = 5, -- spacing between columns
-				align = "center", -- align columns left, center or right
-			},
-		})
+			---------------------
+			{ "<leader>g", group = "Git" },
+			{ "<leader>ga", "<cmd>Gwrite<cr>", desc = "Git Add [this file]" },
+			{ "<leader>gs", "<cmd>Neotree float git_status<cr>", desc = "Git Status" },
+			{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Git Commit" },
+			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diff" },
+			---------------------
 
-		wk.register({
-			["<Space><Space>"] = { "<cmd>noh<cr>", "󰫙 Noh" },
-			["<Space>e"] = { "<cmd>Neotree<cr>", " File Explorer" },
-			["<Space>n"] = { "<cmd>enew<cr>", " New file" },
-			["<Space>r"] = { "<cmd>Telescope oldfiles<cr>", "󰷊 Open recent files" },
-			["<Space>h"] = { "<cmd>Alpha<cr>", " Go to menu" },
-			["<Space>c"] = { "<cmd>:bwipeout<cr>", " Close tab ()" },
-			["<Space>q"] = { "<cmd>q!<cr>", "󰩈 Exit" },
-			["<Space>x"] = { "<cmd>x<cr>", "󰗼 Exit and save" },
-			["<Space>R"] = { "<cmd>RunCode<cr>", " Run Code" },
-			["<Space>d"] = { "<cmd>TroubleToggle<cr>", " See all errors" },
-			["<Space>a"] = { "<cmd>ASToggle<cr>", " AutoSave On/Off" },
-		})
-
-		wk.register({
-			["<Space>f"] = {
-				name = " Telescope",
-				f = { "<cmd>Telescope find_files<cr>", "Find_files" },
-				g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
-				b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-				h = { "<cmd>Telescope help_tags<cr>", "Help_tags" },
-			},
-		})
-
-		wk.register({
-			["<Space>l"] = {
-				name = " Lsp-Actions",
-				D = { "<cmd>:lua vim.lsp.buf.declaration()<cr>", "lsp.buf.declaration" },
-				d = { "<cmd>:lua vim.lsp.buf.definition()<cr>", "vim.lsp.buf.definition" },
-				h = { "<cmd>:lua vim.lsp.buf.hover()<cr>", "lsp.buf.hover" },
-				i = { "<cmd>:lua vim.lsp.buf.implementation()<cr>", "lsp.buf.implementation" },
-				r = { "<cmd>:lua vim.lsp.buf.rename()<cr>", "lsp.buf.rename" },
-				a = { "<cmd>:lua vim.lsp.buf.code_action()<cr>", "lsp.buf.code_action" },
-				e = { "<cmd>:lua vim.diagnostic.open_float()<cr>", "vim.diagnostic" },
-				t = { "<cmd>:lua vim.lsp.buf.type_definition()<cr>", "lsp.buf.type_definition" },
-				R = { "<cmd>:lua vim.lsp.buf.references()<cr>", "lsp.buf.references" },
-				s = { "<cmd>:lua vim.lsp.signature_help()<cr>", "lsp.buf.references" },
-			},
-		})
-
-		wk.register({
-			["<Space>g"] = {
-				name = "󰊢 Git",
-				a = { "<cmd>Gwrite<cr>", "Git Add [this file]" },
-				s = { "<cmd>Neotree float git_status<cr>", "Git Status" },
-				c = { "<cmd>Git commit<cr>", "Git Commit" },
-				d = { "<cmd>DiffviewOpen<cr>", "Git Diff" },
-			},
-		})
-
-		wk.register({
-			["<Space>t"] = {
-				name = " Terminal",
-				h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal term" },
-				f = { "<cmd>ToggleTerm direction=float<cr>", "Floating terminal" },
-				t = { "<cmd>ToggleTerm direction=tab<cr>", "Tab terminal" },
-				v = { "<cmd>ToggleTerm size=50 direction=vertical<cr>", "Vertical term" },
-			},
+			{ "<leader>x", group = "Terminal", icon = "" },
+			{ "<Space>xh", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal term" },
+			{ "<leader>xf", "<cmd>ToggleTerm direction=float<cr>", desc = "Floating terminal" },
+			{ "<leader>xt", "<cmd>ToggleTerm direction=tab<cr>", desc = "Tab terminal" },
+			{ "<leader>xv", "<cmd>ToggleTerm size=50 direction=vertical<cr>", desc = "Vertical term" },
 		})
 	end,
+	keys = {
+		{ "<leader><Space>", "<cmd>noh<cr>", desc = "Noh" },
+		{ "<leader>e", "<cmd>Neotree<cr>", desc = "File Explorer" },
+		{ "<leader>n", "<cmd>enew<cr>", desc = "New file" },
+		{ "<leader>r", "<cmd>Telescope oldfiles<cr>", desc = "Open recent files" },
+		{ "<leader>h", "<cmd>Alpha<cr>", desc = "home" },
+		{ "<leader>c", "<cmd>:bwipeout<cr>", desc = "Close tab ()" },
+		{ "<leader>q", "<cmd>q!<cr>", desc = "Exit" },
+		{ "<leader>x", "<cmd>x<cr>", desc = "Exit and save" },
+		{ "<leader>R", "<cmd>RunCode<cr>", desc = "Run Code" },
+		{ "<leader>d", "<cmd>TroubleToggle<cr>", desc = "See all errors" },
+		{ "<leader>a", "<cmd>ASToggle<cr>", desc = "AutoSave On/Off" },
+	},
 }

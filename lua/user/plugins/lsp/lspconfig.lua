@@ -9,7 +9,7 @@ return {
 			require("lsp_signature").setup(opts)
 		end,
 	},
-	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+	{ "VonHeikemen/lsp-zero.nvim", branch = "v4.x" },
 
 	{
 		"neovim/nvim-lspconfig",
@@ -112,10 +112,10 @@ return {
 			})
 
 			-- configure typescript server with plugin
-			lspconfig["tsserver"].setup({
+			--[[ lspconfig["tsserver"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-			})
+			}) ]]
 
 			-- configure css server
 			lspconfig["cssls"].setup({
