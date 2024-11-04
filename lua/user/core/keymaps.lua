@@ -4,10 +4,10 @@ vim.api.nvim_set_keymap("n", "gt", ":bnext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gT", ":bprevious<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<bs>", ":bprevious<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
+--[[ vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true }) ]]
 -- vim.api.nvim_set_keymap("n", "<C-s>", ":lua Save()<cr>", { noremap = true })
 -- Telescope buffers
 -- vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>:JABSOpen<cr>", { noremap = true })
@@ -55,3 +55,10 @@ vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
 	replace_keycodes = false,
 })
 vim.g.copilot_no_tab_map = true
+
+-- tmux navigator keys map
+
+vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<C-j>", ":wincmd k<CR>")
+vim.keymap.set("n", "<C-h>", ":wincmd k<CR>")
+vim.keymap.set("n", "<C-l>", ":wincmd k<CR>")

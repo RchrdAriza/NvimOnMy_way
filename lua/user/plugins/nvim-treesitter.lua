@@ -9,7 +9,7 @@ return {
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown" },
 
-			sync_install = false,
+			sync_install = true,
 
 			auto_install = true,
 
@@ -18,7 +18,7 @@ return {
 			highlight = {
 				enable = true,
 
-				-- disable = { "c", "rust" },
+				disable = { "c", "rust" },
 				disable = function(_, buf)
 					local max_filesize = 100 * 1024 -- 100 KB
 					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
