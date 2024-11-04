@@ -47,20 +47,41 @@ return {
 				severity_sort = false,
 			})
 
-			-- vim.api.nvim_create_autocmd("CursorHold", {
-			-- 	buffer = bufnr,
-			-- 	callback = function()
-			-- 		local opts = {
-			-- 			focusable = false,
-			-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-			-- 			border = "rounded",
-			-- 			source = "always",
-			-- 			prefix = " ",
-			-- 			scope = "cursor",
-			-- 		}
-			-- 		vim.diagnostic.open_float(nil, opts)
-			-- 	end,
-			-- })
+			local pattern = "python"
+			local cmd = { "pyright-langserver --stdio" }
+			-- Add files/folders here that indicate the root of a project
+			local root_markers = { ".git", ".editorconfig" }
+			-- Change to table with settings if required
+			local settings = vim.empty_dict()
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = pattern,
+				callback = function(args)
+					local match = vim.fs.find(root_markers, { path = args.file, upward = true })[1]
+					local root_dir = match and vim.fn.fnamemodify(match, ":p:h") or nil
+					vim.lsp.start({
+						name = "bugged-ls",
+						cmd = cmd,
+						root_dir = root_dir,
+						settings = settings,
+					})
+				end,
+			})
+
+			vim.api.nvim_create_autocmd("CursorHold", {
+				buffer = bufnr,
+				callback = function()
+					local opts = {
+						focusable = false,
+						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+						border = "rounded",
+						source = "always",
+						prefix = " ",
+						scope = "cursor",
+					}
+					vim.diagnostic.open_float(nil, opts)
+				end,
+			})
 			--
 
 			local keymap = vim.keymap -- for conciseness
