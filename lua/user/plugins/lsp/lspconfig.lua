@@ -47,12 +47,12 @@ return {
 				severity_sort = false,
 			})
 
-			local pattern = "python"
-			local cmd = { "pyright-langserver --stdio" }
+			-- local pattern = "python"
+			-- local cmd = { "pyright-langserver --stdio" }
 			-- Add files/folders here that indicate the root of a project
 			local root_markers = { ".git", ".editorconfig" }
 			-- Change to table with settings if required
-			local settings = vim.empty_dict()
+			--[[ local settings = vim.empty_dict()
 
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = pattern,
@@ -66,7 +66,7 @@ return {
 						settings = settings,
 					})
 				end,
-			})
+			}) ]]
 
 			vim.api.nvim_create_autocmd("CursorHold", {
 				buffer = bufnr,
