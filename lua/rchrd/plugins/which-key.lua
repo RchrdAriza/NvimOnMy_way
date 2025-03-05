@@ -50,7 +50,7 @@ return {
 		{ "<leader>h", "<cmd>Alpha<cr>", desc = "home" },
 		{ "<leader>c", "<cmd>:bwipeout<cr>", desc = "Close tab ()" },
 		{ "<leader>q", "<cmd>q!<cr>", desc = "Exit" },
-		{ "<leader>x", "<cmd>x<cr>", desc = "Exit and save" },
+		-- { "<leader>x", "<cmd>x<cr>", desc = "Exit and save" },
 		{ "<leader>R", "<cmd>RunCode<cr>", desc = "Run Code" },
 		{ "<leader>d", "<cmd>TroubleToggle<cr>", desc = "See all errors" },
 		{ "<leader>a", "<cmd>ASToggle<cr>", desc = "AutoSave On/Off" },
