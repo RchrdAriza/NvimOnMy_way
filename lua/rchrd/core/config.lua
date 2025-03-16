@@ -11,6 +11,12 @@ vim.cmd("syntax on")
 vim.opt.list = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 -- vim.o.statusline+=%{get(b:,'gitsigns_status','')
 
 -- vim.cmd("colorscheme tokyonight-night")

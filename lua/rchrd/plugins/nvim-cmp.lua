@@ -17,6 +17,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
 			local has_words_before = function()
 				unpack = unpack or table.unpack
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -149,7 +150,13 @@ return {
 				}),
 				sources = cmp.config.sources({
 					-- { name = "copilot", max_item_count = 4 },
-					{ name = "nvim_lsp", max_item_count = 4 },
+					-- { name = "nvim_lsp", max_item_count = 4 },
+					{
+						name = "nvim_lsp",
+						entry_filter = function(entry)
+							return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+						end,
+					},
 					{ name = "luasnip", max_item_count = 4 }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
