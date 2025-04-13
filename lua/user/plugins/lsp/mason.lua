@@ -34,7 +34,7 @@ return {
 					--        "graphql",
 					-- "emmet_language_server",
 					--        "prismals",
-					"pyright",
+					"pylsp",
 				},
 				-- auto-install configured servers (with lspconfig)
 				automatic_installation = true, -- not the same as ensure_installed
