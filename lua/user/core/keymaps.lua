@@ -1,4 +1,3 @@
--- local copilot = require("copilot")
 vim.api.nvim_set_keymap("n", "gt", ":bnext<CR>", { noremap = true })
 --vim.api.nvim_set_keymap('n', "<C-x", '')
 vim.api.nvim_set_keymap("n", "gT", ":bprevious<cr>", { noremap = true })
@@ -11,7 +10,8 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<C-s>", ":lua Save()<cr>", { noremap = true })
 -- Telescope buffers
 -- vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>:JABSOpen<cr>", { noremap = true })
-
+-- mapeo para activar el hover lsp
+vim.api.nvim_set_keymap("n", "<C-Space>", "<cmd>lua require('pretty_hover').hover()<cr>", { noremap = true })
 --
 vim.cmd([[
 " set

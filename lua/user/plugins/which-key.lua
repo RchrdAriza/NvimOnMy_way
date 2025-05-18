@@ -18,7 +18,7 @@ return {
 			{ "<leader>l", group = "Lsp Actions", icon = "" },
 			{ "<leader>lD", "<cmd>:lua vim.lsp.buf.declaration()<cr>", desc = "lsp.buf.declaration" },
 			{ "<leader>ld", "<cmd>:lua vim.lsp.buf.definition()<cr>", desc = "vim.lsp.buf.definition" },
-			{ "<leader>lh", "<cmd>:lua vim.lsp.buf.hover()<cr>", desc = "lsp.buf.hover" },
+			{ "<leader>lh", "<cmd>:lua require('pretty_hover').hover()<cr>", desc = "lsp.buf.hover" },
 			{ "<leader>li", "<cmd>:lua vim.lsp.buf.implementation()<cr>", desc = "lsp.buf.implementation" },
 			{ "<leader>lr", "<cmd>:lua vim.lsp.buf.rename()<cr>", desc = "lsp.buf.rename" },
 			{ "<leader>la", "<cmd>:lua vim.lsp.buf.code_action()<cr>", desc = "lsp.buf.code_action" },

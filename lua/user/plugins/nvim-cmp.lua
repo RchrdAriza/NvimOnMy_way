@@ -98,6 +98,14 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
+				vim.diagnostic.config({
+					virtual_text = false,
+					float = {
+						header = false,
+						border = "rounded",
+						focusable = true,
+					},
+				}),
 				mapping = cmp.mapping.preset.insert({
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
