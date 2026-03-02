@@ -9,14 +9,14 @@ return {
 
 		local telescope = require("telescope")
 
-		-- local builtin = require("telescope.builtin")
-		vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", { noremap = true })
-
 		telescope.setup({
 			defaults = {
+				preview = {
+					treesitter = false,
+				},
 				mappings = {
-					i = { ["<c-t>"] = open_with_trouble },
-					n = { ["<c-t>"] = open_with_trouble },
+					i = { ["<c-t>"] = trouble },
+					n = { ["<c-t>"] = trouble },
 				},
 			},
 		})

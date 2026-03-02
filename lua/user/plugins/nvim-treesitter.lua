@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"nvim-ts-rainbow2",
@@ -18,7 +19,6 @@ return {
 			highlight = {
 				enable = true,
 
-				disable = { "c", "rust" },
 				disable = function(_, buf)
 					local max_filesize = 100 * 1024 -- 100 KB
 					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
