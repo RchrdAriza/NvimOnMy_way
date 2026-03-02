@@ -1,63 +1,40 @@
-local o = vim.o
+local opt = vim.opt
 
-vim.opt.termguicolors = true
-o.number = true
-o.relativenumber = true
-o.swapfile = false
-o.encoding = "utf-8"
-o.undofile = true
-o.sw = 2
-o.showmatch = true
-o.laststatus = 2
-vim.cmd("syntax on")
-vim.opt.list = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
--- vim.o.statusline+=%{get(b:,'gitsigns_status','')
-vim.opt.clipboard = "unnamedplus"
+opt.termguicolors = true
+opt.number = true
+opt.relativenumber = true
+opt.showmatch = true
+opt.signcolumn = "auto"
+opt.laststatus = 2
+opt.list = true
+opt.numberwidth = 1
 
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
--- change signcolumn width
-vim.o.signcolumn = "auto"
+opt.clipboard = "unnamedplus"
+opt.swapfile = false
+opt.encoding = "utf-8"
+opt.undofile = true
 
-o.expandtab = true
-o.smartindent = true
-o.tabstop = 2
-o.shiftwidth = 2
-
--- change numberwith
-vim.cmd([[
-set numberwidth=1
-]])
-
-vim.cmd([[
-nnoremap <C-x> :RunCode<cr>
-]])
+opt.expandtab = true
+opt.smartindent = true
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.sw = 2
 
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
--- require("guess-indent").setup({})
+opt.foldcolumn = "1" -- '0' is not bad
+opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
 
---------------------------------
-
--- Cuando Neovim se cierra
--- vim.cmd([[autocmd VimLeave * lua os.execute("pkill -f live-server")]])
+local misc = vim.api.nvim_create_augroup("misc", { clear = true })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
+	group = misc,
 	desc = "Open file at the last position it was edited earlier",
-	group = misc_augroup,
 	pattern = "*",
 	command = 'silent! normal! g`"zv',
 })
-
--- vim.diagnostic.config({
--- 	virtual_text = false,
--- 	float = {
--- 		source = "always",
--- 		border = border,
--- 	},
--- })

@@ -1,6 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	config = function()
+		local slow_format_filetypes = {}
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
@@ -15,10 +16,6 @@ return {
 				django = { "djlint" },
 				htmldjango = { "djlint" },
 			},
-		})
-
-		local slow_format_filetypes = {}
-		require("conform").setup({
 			format_on_save = function(bufnr)
 				if slow_format_filetypes[vim.bo[bufnr].filetype] then
 					return

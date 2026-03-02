@@ -13,6 +13,9 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true }) ]]
 -- vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>:JABSOpen<cr>", { noremap = true })
 
 --
+
+vim.keymap.set("n", "<C-x>", "<cmd>RunCode<cr>")
+
 vim.cmd([[
 " set
 autocmd TermEnter term://*toggleterm#*
@@ -24,7 +27,7 @@ inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 -- local opts = { buffer = ev.buf }
 
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, desc = "lsp signature_help" })
+-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, desc = "lsp signature_help" })
 
 vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { noremap = true, desc = "lsp code_action" })
 -- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -39,16 +42,6 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true }, { desc = "
 
 vim.keymap.set("n", "<C-s>", ":w<cr>", { noremap = true }, { desc = "save" })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "dart",
-	callback = function()
-		vim.keymap.set("n", "<F5>", function()
-			vim.cmd("w")
-			vim.cmd("FlutterReload")
-		end, { buffer = true, desc = "reload flutterApp" })
-	end,
-})
-
 -- Crea un keymap para usar copilot
 vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
 	expr = true,
@@ -59,6 +52,6 @@ vim.g.copilot_no_tab_map = true
 -- tmux navigator keys map
 
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<C-j>", ":wincmd k<CR>")
-vim.keymap.set("n", "<C-h>", ":wincmd k<CR>")
-vim.keymap.set("n", "<C-l>", ":wincmd k<CR>")
+vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
