@@ -38,9 +38,9 @@ vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true, desc = "lsp 
 -- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 -- end, opts)
 -- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true }, { desc = "lsp references" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 
-vim.keymap.set("n", "<C-s>", ":w<cr>", { noremap = true }, { desc = "save" })
+vim.keymap.set("n", "<C-s>", ":w<cr>", { noremap = true })
 
 -- Crea un keymap para usar copilot
 vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
