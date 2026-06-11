@@ -1,4 +1,6 @@
 return {
+  -- ===== nvim-cmp.lua =====
+  {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -211,4 +213,181 @@ return {
 			vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
 		end,
 	},
+},
+
+  -- ===== nvim-treesitter.lua =====
+  {
+	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
+	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
+		"nvim-ts-rainbow2",
+	},
+	build = ":TSUpdate",
+	config = function()
+		require("nvim-treesitter.configs").setup({
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown" },
+
+			sync_install = true,
+
+			auto_install = true,
+
+			-- ignore_install = { "javascript" },
+
+			highlight = {
+				enable = true,
+
+				disable = function(_, buf)
+					local max_filesize = 100 * 1024 -- 100 KB
+					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+					if ok and stats and stats.size > max_filesize then
+						return true
+					end
+				end,
+
+				additional_vim_regex_highlighting = true,
+			},
+			-- indent = { enable = true },
+			rainbow = { enable = false },
+		})
+	end,
+	{
+		"m-demare/hlargs.nvim",
+		config = function()
+			require("hlargs").setup()
+		end,
+	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		config = function()
+			-- This module contains a number of default definitions
+			local rainbow_delimiters = require("rainbow-delimiters")
+
+			---@type rainbow_delimiters.config
+			vim.g.rainbow_delimiters = {
+				strategy = {
+					[""] = rainbow_delimiters.strategy["global"],
+					vim = rainbow_delimiters.strategy["local"],
+				},
+				query = {
+					[""] = "rainbow-delimiters",
+					lua = "rainbow-blocks",
+				},
+				priority = {
+					[""] = 110,
+					lua = 210,
+				},
+				highlight = {
+					"RainbowDelimiterRed",
+					"RainbowDelimiterYellow",
+					"RainbowDelimiterBlue",
+					"RainbowDelimiterOrange",
+					"RainbowDelimiterGreen",
+					"RainbowDelimiterViolet",
+					"RainbowDelimiterCyan",
+				},
+			}
+		end,
+	},
+},
+
+  -- ===== snippets.lua =====
+  {
+	{
+		"L3MON4D3/LuaSnip",
+		build = "make install_jsregexp",
+		dependencies = { "rafamadriz/friendly-snippets" },
+		config = function(_, opts)
+			if opts then
+				require("luasnip").config.setup(opts)
+			end
+			vim.tbl_map(function(type)
+				require("luasnip.loaders.from_" .. type).lazy_load()
+			end, { "vscode", "snipmate", "lua" })
+			require("luasnip").filetype_extend("dart", { "flutter" })
+			local ls = require("luasnip")
+			local t = ls.text_node
+			local i = ls.insert_node
+			local s = ls.snippet
+
+			ls.add_snippets("javascript", {
+				s("<", {
+					t("<"),
+					i(1),
+					t("/>"),
+				}),
+			})
+
+			ls.add_snippets("dart", {
+				s("toc", {
+					t("final colors = Theme.of(context).colorScheme;"),
+				}),
+			})
+		end,
+	},
+	{ "saadparwaiz1/cmp_luasnip" },
+},
+
+  -- ===== copilot.lua =====
+  {
+	"github/copilot.vim",
+},
+
+  -- ===== formatter.lua =====
+  {
+	"stevearc/conform.nvim",
+	config = function()
+		local slow_format_filetypes = {}
+		require("conform").setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- Conform will run multiple formatters sequentially
+				python = { "autopep8" },
+				-- Use a sub-list to run only the first available formatter
+				javascript = { "prettierd" },
+				css = { "prettierd" },
+				html = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				markdown = { "prettierd" },
+				django = { "djlint" },
+				htmldjango = { "djlint" },
+				go = { "gofumpt" }
+			},
+			format_on_save = function(bufnr)
+				if slow_format_filetypes[vim.bo[bufnr].filetype] then
+					return
+				end
+				local function on_format(err)
+					if err and err:match("timeout$") then
+						slow_format_filetypes[vim.bo[bufnr].filetype] = true
+					end
+				end
+
+				return { timeout_ms = 200, lsp_fallback = true }, on_format
+			end,
+
+			format_after_save = function(bufnr)
+				if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+					return
+				end
+				return { lsp_fallback = true }
+			end,
+		})
+	end,
+},
+
+  -- ===== venv-selector.lua =====
+  {
+  "linux-cultist/venv-selector.nvim",
+  dependencies = {
+    { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } }, -- optional: you can also use fzf-lua, snacks, mini-pick instead.
+  },
+  ft = "python",                                                                                    -- Load when opening Python files
+  keys = { { ",v", "<cmd>VenvSelect<cr>" } },                                                       -- Open picker on keymap
+  opts = {
+    options = {},                                                                                   -- plugin-wide options
+    search = {}                                                                                     -- custom search definitions
+  },
+},
+
 }

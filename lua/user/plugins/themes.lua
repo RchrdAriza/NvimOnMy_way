@@ -1,13 +1,14 @@
 return {
+  -- ===== colorscheme.lua =====
+  {
 	{
 		"folke/tokyonight.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
+		lazy = false,                          -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000,                       -- make sure to load this before all the other start plugins
 		transparent = vim.g.transparent_enabled, -- make sure to load this with a transparent background
 		config = function()
-			-- load the colorscheme here
-			vim.cmd([[colorscheme tokyonight-night]])
-		end,
+			vim.cmd([[colorscheme tokyonight-moon]])
+		end
 	},
 	{
 		"xiyaowong/transparent.nvim",
@@ -18,4 +19,6 @@ return {
 			-- require("transparent").clear_prefix("lualine")
 		end,
 	},
+},
+
 }

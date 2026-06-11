@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ "folke/lazydev.nvim", opts = {} },
 	{ import = "user.plugins" },
-	{ import = "user.plugins.lsp" },
 }, {
 	ui = {
 		border = "single",
