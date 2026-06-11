@@ -29,13 +29,14 @@ return {
 					"ts_ls",
 					-- "html",
 					-- "cssls",
-					-- "bashls",
+					"bashls",
 					-- "tailwindcss",
 					--  "svelte",
 					"lua_ls",
 					--        "graphql",
 					-- "emmet_language_server",
 					--        "prismals",
+					"gopls",
 					"pyright",
 				},
 				-- auto-install configured servers (with lspconfig)
@@ -48,7 +49,9 @@ return {
 					"autopep8", -- python formatter
 					--       "black", -- python formatter
 					--        "pylint", -- python linter
+					"golangci_lint_ls",
 					"eslint_d", -- js linter
+					"beautysh" -- bash formatter
 				},
 			})
 		end,

@@ -20,24 +20,14 @@ return {
 		config = function()
 			local navic = require("nvim-navic")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+			local diag_float_group = vim.api.nvim_create_augroup("LspDiagnosticsFloat", { clear = false })
 
 			-- Diagnósticos
 			vim.diagnostic.config({
 				virtual_text = true,
-				signs = true,
 				underline = true,
 				update_in_insert = false,
 				severity_sort = false,
-			})
-
-			-- Iconos en el gutter
-			-- local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-			-- for type, icon in pairs(signs) do
-			-- 	local hl = "DiagnosticSign" .. type
-			-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-			-- end
-
-			vim.diagnostic.config({
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = " ",
@@ -71,7 +61,9 @@ return {
 						navic.attach(client, bufnr)
 					end
 
+					vim.api.nvim_clear_autocmds({ group = diag_float_group, buffer = bufnr })
 					vim.api.nvim_create_autocmd("CursorHold", {
+						group = diag_float_group,
 						buffer = bufnr,
 						callback = function()
 							vim.diagnostic.open_float(nil, {

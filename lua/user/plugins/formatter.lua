@@ -15,6 +15,7 @@ return {
 				markdown = { "prettierd" },
 				django = { "djlint" },
 				htmldjango = { "djlint" },
+				go = { "gofumpt" }
 			},
 			format_on_save = function(bufnr)
 				if slow_format_filetypes[vim.bo[bufnr].filetype] then
