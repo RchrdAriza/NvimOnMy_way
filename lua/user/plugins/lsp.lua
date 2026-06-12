@@ -19,7 +19,6 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "hrsh7th/cmp-nvim-lsp" },
 		config = function()
-			local navic = require("nvim-navic")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 			local diag_float_group = vim.api.nvim_create_augroup("LspDiagnosticsFloat", { clear = false })
 
@@ -56,12 +55,7 @@ return {
 
 			vim.lsp.config("*", {
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					-- navic
-					if client.server_capabilities.documentSymbolProvider then
-						navic.attach(client, bufnr)
-					end
-
+				on_attach = function(_, bufnr)
 					vim.api.nvim_clear_autocmds({ group = diag_float_group, buffer = bufnr })
 					vim.api.nvim_create_autocmd("CursorHold", {
 						group = diag_float_group,
@@ -99,6 +93,7 @@ return {
 			vim.lsp.enable({
 				"lua_ls",
 				"pyright",
+				"bashls"
 			})
 		end,
 	},
