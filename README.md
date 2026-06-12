@@ -16,13 +16,12 @@
 <a href="#keymaps">Keymap</a> •
 <a href="#plugins">Plugins</a> •
 <a href="#captures">Captures</a> •
-<a href="#q&a">Q&A</a> 
 </h4>
 
 <!-- ## 📍 Requirements  -->
 <h2 id="requirements">📍 Requirements</h2>
 
-- Python3
+- Python
 - pip
 - Neovim 0.11+
 - [nerdfonts](https://www.nerdfonts.com/)
@@ -44,7 +43,7 @@ To go to see the keymaps click [here](keymaps_readme.md)
 
 <!-- ## 🔌 Plugins -->
 <h2 id="plugins">🔌 Plugins</h2>
-It has about 60 plugins and these are some of them
+It has about 50 plugins and these are some of them
 
 #### Package Manager
 
@@ -82,7 +81,7 @@ It has about 60 plugins and these are some of them
 #### Tabline and Statusline
 
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) - A snazzy buffer line.
-- [lualine](https://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure neovim statusline plugin written in pure lua.
+- [heirline](https://github.com/rebelot/heirline.nvim) - Heirline.nvim is a no-nonsense Neovim Statusline plugin designed around recursive inheritance to be exceptionally fast and versatile.
 
 #### Git integration
 
@@ -92,7 +91,6 @@ It has about 60 plugins and these are some of them
 
 #### Utils
 
-- [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) - Searchable cheatsheet.
 - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - IndentLine replacement.
 - [multicursors.nvim](https://github.com/smoka7/multicursors.nvim) - A multi cursor plugin.
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs) - A minimalist autopairs.
@@ -118,8 +116,7 @@ It has about 60 plugins and these are some of them
 
 #### Comments
 
-- [Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and powerful comment plugin.
-- [comment-box.nvim](https://github.com/LudoPinelli/comment-box.nvim) - Clarify and beautify your comments using boxes and lines.
+- [ts-comments.nvim](https://github.com/folke/ts-comments.nvim) - Tiny plugin to enhance Neovim's native comments
 
 #### Degub Adapter Protocol
 
@@ -128,6 +125,7 @@ It has about 60 plugins and these are some of them
 <!-- ## 📷 Captures -->
 <h2 id="captures">📷 Captures</h2>
 
+<img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1781233043/NOMW_owhc6y.png' alt="home" >
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-56-55_s3i5rg.png' alt="inicio" >
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-39-50_tj2qqd.png' alt="Transparent" >
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-55-37_woaf8n.png' alt="CMP">
@@ -135,14 +133,3 @@ It has about 60 plugins and these are some of them
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064206/Screenshot_2024-04-13_21-32-40_oasrbf.png' alt="Error">
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064168/Screenshot_2024-04-13_21-59-49_zvfwmq.png' alt="lsp-action">
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064202/Screenshot_2024-04-13_21-31-04_ww7v6z.png' alt="oldfiles">
-
-## Q&A
-
-Why do some strange characters appear instead of the icons?
-
-<p>
-
-To avoid this error is necessary to use [nerdfonts](https://www.nerdfonts.com).
-_In case of using termux install [termux-style](https://f-droid.org/es/packages/com.termux.styling) and change the font_
-
-</p>
