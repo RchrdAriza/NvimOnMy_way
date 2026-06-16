@@ -7,7 +7,6 @@
   <img src="https://img.shields.io/badge/-Lua-success?logo=lua&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Linux-success?logo=linux&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
   <img src="https://img.shields.io/badge/-Neovim-success?logo=neovim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
-  <img src="https://img.shields.io/badge/-vim-success?logo=vim&logoColor=ffffff&labelColor=246FFF&color=7A7A7A" >
  </p>
 
 <h4 align="center">
