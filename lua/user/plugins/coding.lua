@@ -217,74 +217,103 @@ return {
 
 	-- ===== nvim-treesitter.lua =====
 	{
-		"nvim-treesitter/nvim-treesitter",
+		'nvim-treesitter/nvim-treesitter',
 		lazy = false,
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"nvim-ts-rainbow2",
-		},
-		build = ":TSUpdate",
+		build = ':TSUpdate',
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown" },
-
-				sync_install = true,
-
-				auto_install = true,
-
-				-- ignore_install = { "javascript" },
-
-				highlight = {
-					enable = true,
-
-					disable = function(_, buf)
-						local max_filesize = 100 * 1024 -- 100 KB
-						local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-						if ok and stats and stats.size > max_filesize then
-							return true
-						end
-					end,
-
-					additional_vim_regex_highlighting = true,
-				},
-				-- indent = { enable = true },
-				rainbow = { enable = false },
+			require("nvim-treesitter").setup({})
+			require("nvim-treesitter").install({
+				"bash",
+				"blade",
+				"c",
+				"comment",
+				"css",
+				"diff",
+				"dockerfile",
+				"fish",
+				"gitcommit",
+				"gitignore",
+				"go",
+				"gomod",
+				"gosum",
+				"gowork",
+				"html",
+				"ini",
+				"javascript",
+				"jsdoc",
+				"json",
+				"jsonc",
+				"lua",
+				"luadoc",
+				"luap",
+				"make",
+				"markdown",
+				"markdown_inline",
+				"nginx",
+				"nix",
+				"proto",
+				"python",
+				"query",
+				"regex",
+				"rust",
+				"scss",
+				"sql",
+				"terraform",
+				"toml",
+				"tsx",
+				"typescript",
+				"vim",
+				"vimdoc",
+				"xml",
+				"yaml",
+				"zig",
 			})
-		end,
-		{
-			"HiPhish/rainbow-delimiters.nvim",
-			config = function()
-				-- This module contains a number of default definitions
-				local rainbow_delimiters = require("rainbow-delimiters")
+			vim.api.nvim_create_autocmd("FileType", {
 
-				---@type rainbow_delimiters.config
-				vim.g.rainbow_delimiters = {
-					strategy = {
-						[""] = rainbow_delimiters.strategy["global"],
-						vim = rainbow_delimiters.strategy["local"],
-					},
-					query = {
-						[""] = "rainbow-delimiters",
-						lua = "rainbow-blocks",
-					},
-					priority = {
-						[""] = 110,
-						lua = 210,
-					},
-					highlight = {
-						"RainbowDelimiterRed",
-						"RainbowDelimiterYellow",
-						"RainbowDelimiterBlue",
-						"RainbowDelimiterOrange",
-						"RainbowDelimiterGreen",
-						"RainbowDelimiterViolet",
-						"RainbowDelimiterCyan",
-					},
-				}
-			end,
-		},
+				pattern = "*",
+
+				callback = function()
+					local filetype = vim.bo.filetype
+
+					if filetype and filetype ~= "" then
+						pcall(vim.treesitter.start)
+					end
+				end,
+
+			})
+		end
 	},
-
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		config = function()
+			-- This module contains a number of default definitions
+			local rainbow_delimiters = require("rainbow-delimiters")
+			---@type rainbow_delimiters.config
+			vim.g.rainbow_delimiters = {
+				strategy = {
+					[""] = rainbow_delimiters.strategy["global"],
+					vim = rainbow_delimiters.strategy["local"],
+				},
+				query = {
+					[""] = "rainbow-delimiters",
+					lua = "rainbow-blocks",
+				},
+				priority = {
+					[""] = 110,
+					lua = 210,
+				},
+				highlight = {
+					"RainbowDelimiterRed",
+					"RainbowDelimiterYellow",
+					"RainbowDelimiterBlue",
+					"RainbowDelimiterOrange",
+					"RainbowDelimiterGreen",
+					"RainbowDelimiterViolet",
+					"RainbowDelimiterCyan",
+				},
+			}
+		end,
+	},
 	-- ===== snippets.lua =====
 	{
 		{
