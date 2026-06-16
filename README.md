@@ -22,7 +22,7 @@
 
 - Python
 - pip
-- Neovim 0.11+
+- Neovim 0.12+
 - [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
 
