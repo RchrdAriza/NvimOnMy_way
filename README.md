@@ -23,8 +23,12 @@
 - Python
 - pip
 - Neovim 0.12+
-- [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
+- [nerdfonts](https://www.nerdfonts.com/)
+
+> [!IMPORTANT]
+>
+> - [Treesitter CLI](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
 
 <!-- ##  ⚡ Installation -->
 
