@@ -132,11 +132,11 @@ return {
 					"bashls",
 					-- "tailwindcss",
 					--  "svelte",
-					"lua_ls",
+					-- "lua_ls",
 					--        "graphql",
 					-- "emmet_language_server",
 					--        "prismals",
-					"gopls",
+					-- "gopls",
 					"pyright",
 				},
 				-- auto-install configured servers (with lspconfig)
@@ -149,7 +149,7 @@ return {
 					"autopep8", -- python formatter
 					--       "black", -- python formatter
 					--        "pylint", -- python linter
-					"golangci_lint_ls",
+					-- "golangci_lint_ls",
 					"eslint_d", -- js linter
 					"beautysh" -- bash formatter
 				},
