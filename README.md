@@ -42,7 +42,10 @@ git clone https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
 <!-- ## ⌨️ Keymaps -->
 <h2 id="keymaps">⌨️ Keymaps</h2>
 
-To go to see the keymaps click [here](keymaps_readme.md)
+<!-- To go to see the keymaps click [here](keymaps_readme.md) -->
+
+![NOTE]
+> Simply press the SPACE key (leader key) to view the available keymaps.
 
 <!-- ## 🔌 Plugins -->
 <h2 id="plugins">🔌 Plugins</h2>
