@@ -44,7 +44,7 @@ git clone https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
 
 <!-- To go to see the keymaps click [here](keymaps_readme.md) -->
 
-![NOTE]
+> [!NOTE]
 > Simply press the SPACE key (leader key) to view the available keymaps.
 
 <!-- ## 🔌 Plugins -->
