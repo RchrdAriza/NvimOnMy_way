@@ -25,7 +25,8 @@
 - Neovim 0.12+
 - [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
-> !IMPORTANT]
+- 
+>[!IMPORTANT]
 > [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
 
 <!-- ##  ⚡ Installation -->
@@ -39,7 +40,8 @@ git clone https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
 
 <!-- ## ⌨️ Keymaps -->
 <h2 id="keymaps">Keymaps</h2>
->[!INFO]
+
+>[!NOTE]
 > Just press the leader key (space) to see them
 
 <!-- ## 🔌 Plugins -->
