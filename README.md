@@ -18,17 +18,19 @@
 </h4>
 
 <!-- ## 📍 Requirements  -->
-<h2 id="requirements">📍 Requirements</h2>
+<h2 id="requirements">Requirements</h2>
 
 - Python
 - pip
 - Neovim 0.12+
 - [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
+  > [!IMPORTANT]
+  > [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
 
 <!-- ##  ⚡ Installation -->
 
-<h2 id="installation">⚡ Installation</h2>
+<h2 id="installation">Installation</h2>
 Just run this in the terminal:
 
 ```bash
@@ -36,12 +38,12 @@ git clone https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 
 <!-- ## ⌨️ Keymaps -->
-<h2 id="keymaps">⌨️ Keymaps</h2>
-
-To go to see the keymaps click [here](keymaps_readme.md)
+<h2 id="keymaps">Keymaps</h2>
+>[!INFO]
+> Just press the leader key (space) to see them
 
 <!-- ## 🔌 Plugins -->
-<h2 id="plugins">🔌 Plugins</h2>
+<h2 id="plugins">Plugins</h2>
 It has about 50 plugins and these are some of them
 
 #### Package Manager
@@ -122,7 +124,7 @@ It has about 50 plugins and these are some of them
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol client implementation for Neovim.
 
 <!-- ## 📷 Captures -->
-<h2 id="captures">📷 Captures</h2>
+<h2 id="captures">Captures</h2>
 
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1781233043/NOMW_owhc6y.png' alt="home" >
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1713064220/Screenshot_2024-04-13_21-56-55_s3i5rg.png' alt="inicio" >
