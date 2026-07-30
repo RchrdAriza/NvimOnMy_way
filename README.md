@@ -25,7 +25,6 @@
 - Neovim 0.12+
 - [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
-- 
 >[!IMPORTANT]
 > [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
 
