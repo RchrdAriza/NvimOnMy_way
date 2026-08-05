@@ -1,6 +1,6 @@
 return {
 	-- ===== init.lua (ReplaceWithRegister) =====
-	"inkarkat/vim-ReplaceWithRegister",
+	-- "inkarkat/vim-ReplaceWithRegister",
 
 	-- ===== autosave.lua =====
 	{
@@ -126,10 +126,10 @@ return {
 			wk.add({
 				-- Grupos y keymaps CON icono van aquí
 				{ "<leader>t", group = "Telescope", icon = { icon = "", color = "blue" } },
-				{ "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find files", icon = "󰈞" },
-				{ "<leader>tg", "<cmd>Telescope live_grep<cr>", desc = "Live grep", icon = "󰈈" },
-				{ "<leader>tb", "<cmd>Telescope buffers<cr>", desc = "Buffers", icon = "󰕬" },
-				{ "<leader>th", "<cmd>Telescope help_tags<cr>", desc = "Help tags", icon = "" },
+				{ "<leader>tf", function() Snacks.picker.files() end, desc = "Find files", icon = "󰈞" },
+				{ "<leader>tg", function() Snacks.picker.grep() end, desc = "Live grep", icon = "󰈈" },
+				{ "<leader>tb", function() Snacks.picker.buffers() end, desc = "Buffers", icon = "󰕬" },
+				-- { "<leader>th", "<cmd>Telescope help_tags<cr>", desc = "Help tags", icon = "" },
 
 				{ "<leader>l", group = "LSP Actions", icon = { icon = "", color = "cyan" } },
 				{ "<leader>lD", vim.lsp.buf.declaration, desc = "Declaration", icon = "" },
@@ -192,8 +192,9 @@ return {
 			{
 				"<leader>p",
 				function()
-					require("telescope").extensions.yank_history.yank_history({})
+					Snacks.picker.yanky()
 				end,
+				mode = { "n", "x" },
 				desc = "Open Yank History",
 			},
 			{ "y",     "<Plug>(YankyYank)",                      mode = { "n", "x" },                                desc = "Yank text" },
