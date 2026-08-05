@@ -708,4 +708,19 @@ return {
 			vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
 		end
 	},
+	-- ===== snacks.lua ======
+	-- lazy.nvim
+	{
+		"folke/snacks.nvim",
+		---@type snacks.Config
+		---@class snacks.explorer.Config
+		opts = {
+			image = {},
+			explorer = {},
+			{
+				replace_netrw = true, -- Replace netrw with the snacks explorer
+				trash = true,    -- Use the system trash when deleting files
+			},
+		}
+	}
 }
