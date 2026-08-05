@@ -666,8 +666,6 @@ return {
 				"MunifTanjim/nui.nvim",
 			},
 		},
-		{ "MunifTanjim/nui.nvim" },
-
 		{
 			"folke/noice.nvim",
 			event = "VeryLazy",
@@ -715,12 +713,11 @@ return {
 		---@class snacks.explorer.Config
 		opts = {
 			image = {},
-			explorer = {},
-			{
+			explorer = {
 				replace_netrw = true, -- Replace netrw with the snacks explorer
 				trash = true,     -- Use the system trash when deleting files
 			},
-			Lazygit = {},
+			lazygit = {},
 		}
 	}
 }

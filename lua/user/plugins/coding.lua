@@ -221,31 +221,8 @@ return {
 		lazy = false,
 		build = ':TSUpdate',
 		config = function()
-			require("nvim-treesitter").setup({})
-			require("nvim-treesitter").install({
-				"bash",
-				"c",
-				"comment",
-				"css",
-				"gitcommit",
-				"gitignore",
-				"go",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"markdown",
-				"markdown_inline",
-				"python",
-				"query",
-				"regex",
-				"rust",
-				"toml",
-				"tsx",
-				"typescript",
-				"vim",
-				"vimdoc",
-				"yaml",
+			require("nvim-treesitter").setup({
+				auto_install = true,
 			})
 			vim.api.nvim_create_autocmd("FileType", {
 
