@@ -659,7 +659,7 @@ return {
 	},
 
 	-- ===== ui.lua =====
-	{
+	
 		{
 			"grapp-dev/nui-components.nvim",
 			dependencies = {
@@ -685,7 +685,6 @@ return {
 				"rcarriga/nvim-notify",
 			},
 		},
-	},
 
 	-- ===== barbecue.lua =====
 	{

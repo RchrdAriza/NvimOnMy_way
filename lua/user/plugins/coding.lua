@@ -387,5 +387,4 @@ return {
 			search = {}                                                                      -- custom search definitions
 		},
 	},
-
 }
