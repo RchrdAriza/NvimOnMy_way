@@ -144,10 +144,12 @@ return {
 				{ "<leader>ls", vim.lsp.buf.signature_help, desc = "Signature help", icon = "" },
 
 				{ "<leader>g", group = "Git", icon = { icon = "", color = "orange" } },
-				{ "<leader>ga", "<cmd>Gwrite<cr>", desc = "Git add", icon = "" },
-				{ "<leader>gs", "<cmd>Neotree float git_status<cr>", desc = "Git status", icon = "" },
-				{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Git commit", icon = "" },
-				{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git diff", icon = "" },
+				{ "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches", icon = "" },
+				{ "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" },
+				-- { "<leader>gc", "<cmd>Git commit<cr>", desc = "Git commit", icon = "" },
+				{ "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git diff", icon = "" },
+				{ "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log", icon = "󱂅" },
+				{ "<leader>gL", function() Snacks.lazygit() end, desc = "LazyGit", icon = "" },
 
 				{ "<leader>T", group = "Terminal", icon = { icon = "", color = "green" } },
 				{ "<leader>Th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal", icon = "" },
@@ -159,7 +161,7 @@ return {
 				{ "<leader><Space>", "<cmd>noh<cr>", desc = "Clear highlights", icon = "󰸱" },
 				{ "<leader>e", function() Snacks.explorer() end, desc = "File explorer", icon = "" },
 				{ "<leader>n", "<cmd>enew<cr>", desc = "New file", icon = "" },
-				{ "<leader>r", "<cmd>Telescope oldfiles<cr>", desc = "Recent files", icon = "󰙰" },
+				{ "<leader>r", function() Snacks.picker.recent() end, desc = "Recent files", icon = "󰙰" },
 				{ "<leader>h", "<cmd>Alpha<cr>", desc = "Home", icon = "󰋜" },
 				{
 					"<leader>c",

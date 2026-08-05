@@ -30,11 +30,11 @@ return {
 
 			dashboard.section.buttons.val = {
 				dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
-				dashboard.button("f", "󰮗   Find file", ":cd $HOME | Telescope find_files<CR>"),
-				dashboard.button("e", "   File Explorer", ":cd $HOME | Neotree<CR>"),
-				dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
-				dashboard.button("c", "   Configuration", ":e ~/.config/nvim/lua/user/config.lua<CR>"),
-				dashboard.button("R", "󱘞   Ripgrep", ":Telescope live_grep<CR>"),
+				dashboard.button("f", "󰮗   Find file", function() Snacks.picker.files() end),
+				dashboard.button("e", "   File Explorer", function() Snacks.explorer() end),
+				dashboard.button("r", "   Recent", function() Snacks.picker.recent() end),
+				dashboard.button("c", "   Configuration", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end),
+				dashboard.button("R", "󱘞   Ripgrep", function() Snacks.picker.grep() end),
 				dashboard.button("q", "󰗼   Quit", ":qa<CR>"),
 			}
 
@@ -719,8 +719,9 @@ return {
 			explorer = {},
 			{
 				replace_netrw = true, -- Replace netrw with the snacks explorer
-				trash = true,    -- Use the system trash when deleting files
+				trash = true,     -- Use the system trash when deleting files
 			},
+			Lazygit = {},
 		}
 	}
 }
