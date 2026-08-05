@@ -221,23 +221,70 @@ return {
 		lazy = false,
 		build = ':TSUpdate',
 		config = function()
-			require("nvim-treesitter").setup({
-				auto_install = true,
-			})
-			vim.api.nvim_create_autocmd("FileType", {
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(ev)
+				local lang = vim.treesitter.language.get_lang(ev.match)
+				if not lang then return end
 
-				pattern = "*",
+				local available_langs = require("nvim-treesitter").get_available()
+				if not vim.tbl_contains(available_langs, lang) then return end
 
-				callback = function()
-					local filetype = vim.bo.filetype
+				local installed_langs = require("nvim-treesitter").get_installed()
+				if vim.tbl_contains(installed_langs, lang) then
+					-- Already installed: activate directly
+					pcall(vim.treesitter.start)
+					pcall(require("nvim-treesitter").indentexpr)
+					return
+				end
 
-					if filetype and filetype ~= "" then
-						pcall(vim.treesitter.start)
+				-- Install asynchronously (non-blocking)
+				vim.notify(
+					"󰛣 Installing parser: " .. lang,
+					vim.log.levels.INFO,
+					{ title = "nvim-treesitter", timeout = 3000 }
+				)
+
+				local bufnr = ev.buf
+				require("nvim-treesitter").install(lang)
+
+				-- Poll until parser is ready without blocking
+				local attempts = 0
+				local max_attempts = 60  -- 30s max (500ms × 60)
+				local timer = vim.uv.new_timer()
+
+				timer:start(1000, 500, vim.schedule_wrap(function()
+					attempts = attempts + 1
+					local now_installed = require("nvim-treesitter").get_installed()
+
+					if vim.tbl_contains(now_installed, lang) then
+						timer:stop()
+						timer:close()
+
+						vim.notify(
+							"󰄵 Parser ready: " .. lang,
+							vim.log.levels.INFO,
+							{ title = "nvim-treesitter", timeout = 2000 }
+						)
+
+						-- Activate treesitter on the buffer if still open
+						if vim.api.nvim_buf_is_valid(bufnr) then
+							pcall(vim.treesitter.start, bufnr, lang)
+							pcall(require("nvim-treesitter").indentexpr)
+						end
+
+					elseif attempts >= max_attempts then
+						timer:stop()
+						timer:close()
+						vim.notify(
+							"󰅖 Timeout installing parser: " .. lang,
+							vim.log.levels.WARN,
+							{ title = "nvim-treesitter", timeout = 4000 }
+						)
 					end
-				end,
-
-			})
-		end
+				end))
+			end,
+		})
+	end
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",

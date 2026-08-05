@@ -136,7 +136,7 @@ return {
 					--        "graphql",
 					-- "emmet_language_server",
 					--        "prismals",
-					"gopls",
+					-- "gopls",
 					"pyright",
 				},
 				-- auto-install configured servers (with lspconfig)
