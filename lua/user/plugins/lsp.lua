@@ -123,9 +123,12 @@ return {
 				},
 			})
 
+			-- Las herramientas de Go solo se instalan si Go está disponible
+			local has_go = vim.fn.executable("go") == 1
+
 			mason_lspconfig.setup({
 				-- list of servers for mason to install
-				ensure_installed = {
+				ensure_installed = vim.list_extend({
 					"ts_ls",
 					-- "html",
 					-- "cssls",
@@ -136,23 +139,21 @@ return {
 					--        "graphql",
 					-- "emmet_language_server",
 					--        "prismals",
-					-- "gopls",
 					"pyright",
-				},
+				}, has_go and { "gopls" } or {}),
 				-- auto-install configured servers (with lspconfig)
 			})
 
 			mason_tool_installer.setup({
-				ensure_installed = {
+				ensure_installed = vim.list_extend({
 					"prettierd", -- prettier formatter
 					--        "stylua", -- lua formatter
 					"autopep8", -- python formatter
 					--       "black", -- python formatter
 					--        "pylint", -- python linter
-					"golangci_lint_ls",
 					"eslint_d", -- js linter
 					"beautysh" -- bash formatter
-				},
+				}, has_go and { "golangci_lint_ls" } or {}),
 			})
 		end,
 	},
