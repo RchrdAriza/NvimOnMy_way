@@ -123,6 +123,13 @@ return {
 
 			wk.setup({ preset = "modern" })
 
+			-- Naranja del logo de Claude; se reaplica al cambiar de colorscheme
+			local function claude_hl()
+				vim.api.nvim_set_hl(0, "WhichKeyIconClaude", { fg = "#D97757" })
+			end
+			claude_hl()
+			vim.api.nvim_create_autocmd("ColorScheme", { callback = claude_hl })
+
 			wk.add({
 				-- Grupos y keymaps CON icono van aquí
 				{ "<leader>t", group = "Telescope", icon = { icon = "", color = "blue" } },
@@ -174,7 +181,21 @@ return {
 				{ "<leader>x", "<cmd>x<cr>", desc = "Save & quit", icon = "󰗼" },
 				{ "<leader>R", "<cmd>RunCode<cr>", desc = "Run code", icon = "" },
 				{ "<leader>d", "<cmd>TroubleToggle<cr>", desc = "Diagnostics", icon = "" },
-				{ "<leader>a", "<cmd>ASToggle<cr>", desc = "AutoSave toggle", icon = "󰿁" },
+				{ "<leader>A", "<cmd>ASToggle<cr>", desc = "AutoSave toggle", icon = "󰿁" },
+
+
+				-- CLAUDE
+				{ "<leader>a", group = "AI/Claude Code", icon = { icon = "", hl = "WhichKeyIconClaude" } },
+				{ "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude", icon = { icon = "󰆍", hl = "WhichKeyIconClaude" } },
+				{ "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude", icon = { icon = "󰆣", hl = "WhichKeyIconClaude" } },
+				{ "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude", icon = { icon = "󰋚", hl = "WhichKeyIconClaude" } },
+				{ "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude", icon = { icon = "󰐊", hl = "WhichKeyIconClaude" } },
+				{ "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model", icon = { icon = "󰧑", hl = "WhichKeyIconClaude" } },
+				{ "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer", icon = { icon = "󰝒", hl = "WhichKeyIconClaude" } },
+				{ "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude", icon = { icon = "󰒊", hl = "WhichKeyIconClaude" } },
+				-- Diff management
+				{ "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff", icon = { icon = "󰄬", color = "green" } },
+				{ "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff", icon = { icon = "󰅖", color = "red" } },
 			})
 		end,
 	},

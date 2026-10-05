@@ -698,7 +698,6 @@ return {
 			local dropbar_api = require('dropbar.api')
 			wk.add({
 
-				{ "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find files", icon = "󰈞" },
 				{ '<Leader>;', dropbar_api.pick, desc = 'Pick symbols in winbar', icon = "󱈄" },
 			})
 			vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
