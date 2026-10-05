@@ -12,12 +12,11 @@
 <h4 align="center">
 <a href="#requirements">Requirements</a> •
 <a href="#installation">Installation</a> •
-<a href="#keymaps">Keymap</a> •
+<a href="#keymaps">Keymaps</a> •
 <a href="#plugins">Plugins</a> •
 <a href="#captures">Captures</a> •
 </h4>
 
-<!-- ## 📍 Requirements  -->
 <h2 id="requirements">Requirements</h2>
 
 - Python
@@ -25,10 +24,12 @@
 - Neovim 0.12+
 - [nerdfonts](https://www.nerdfonts.com/)
 - NodeJS
+- [lazygit](https://github.com/jesseduffield/lazygit) (optional)
+- Go (optional, only needed for gopls and golangci-lint)
+
 >[!IMPORTANT]
 > [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
 
-<!-- ##  ⚡ Installation -->
 
 <h2 id="installation">Installation</h2>
 Just run this in the terminal:
@@ -37,94 +38,86 @@ Just run this in the terminal:
 git clone https://github.com/RchrdAriza/NvimOnMy_Way ~/.config/nvim && nvim
 ```
 
-<!-- ## ⌨️ Keymaps -->
 <h2 id="keymaps">Keymaps</h2>
 
 >[!NOTE]
 > Just press the leader key (space) to see them
 
-<!-- ## 🔌 Plugins -->
 <h2 id="plugins">Plugins</h2>
-It has about 50 plugins and these are some of them
+These are the main ones:
 
 #### Package Manager
 
-- [lazy.nvim](https://github.com/folke/lazy.nvim) - A modern plugin manager.
+- [lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin manager.
 
-#### File Explorer
+#### Core
 
-- [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) - Manage and browse the file system.
+- [snacks.nvim](https://github.com/folke/snacks.nvim) - Picker, file explorer, lazygit, images and more.
+- [which-key.nvim](https://github.com/folke/which-key.nvim) - Popup of keybindings.
+- [noice.nvim](https://github.com/folke/noice.nvim) - UI for messages, cmdline and popupmenu.
+- [nvim-notify](https://github.com/rcarriga/nvim-notify) - Notification manager.
 
-#### LSP plugins
+#### LSP
 
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Configurations for the LSP client.
-- [mason](https://github.com/williamboman/mason.nvim) - Install and manage LSP servers.
-- [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim) - Bridge between mason and lsp-ocnfig.
-- [trouble.nvim](https://github.com/folke/trouble.nvim) - A pretty diagnostics, references, telescope results, quickfix and location list.
+- [mason.nvim](https://github.com/williamboman/mason.nvim) - Install LSP servers, linters and formatters.
+- [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim) - Bridge between mason and lspconfig.
+- [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) - Auto install tools with mason.
+- [trouble.nvim](https://github.com/folke/trouble.nvim) - Diagnostics list.
+- [lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim) - Signature help while typing.
+- [fidget.nvim](https://github.com/j-hui/fidget.nvim) - LSP progress.
+- [outline.nvim](https://github.com/hedyhli/outline.nvim) - Symbols outline.
+- [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim) - Python virtualenv selector.
 
-#### Autocompletion
+#### Completion and Snippets
 
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - Completion plugin.
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - Completion engine.
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip) - Snippet engine.
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets collection.
 
-#### Formatter
+#### Formatting
 
-- [Formatter](https://github.com/mhartington/formatter.nvim)
+- [conform.nvim](https://github.com/stevearc/conform.nvim) - Formatter.
 
-#### Colorscheme
+#### AI
 
-- [Tokyo-night](https://github.com/folke/tokyonight.nvim) - A clean, dark Neovim theme written in Lua
-- [Material-nvim](https://github.com/marko-cerovac/material.nvim) - A clean, dark Neovim theme written in Lua
+- [claudecode.nvim](https://github.com/coder/claudecode.nvim) - Claude Code integration.
 
-#### Snippet Engine
+#### UI
 
-- [Luasnip](https://github.com/L3MON4D3/LuaSnip) - A snippet engine.
-- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets collection for a set of different programming languages.
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Colorscheme.
+- [alpha-nvim](https://github.com/goolord/alpha-nvim) - Dashboard.
+- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) - Tabline.
+- [heirline.nvim](https://github.com/rebelot/heirline.nvim) - Statusline.
+- [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim) - Winbar with breadcrumbs.
+- [statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim) - Status column.
+- [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - Indent guides.
+- [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim) - Rainbow delimiters.
+- [nvim-colorizer](https://github.com/catgoose/nvim-colorizer.lua) - Color highlighter.
 
-#### Tabline and Statusline
+#### Git
 
-- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) - A snazzy buffer line.
-- [heirline](https://github.com/rebelot/heirline.nvim) - Heirline.nvim is a no-nonsense Neovim Statusline plugin designed around recursive inheritance to be exceptionally fast and versatile.
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Signs, hunk actions and blame.
+- [git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim) - Resolve merge conflicts.
+- [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) - Lazygit inside Neovim.
 
-#### Git integration
+#### Editing
 
-- [advanced-git-search](https://github.com/aaronhallaert/advanced-git-search.nvim) - Search your git history by commit message, content and author with Telescope.
-- [diffview.nvim](https://github.com/sindrets/diffview.nvim) - Interface for easily cycling through diffs.
-- [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Git integration: signs, hunk actions, blame, etc.
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Treesitter configurations.
+- [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) - Folding.
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Autopairs.
+- [nvim-surround](https://github.com/kylechui/nvim-surround) - Surround delimiters.
+- [ts-comments.nvim](https://github.com/folke/ts-comments.nvim) - Better native comments.
+- [yanky.nvim](https://github.com/gbprod/yanky.nvim) - Improved yank and put.
+- [auto-save.nvim](https://github.com/Pocco81/auto-save.nvim) - Auto save.
+- [guess-indent.nvim](https://github.com/nmac427/guess-indent.nvim) - Indent detection.
 
-#### Utils
+#### Tools
 
-- [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - IndentLine replacement.
-- [multicursors.nvim](https://github.com/smoka7/multicursors.nvim) - A multi cursor plugin.
-- [nvim-autopairs](https://github.com/windwp/nvim-autopairs) - A minimalist autopairs.
-- [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - A high-performance color highlighter.
-- [nvim-notify](https://github.com/rcarriga/nvim-notify) - A fancy, configurable, notification manager.
-- [nvim-surround](https://github.com/kylechui/nvim-surround) - A plugin for adding/changing/deleting surrounding delimiter pairs.
-- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - Show dev icons.
-- [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim) - Rainbow delimiters for Neovim with Treesitter.
-- [which-key.nvim](https://github.com/folke/which-key.nvim) - Popup of keybindings.
-- [yanky.nvim](https://github.com/gbprod/yanky.nvim) - Improved Yank and Put functionalities.
+- [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) - Terminal.
+- [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim) - Run code.
+- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - Move between Neovim and tmux splits.
 
-#### Treesitter
-
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Neovim Treesitter configurations and abstraction layer.
-- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) - Shows the context of the currently visible buffer contents.
-
-#### Telescope
-
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - An extendable fuzzy finder. Find files, Filter, Preview, Pick. All in one!
-- [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim) - A file browser extension for telescope.nvim.
-- [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) - Visualize your undo tree and fuzzy-search changes in it.
-- [telescope-emoji.nvim](https://github.com/xiyaowong/telescope-emoji.nvim) - An extension for telescope.nvim that allows you to search emojis.
-
-#### Comments
-
-- [ts-comments.nvim](https://github.com/folke/ts-comments.nvim) - Tiny plugin to enhance Neovim's native comments
-
-#### Degub Adapter Protocol
-
-- [nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol client implementation for Neovim.
-
-<!-- ## 📷 Captures -->
 <h2 id="captures">Captures</h2>
 
 <img src='https://res.cloudinary.com/dhqo7n9gd/image/upload/v1781233043/NOMW_owhc6y.png' alt="home" >
